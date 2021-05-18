@@ -1,0 +1,28 @@
+#titre{
+  background-color: #f31427;
+}
+h2{
+  font-size: 35px;
+  font-weight: bolder;
+  text-align: center;
+}
+u{
+  font-size: 30px;
+
+}
+#totalCredit{
+  color: #f31427;
+  height: 50px;
+  width: 60px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bolder;
+}
+#totalDebit{
+  color: green;
+  height: 50px;
+  width: 60px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bolder;
+}
