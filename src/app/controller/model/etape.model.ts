@@ -4,7 +4,8 @@ export class Etape {
   public id: number;
   public libelle: string;
   public description: string;
-  public MontantFix: number;
-  public MontantComptable: number;
+  public montantfix: number;
+  public montantcomptable: number;
+  public delai: string;
   public typeOperation = new TypeOperation();
 }
