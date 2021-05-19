@@ -10,6 +10,14 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FactureListComponent} from './view/facture-list/facture-list.component';
 import { ViewComponent } from './view/view.component';
 import {FactureJournalComponent} from './view/facture-journal/facture-journal.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import {DeclarationTvasaveComponent} from "./view/declaration-tvasave/declaration-tvasave.component";
+import {DecltvacriteriaComponent} from "./view/decltvacriteria/decltvacriteria.component";
+import {PopupFactureComponent} from "./view/popup-facture/popup-facture.component";
+import { OperationSocieteSaveComponent } from './view/operation-societe-save/operation-societe-save.component';
+import { TypeOperationSaveComponent } from './view/type-operation-save/type-operation-save.component';
 
 
 
@@ -20,7 +28,12 @@ import {FactureJournalComponent} from './view/facture-journal/facture-journal.co
     FactureCriteriaComponent,
     FactureListComponent,
     FactureJournalComponent,
-    ViewComponent
+    DeclarationTvasaveComponent,
+    DecltvacriteriaComponent,
+    PopupFactureComponent,
+    ViewComponent,
+    OperationSocieteSaveComponent,
+    TypeOperationSaveComponent
 
 
   ],
@@ -28,10 +41,14 @@ import {FactureJournalComponent} from './view/facture-journal/facture-journal.co
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [ViewComponent]
+  bootstrap: [ViewComponent],
+  entryComponents: [PopupFactureComponent]
 })
 export class AppModule {
 }
