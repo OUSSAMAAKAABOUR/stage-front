@@ -1,1 +1,96 @@
-<p>type-operation-save works!</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-2">
+
+      <div class="card">
+
+
+        <div class="card-header" id="n1"></div>
+
+        <div class="card-body">
+
+          <div class="card">
+            <div class="card-header" id="n2">TYPE REDEVABLE</div>
+            <div class="card-body row">
+              <div class="form-group col-md-6">
+                <label>Libelle</label>
+                <input type="text" class="form-control" [(ngModel)]="typeoperation.libelle" >
+              </div>
+              <div class="form-group col-md-6">
+                <label>Description</label>
+                <input type="text" class="form-control" [(ngModel)]="typeoperation.description">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="n3">REDEVABLE</div>
+          <div class="card-body row">
+            <div class="form-group col-md-4">
+              <label>Libelle</label>
+              <input type="text" class="form-control" [(ngModel)]="etape.libelle">
+            </div>
+            <div class="form-group col-md-4">
+              <label>Description</label>
+              <input type="text" class="form-control" [(ngModel)]="etape.description">
+            </div>
+            <div class="form-group col-md-4">
+              <label>Delai</label>
+              <input type="text" class="form-control" [(ngModel)]="etape.delai">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Montant Fix</label>
+              <input type="number" class="form-control" [(ngModel)]="etape.montantfix">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Montant Comptable</label>
+              <input type="number" class="form-control" [(ngModel)]="etape.montantcomptable">
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-outline-dark btn-block" (click)="add()" id="b1">+</button>
+        </div>
+      </div>
+
+
+
+      <div class="card">
+        <div class="card-header" *ngIf="a" id="n4">LISTE DES REDEVABLES</div>
+        <div class="card-body"  *ngIf="a">
+          <table class="table table-hover table-striped">
+            <thead>
+            <th>Libelle</th>
+            <th>Description</th>
+            <th>Delai</th>
+            <th>Montant Fixe</th>
+            <th>Montant Comptable</th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let e of typeoperation.etapes; index as i;">
+              <td>{{e.libelle}}</td>
+              <td>{{e.description}}</td>
+              <td>{{e.delai}}</td>
+              <td>{{e.montantfix}}</td>
+              <td>{{e.montantcomptable}}</td>
+              <td><span (click)="delete1(i)"><i class="fa fa-trash btn btn-danger"></i></span></td>
+            </tr>
+            </tbody>
+
+
+          </table>
+
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-outline-dark btn-block" (click)="save()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
