@@ -3,6 +3,7 @@ import {OperationSociete} from '../model/operation-societe.model';
 import {Facture} from '../model/facture.model';
 import {HttpClient} from '@angular/common/http';
 import {Etape} from '../model/etape.model';
+import {TypeOperation} from '../model/type-operation.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,9 @@ import {Etape} from '../model/etape.model';
 export class OperationsocieteService {
   private _operationSociete: OperationSociete;
   private _urlBase: String = 'http://localhost:8036/gestion-comptabilite/operationSociete/';
+  private _urlBaseEtap: String = 'http://localhost:8036/gestion-comptabilite/etape/findByTypeOperation/libelle/';
+  private _etapes: Array<Etape>;
+  private _etat1: boolean = false;
 
 
   constructor(private http: HttpClient) {
@@ -28,12 +32,41 @@ export class OperationsocieteService {
   }
 
 
+  get etapes(): Array<Etape> {
+    if (this._etapes == null) {
+      this._etapes = new Array<Etape>();
+    }
+    return this._etapes;
+  }
+
+  set etapes(value: Array<Etape>) {
+    this._etapes = value;
+  }
+
   get urlBase(): String {
     return this._urlBase;
   }
 
   set urlBase(value: String) {
     this._urlBase = value;
+  }
+
+
+  get urlBaseEtap(): String {
+    return this._urlBaseEtap;
+  }
+
+  set urlBaseEtap(value: String) {
+    this._urlBaseEtap = value;
+  }
+
+
+  get etat1(): boolean {
+    return this._etat1;
+  }
+
+  set etat1(value: boolean) {
+    this._etat1 = value;
   }
 
   public save() {
@@ -53,6 +86,22 @@ export class OperationsocieteService {
     );
 
 
+  }
+
+  public trouveretapes() {
+    this.http.get<Array<Etape>>(this.urlBaseEtap + this.operationSociete.typeOperation.libelle).subscribe(
+      data => {
+        console.log('bravo trouver les etapes');
+        this.etapes = data;
+        this.etat1=true;
+        console.log('bravo');
+        console.log(data);
+
+
+      }, error => {
+        console.log('erreur trouver les etapes');
+      }
+    );
   }
 
 

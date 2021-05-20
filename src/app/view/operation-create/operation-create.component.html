@@ -26,15 +26,15 @@
     </div>
     <div class="row">
       <div class="form-group col-md-4  ">
-        <input name="1" class="m-md-4" type="radio"  value="T1" [(ngModel)]="operationSociete.typeOperation.libelle">
+        <input name="1" class="m-md-4" type="radio"  value="T1" (click)="trouveretapes()" [(ngModel)]="operationSociete.typeOperation.libelle">
         <label>creatio societe</label>
       </div>
       <div class="form-group col-md-4  ">
-        <input name="1" class="m-md-4" type="radio" value="T1" [(ngModel)]="operationSociete.typeOperation.libelle">
+        <input name="1" class="m-md-4" type="radio" value="T2" (click)="trouveretapes()" [(ngModel)]="operationSociete.typeOperation.libelle">
         <label>declarationtva</label>
       </div>
       <div class="form-group col-md-4  ">
-        <input name="1" class="m-md-4" type="radio"  value="T1" [(ngModel)]="operationSociete.typeOperation.libelle">
+        <input name="1" class="m-md-4" type="radio"  value="T3" (click)="trouveretapes()" [(ngModel)]="operationSociete.typeOperation.libelle">
         <label>declarationIR</label>
       </div>
 
@@ -48,9 +48,9 @@
 
   </div>
 </div>
-<div class="card container-fluid">
+<div class="card container down" *ngIf="etat1">
   <div class="card-header">
-    <h2>liste des etapes</h2>
+    <h2>liste des etapes du type</h2>
   </div>
   <div class="card-body">
     <table class="table table-hover table-striped">
@@ -59,28 +59,15 @@
       <th>description</th>
       <th>montantfix</th>
       <th>montantcomptable</th>
-      <th>tva</th>
+      <th>delai</th>
        </thead>
       <tbody>
-      <tr *ngFor="let c of factures; index as i ">
-        <td>{{c.ref}}</td>
-        <td>{{c.societeSource.ice}}</td>
-        <td>{{c.societeDistination.ice}}</td>
-        <td>{{c.libelle}} </td>
-        <td>{{c.montantHorsTaxe}}<i>DH</i></td>
-        <td>{{c.tva.valeur}}<i>%</i></td>
-        <td>{{c.montantTVA}}<i>DH</i></td>
-        <td>{{c.montantTTC}}<i>DH</i></td>
-        <td>{{c.annee}}</td>
-        <td>{{c.mois}}</td>
-        <td>{{c.trim}}</td>
-        <td>{{c.typeOperation}}</td>
-        <td>{{c.classComptable.numero}}</td>
-        <td><span (click)="delete(c)"><i class="fa fa-trash btn btn-danger"></i></span>
-          <span (click)="updateFront(i,c)" (click)="triggerModal(modalData)" ><i class="fa fa-edit btn btn-dark"></i></span></td>
-
-
-      </tr>
+      <tr *ngFor="let c of etapes ">
+        <td>{{c.libelle}}</td>
+        <td>{{c.description}}</td>
+        <td>{{c.montantfix}}</td>
+        <td>{{c.montantcomptable}} </td>
+        <td>{{c.delai}}</td></tr>
       </tbody>
 
     </table>

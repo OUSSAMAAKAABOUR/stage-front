@@ -22,3 +22,6 @@ input{
 select{
   border-color: forestgreen;
 }
+.down{
+  margin-top: 100px;
+}
