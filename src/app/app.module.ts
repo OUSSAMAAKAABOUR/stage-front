@@ -19,6 +19,7 @@ import {DecltvacriteriaComponent} from './view/decltvacriteria/decltvacriteria.c
 import {PopupFactureComponent} from './view/popup-facture/popup-facture.component';
 import {TypeOperationSaveComponent} from './view/type-operation-save/type-operation-save.component';
 import { CardTypeOperationComponent } from './view/card-type-operation/card-type-operation.component';
+import { OperationCreateComponent } from './view/operation-create/operation-create.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { CardTypeOperationComponent } from './view/card-type-operation/card-type
     ViewComponent,
     TypeOperationSaveComponent,
     CardTypeOperationComponent,
+    OperationCreateComponent,
 
 
 
