@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ListTypeOperationService} from "../../controller/service/list-type-operation.service";
 import {TypeOperation} from "../../controller/model/type-operation.model";
 import {Etape} from "../../controller/model/etape.model";
+import {TypeoperationService} from "../../controller/service/typeoperation.service";
+import {PopupEtapeService} from "../../controller/service/popup-etape.service";
 
 @Component({
   selector: 'app-type-operation-list',
@@ -10,7 +12,7 @@ import {Etape} from "../../controller/model/etape.model";
 })
 export class TypeOperationListComponent implements OnInit {
 
-  constructor(private listTypeOperationService: ListTypeOperationService) { }
+  constructor(private listTypeOperationService: ListTypeOperationService, private popupEtapeService: PopupEtapeService) { }
 
   ngOnInit(): void {
     this.listTypeOperationService.findAll();
@@ -36,5 +38,9 @@ export class TypeOperationListComponent implements OnInit {
   public delete3(index : number, libelle : string){
     this.listTypeOperationService.delete3(index, libelle);
   }
-
+  public popupupdate(etape: Etape){
+    this.popupEtapeService.a = false;
+    this.popupEtapeService.b = true;
+    this.popupEtapeService.popupupdate(etape);
+  }
 }

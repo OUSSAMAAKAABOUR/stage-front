@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
 <div class="row">
 <div class="card col-md-6">
   <div class="card-footer" id="n1">LISTE TYPE REDEVABLE</div>
@@ -21,7 +21,10 @@
         <td>
           <button class="btn btn-outline-dark btn-block" (click)="trouveretapes(t)"><i class="fa fa-eye"></i></button>
         </td>
-        <td><span (click)="delete2(i,t.libelle)"><i class="fa fa-trash btn btn-danger"></i></span></td>
+        <td>
+          <span (click)="delete2(i,t.libelle)"><i class="fa fa-trash btn btn-danger"></i></span>
+          <span><i class="fa fa-edit btn btn-warning"></i></span>
+        </td>
       </tr>
       </tbody>
 
@@ -48,7 +51,10 @@
         <td>{{e.delai}}</td>
         <td>{{e.montantcomptable}}</td>
         <td>{{e.montantfix}}</td>
-        <td><span (click)="delete3(i,e.libelle)"><i class="fa fa-trash btn btn-danger"></i></span></td>
+        <td>
+          <span (click)="delete3(i,e.libelle)"><i class="fa fa-trash btn btn-danger"></i></span>
+          <span (click)="popupupdate(e)"><i class="fa fa-edit btn btn-warning"></i></span>
+        </td>
       </tr>
       </tbody>
 

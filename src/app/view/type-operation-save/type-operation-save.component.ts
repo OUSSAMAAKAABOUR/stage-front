@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {TypeOperation} from "../../controller/model/type-operation.model";
 import {TypeoperationService} from "../../controller/service/typeoperation.service";
 import {Etape} from "../../controller/model/etape.model";
+import {Facture} from "../../controller/model/facture.model";
+import {PopupEtapeService} from "../../controller/service/popup-etape.service";
 
 @Component({
   selector: 'app-type-operation-save',
