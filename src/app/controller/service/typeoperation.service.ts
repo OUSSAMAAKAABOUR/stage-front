@@ -71,7 +71,7 @@ export class TypeoperationService {
     );
   }
 
-  private cloneEtape(etape: Etape) {
+  public cloneEtape(etape: Etape) {
     const Myclone = new Etape();
     Myclone.description = etape.description;
     Myclone.libelle = etape.libelle;

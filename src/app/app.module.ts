@@ -20,6 +20,7 @@ import {PopupFactureComponent} from './view/popup-facture/popup-facture.componen
 import {TypeOperationSaveComponent} from './view/type-operation-save/type-operation-save.component';
 import { CardTypeOperationComponent } from './view/card-type-operation/card-type-operation.component';
 import { TypeOperationListComponent } from './view/type-operation-list/type-operation-list.component';
+import { PopupEtapeComponent } from './view/popup-etape/popup-etape.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { TypeOperationListComponent } from './view/type-operation-list/type-oper
     TypeOperationSaveComponent,
     CardTypeOperationComponent,
     TypeOperationListComponent,
+    PopupEtapeComponent,
 
 
 
