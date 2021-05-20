@@ -1,0 +1,63 @@
+<div class="container">
+<div class="row">
+<div class="card col-md-6">
+  <div class="card-footer" id="n1">LISTE TYPE REDEVABLE</div>
+  <div class="card-body">
+    <table class="table table-hover table-striped" id="n2" >
+      <thead>
+      <th>Libelle</th>
+      <th>Description</th>
+      <th>Fraix Comptable</th>
+      <th>Fraix Fix</th>
+      <th>Etapes</th>
+      <th>Action</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let t of listtypeopeartion; index as i">
+        <td>{{t.libelle}}</td>
+        <td>{{t.description}}</td>
+        <td>{{t.fraixcomptabletotal}}</td>
+        <td>{{t.fraixfixtotal}}</td>
+        <td>
+          <button class="btn btn-outline-dark btn-block" (click)="trouveretapes(t)"><i class="fa fa-eye"></i></button>
+        </td>
+        <td><span (click)="delete2(i,t.libelle)"><i class="fa fa-trash btn btn-danger"></i></span></td>
+      </tr>
+      </tbody>
+
+
+    </table>
+  </div>
+</div>
+  <div class="card col-md-6" *ngIf="b">
+    <div class="card-body" *ngIf="b">
+    <h4 *ngIf="b">DES ETAPES DE TYPE : {{t}}</h4>
+    <table class="table table-hover table-striped" *ngIf="b">
+      <thead>
+      <th>Libelle</th>
+      <th>Description</th>
+      <th>Delai</th>
+      <th>Montant Comptable</th>
+      <th>Montant Fix</th>
+      <th>Action</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let e of etapes; index as i">
+        <td>{{e.libelle}}</td>
+        <td>{{e.description}}</td>
+        <td>{{e.delai}}</td>
+        <td>{{e.montantcomptable}}</td>
+        <td>{{e.montantfix}}</td>
+        <td><span (click)="delete3(i,e.libelle)"><i class="fa fa-trash btn btn-danger"></i></span></td>
+      </tr>
+      </tbody>
+
+
+    </table>
+
+  </div>
+</div>
+</div>
+</div>
+
+
