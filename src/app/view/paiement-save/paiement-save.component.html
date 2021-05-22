@@ -24,7 +24,7 @@
         <label>Date de paiement</label>
         <input type="date" class="form-control" [(ngModel)]="paiement.datePaiement">
       </div>
-      <div class="form-group col-md-5 m-md-3">
+      <div class="form-group col-md-5 m-md-3 offset-md-2">
         <label>operation Societe </label>
         <input type="text" class="form-control" [(ngModel)]="paiement.operationSociete.ref">
       </div>
@@ -38,7 +38,7 @@
   </div>
 </div>
 
-<!-- <div class=" col-md-6 card  down" >
+<div class=" col-md-6 card  down" >
   <div class="card-header">
     <h2>liste des paiement d'une operation</h2>
   </div>
@@ -52,16 +52,18 @@
       <th>Action</th>
       </thead>
       <tbody>
-      <tr >
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+      <tr  *ngFor="let c of paiements ; index as i ">
+        <td>{{c.ref}}</td>
+        <td>{{c.description}}</td>
+        <td>{{c.montant}}</td>
+        <td>{{c.datePaiement}}</td>
+        <td>{{c.operationSociete.ref}}</td>
+        <td><span (click)="delete(c)"><i class="fa fa-trash btn btn-danger"></i></span></td>
        </tr>
       </tbody>
 
     </table>
   </div>
 </div>
-</div>
--->
+
+

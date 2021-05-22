@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PaiementService} from '../../controller/service/paiement.service';
 import {Paiement} from '../../controller/model/paiement.model';
+import {Facture} from '../../controller/model/facture.model';
 
 @Component({
   selector: 'app-paiement-save',
@@ -13,6 +14,7 @@ export class PaiementSaveComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.paiementService.findAll();
   }
 
   public save() {
@@ -23,4 +25,12 @@ export class PaiementSaveComponent implements OnInit {
     return this.paiementService.paiement;
 
   }
+  get paiements(): Array<Paiement> {
+    return this.paiementService.paiements;
+  }
+  public delete(paiement: Paiement) {
+    this.paiementService.delete(paiement);
+  }
+
+
 }
