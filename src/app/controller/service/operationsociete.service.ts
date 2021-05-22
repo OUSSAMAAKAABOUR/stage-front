@@ -93,7 +93,6 @@ export class OperationsocieteService {
       data => {
         console.log('bravo trouver les etapes');
         this.etapes = data;
-        this.etat1=true;
         console.log('bravo');
         console.log(data);
 

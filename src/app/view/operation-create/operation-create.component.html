@@ -1,3 +1,4 @@
+<div [hidden]="etat1">
 <div class="card container">
   <div class="card-header  ">
     <h2>Creation d'une operation societe</h2>
@@ -24,23 +25,6 @@
         <input type="text" class="form-control" [(ngModel)]="operationSociete.societe.ice">
       </div>
     </div>
-    <div class="row">
-      <div class="form-group col-md-4  ">
-        <input name="1" class="m-md-4" type="radio"  value="T1" (click)="trouveretapes()" [(ngModel)]="operationSociete.typeOperation.libelle">
-        <label>creatio societe</label>
-      </div>
-      <div class="form-group col-md-4  ">
-        <input name="1" class="m-md-4" type="radio" value="T2" (click)="trouveretapes()" [(ngModel)]="operationSociete.typeOperation.libelle">
-        <label>declarationtva</label>
-      </div>
-      <div class="form-group col-md-4  ">
-        <input name="1" class="m-md-4" type="radio"  value="T3" (click)="trouveretapes()" [(ngModel)]="operationSociete.typeOperation.libelle">
-        <label>declarationIR</label>
-      </div>
-
-    </div>
-
-
     <div class="card-footer">
       <button class="btn btn-outline-success btn-block" (click)="save()"><i class="fa fa-send"></i>save</button>
 
@@ -48,7 +32,7 @@
 
   </div>
 </div>
-<div class="card container down" *ngIf="etat1">
+<div class="card container down" >
   <div class="card-header">
     <h2>liste des etapes du type</h2>
   </div>
@@ -72,4 +56,5 @@
 
     </table>
   </div>
+</div>
 </div>

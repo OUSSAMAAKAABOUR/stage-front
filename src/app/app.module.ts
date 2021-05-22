@@ -21,6 +21,8 @@ import {TypeOperationSaveComponent} from './view/type-operation-save/type-operat
 import { CardTypeOperationComponent } from './view/card-type-operation/card-type-operation.component';
 import { OperationCreateComponent } from './view/operation-create/operation-create.component';
 import {TypeOperationListComponent} from './view/type-operation-list/type-operation-list.component';
+import {PopupEtapeComponent} from './view/popup-etape/popup-etape.component';
+import { PaiementSaveComponent } from './view/paiement-save/paiement-save.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import {TypeOperationListComponent} from './view/type-operation-list/type-operat
     TypeOperationSaveComponent,
     CardTypeOperationComponent,
     OperationCreateComponent,
-    TypeOperationListComponent
+    TypeOperationListComponent,
+    PopupEtapeComponent,
+    PaiementSaveComponent
 
 
 
