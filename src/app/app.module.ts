@@ -19,12 +19,22 @@ import {DecltvacriteriaComponent} from './view/decltvacriteria/decltvacriteria.c
 import {PopupFactureComponent} from './view/popup-facture/popup-facture.component';
 import {TypeOperationSaveComponent} from './view/type-operation-save/type-operation-save.component';
 import { CardTypeOperationComponent } from './view/card-type-operation/card-type-operation.component';
-import { OperationCreateComponent } from './view/operation-create/operation-create.component';
-import {TypeOperationListComponent} from './view/type-operation-list/type-operation-list.component';
-import {PopupEtapeComponent} from './view/popup-etape/popup-etape.component';
-import { PaiementSaveComponent } from './view/paiement-save/paiement-save.component';
+import { TypeOperationListComponent } from './view/type-operation-list/type-operation-list.component';
+import { PopupEtapeComponent } from './view/popup-etape/popup-etape.component';
+import {Routes, RouterModule} from '@angular/router';
+import { LogincompComponent } from './view/logincomp/logincomp.component';
+import { SecondcompComponent } from './view/secondcomp/secondcomp.component';
+import { FacturechoicecompComponent } from './view/facturechoicecomp/facturechoicecomp.component';
+import { DeclarationtvachoicecompComponent } from './view/declarationtvachoicecomp/declarationtvachoicecomp.component';
+import { OperationsocietechoicecompComponent } from './view/operationsocietechoicecomp/operationsocietechoicecomp.component';
 
-
+const appRoutes: Routes = [
+  {path: '' , component: LogincompComponent},
+  {path: 'secondcomp' , component: SecondcompComponent},
+  {path: 'facture' , component: FacturechoicecompComponent},
+  {path: 'daclarationtva' , component: DeclarationtvachoicecompComponent},
+  {path: 'operationsociete' , component: OperationsocietechoicecompComponent},
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,10 +48,13 @@ import { PaiementSaveComponent } from './view/paiement-save/paiement-save.compon
     ViewComponent,
     TypeOperationSaveComponent,
     CardTypeOperationComponent,
-    OperationCreateComponent,
     TypeOperationListComponent,
     PopupEtapeComponent,
-    PaiementSaveComponent
+    LogincompComponent,
+    SecondcompComponent,
+    FacturechoicecompComponent,
+    DeclarationtvachoicecompComponent,
+    OperationsocietechoicecompComponent,
 
 
 
@@ -54,7 +67,8 @@ import { PaiementSaveComponent } from './view/paiement-save/paiement-save.compon
     NgbModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [ViewComponent],
