@@ -27,13 +27,44 @@ import { SecondcompComponent } from './view/secondcomp/secondcomp.component';
 import { FacturechoicecompComponent } from './view/facturechoicecomp/facturechoicecomp.component';
 import { DeclarationtvachoicecompComponent } from './view/declarationtvachoicecomp/declarationtvachoicecomp.component';
 import { OperationsocietechoicecompComponent } from './view/operationsocietechoicecomp/operationsocietechoicecomp.component';
+import {OperationCreateComponent} from './view/operation-create/operation-create.component';
+import {PaiementSaveComponent} from './view/paiement-save/paiement-save.component';
 
 const appRoutes: Routes = [
   {path: '' , component: LogincompComponent},
   {path: 'secondcomp' , component: SecondcompComponent},
-  {path: 'facture' , component: FacturechoicecompComponent},
-  {path: 'daclarationtva' , component: DeclarationtvachoicecompComponent},
-  {path: 'operationsociete' , component: OperationsocietechoicecompComponent},
+  {
+    path: 'facture' ,
+    component: FacturechoicecompComponent,
+    children: [
+      {path: '', component: FactureCreateComponent},
+      {path: 'facturecreate', component: FactureCreateComponent},
+      {path: 'facturelist', component: FactureListComponent},
+      {path: 'facturejournal', component: FactureJournalComponent},
+      {path: 'facturecriteria', component: FactureCriteriaComponent},
+    ]
+  },
+  {
+    path: 'daclarationtva' ,
+    component: DeclarationtvachoicecompComponent,
+    children: [
+      {path: '', component: DeclarationTvasaveComponent},
+      {path: 'declsave', component: DeclarationTvasaveComponent},
+      {path: 'declcriteria', component: DecltvacriteriaComponent},
+    ]
+  },
+  {
+    path: 'operationsociete' ,
+    component: OperationsocietechoicecompComponent,
+    children: [
+      {path: '', component: CardTypeOperationComponent},
+      {path: 'createoperation', component: CardTypeOperationComponent},
+      {path: 'createtypeoperation', component: TypeOperationSaveComponent},
+      {path: 'lISTtypeoperation', component: TypeOperationListComponent},
+      {path: 'paiment', component: PaiementSaveComponent},
+
+    ]
+  },
 ];
 @NgModule({
   declarations: [
@@ -55,6 +86,9 @@ const appRoutes: Routes = [
     FacturechoicecompComponent,
     DeclarationtvachoicecompComponent,
     OperationsocietechoicecompComponent,
+    CardTypeOperationComponent,
+    OperationCreateComponent,
+    PaiementSaveComponent
 
 
 

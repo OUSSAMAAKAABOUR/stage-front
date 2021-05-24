@@ -35,5 +35,8 @@ export class OperationCreateComponent implements OnInit {
   get etat1(): boolean {
     return this.operatioSocieteService.etat1;
   }
+  public retour() {
+    this.operatioSocieteService.retour();
+  }
 
 }

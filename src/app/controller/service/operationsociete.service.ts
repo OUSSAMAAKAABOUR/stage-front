@@ -105,6 +105,10 @@ export class OperationsocieteService {
       }
     );
   }
+  public retour() {
+    this.cardService.etat = true;
+
+  }
 
 
 

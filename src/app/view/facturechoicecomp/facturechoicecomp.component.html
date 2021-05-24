@@ -1,10 +1,13 @@
-<div >
-
-  <div>
-    <a > <button class="btn-outline-primary">Facture Create</button></a>
-    <a > <button class="btn-outline-primary">Facture List</button></a>
-    <a > <button class="btn-outline-primary">Facture Journal</button></a>
-  </div>
 
 
+<nav class="blend">
+  <ul>
+    <li role="presentation" class="active"><a routerLink="facturecreate" routerLinkActive="active" >Créer une Facture</a></li>
+    <li role="presentation" class="active"><a routerLink="facturelist" routerLinkActive="active">Liste des Factures</a></li>
+    <li role="presentation" class="active"><a routerLink="facturejournal" routerLinkActive="active">Journal</a></li>
+    <li role="presentation" class="active"><a routerLink="facturecriteria" routerLinkActive="active">Chercher</a></li>
+  </ul>
+</nav>
+<div>
+  <router-outlet></router-outlet>
 </div>

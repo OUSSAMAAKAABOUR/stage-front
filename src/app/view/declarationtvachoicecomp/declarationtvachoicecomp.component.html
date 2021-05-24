@@ -1,10 +1,10 @@
-<div >
 
-  <div>
-    <a > <button class="btn-outline-primary">DeclarationTva Create</button></a>
-    <a > <button class="btn-outline-primary">DeclarationTva List</button></a>
-    <a > <button class="btn-outline-primary">DeclarationTva Journal</button></a>
-  </div>
-
-
+<nav class="blend">
+  <ul>
+    <li role="presentation" class="active"><a routerLink="declsave" routerLinkActive="active" >Déclaration TVA</a></li>
+    <li role="presentation" class="active"><a routerLink="declcriteria" routerLinkActive="active">Chercher une Declaration</a></li>
+  </ul>
+</nav>
+<div>
+  <router-outlet></router-outlet>
 </div>
