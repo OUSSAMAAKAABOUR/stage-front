@@ -4,6 +4,7 @@ import {Facture} from '../model/facture.model';
 import {HttpClient} from '@angular/common/http';
 import {Etape} from '../model/etape.model';
 import {TypeOperation} from '../model/type-operation.model';
+import {CardService} from './card.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class OperationsocieteService {
   private _etat1: boolean = false;
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private cardService: CardService) {
   }
 
   get operationSociete(): OperationSociete {
@@ -75,6 +76,8 @@ export class OperationsocieteService {
       data => {
         if (data > 0) {
           console.log('bravo');
+          alert('l\'operation est bien créer');
+          this.cardService.etat = true;
           this.operationSociete = null;
           console.log('bravo');
 
@@ -102,6 +105,7 @@ export class OperationsocieteService {
       }
     );
   }
+
 
 
 }

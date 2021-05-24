@@ -51,8 +51,8 @@ export class PaiementService {
       data => {
         if (data > 0) {
           console.log('bravo');
+          this.paiements.push(this.clonePaiement(this.paiement));
           this.paiement = null;
-          console.log('bravo');
 
         }
 
@@ -97,5 +97,15 @@ export class PaiementService {
       this.paiements.splice(index, 1);
     }
 
+  }
+  public clonePaiement(paiement:Paiement){
+    let myClone = new Paiement();
+    myClone.id = paiement.id;
+    myClone.ref = paiement.ref;
+    myClone.montant = paiement.montant;
+    myClone.datePaiement = paiement.datePaiement;
+    myClone.description = paiement.description;
+    myClone.operationSociete = paiement.operationSociete;
+    return myClone;
   }
 }
