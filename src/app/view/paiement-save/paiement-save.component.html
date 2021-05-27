@@ -49,6 +49,7 @@
       <th>description</th>
       <th>montant</th>
       <th>date paiement</th>
+      <th>operation</th>
       <th>Action</th>
       </thead>
       <tbody>
@@ -58,7 +59,8 @@
         <td>{{c.montant}}</td>
         <td>{{c.datePaiement}}</td>
         <td>{{c.operationSociete.ref}}</td>
-        <td><span (click)="delete(c)"><i class="fa fa-trash btn btn-danger"></i></span></td>
+        <td><span (click)="delete(c)"><i class="fa fa-trash btn btn-danger"></i></span>
+          <span ><i class="fa fa-edit btn btn-dark"></i></span></td>
        </tr>
       </tbody>
 

@@ -46,7 +46,7 @@ nav {
   margin: 0 auto;
   background: #fff;
   padding: 50px 0;
-  box-shadow: 0px 5px 0px #dedede; /*hada huwa dak lkhet li kayfre9 lmenu 3la comp */
+ /*hada huwa dak lkhet li kayfre9 lmenu 3la comp */
 }
 
 /* By Dominik Biedebach @domobch */
@@ -66,7 +66,7 @@ nav ul li a {
   color: #aaa;
   font-weight: 800;
   text-transform: uppercase;
-  margin: 0 50px;
+  margin: 0 45px;
 
 }
 
