@@ -1,0 +1,85 @@
+<!--<button  class="btn btn-outline-dark col-md-2 offset-5 mb-3" routerLink="newOperation2" ><i class="fa fa-send"></i>creation d'une operation</button>
+
+<div class="card container ">
+    <div class="card-header  ">
+      <h2>liste des operation du societe <i>"{{con.ices}}"</i></h2>
+        <div class="form-group ">
+          <label>ice societe</label>
+          <input type="text" class="form-control" [(ngModel)]="con.ices">
+        </div>
+    <button class="btn btn-outline-success btn-block"  (click)="findbyIce()"><i class="fa fa-send"></i>search</button>
+    </div>
+    <div class="card-body ">
+      <table class="table table-hover table-striped">
+        <thead>
+        <th>ref</th>
+        <th>libelle</th>
+        <th>fraix C</th>
+        <th>fraix fix</th>
+        <th>date</th>
+        <th>type operation</th>
+        <th>COMPTABLE T</th>
+        <th>COMPTABLE V</th>
+
+        </thead>
+        <tbody>
+        <tr *ngFor="let c of operations ">
+          <td>{{c.ref}}</td>
+          <td>{{c.libelle}}</td>
+          <td>{{c.fraixComptable}}DH </td>
+          <td>{{c.fraixFix}}DH</td>
+          <td>{{c.dateOperationSociete}}</td>
+          <td>{{c.typeOperation.libelle}}</td>
+          <td>{{c.comptableValidateur}}</td>
+          <td>{{c.comptableTaiteur}}</td>
+        </tr>
+        </tbody>
+
+      </table>
+
+
+
+    </div>
+
+  </div>
+
+-->
+
+<div class="card container" [hidden]="etat">
+  <div class="card-header  ">
+    <h2>creation d'une Societe</h2>
+  </div>
+
+  <div class="card-body ">
+    <div class="row">
+      <div class="form-group col-md-5 m-md-3">
+        <label>Ice</label>
+        <input [(ngModel)]="societe.ice" type="text" class="form-control">
+      </div>
+
+      <div class="form-group col-md-5 m-md-3">
+        <label>Adresse</label>
+        <input [(ngModel)]="societe.adresse" type="text" class="form-control">
+      </div>
+
+      <div class="form-group col-md-5 m-md-3">
+        <label>Raison Social</label>
+        <input [(ngModel)]="societe.raisonSociale" type="text" class="form-control">
+      </div>
+      <div class="form-group col-md-5 m-md-3">
+        <label>Datecreation</label>
+        <input [(ngModel)]="societe.dateCreation" type="date" class="form-control">
+      </div>
+      <div class="form-group col-md-5 m-md-3 ">
+        <label>anne exploitation</label>
+        <input [(ngModel)]="societe.anneeExploitation" type="number" class="form-control">
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <button class="btn btn-outline-success btn-block"  (click)="save2()"><i class="fa fa-send"></i>save
+    </button>
+  </div>
+
+</div>
