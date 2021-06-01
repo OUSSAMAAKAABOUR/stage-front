@@ -29,6 +29,7 @@ import { DeclarationtvachoicecompComponent } from './view/declarationtvachoiceco
 import { OperationsocietechoicecompComponent } from './view/operationsocietechoicecomp/operationsocietechoicecomp.component';
 import {OperationCreateComponent} from './view/operation-create/operation-create.component';
 import {PaiementSaveComponent} from './view/paiement-save/paiement-save.component';
+import { FirstCompSocieteComponent } from './view/first-comp-societe/first-comp-societe.component';
 
 const appRoutes: Routes = [
   {path: '' , component: LogincompComponent},
@@ -65,6 +66,8 @@ const appRoutes: Routes = [
 
     ]
   },
+  {path: 'firstSociete', component: FirstCompSocieteComponent},
+  {path: 'newOperation2', component: CardTypeOperationComponent},
 ];
 @NgModule({
   declarations: [
@@ -88,7 +91,8 @@ const appRoutes: Routes = [
     OperationsocietechoicecompComponent,
     CardTypeOperationComponent,
     OperationCreateComponent,
-    PaiementSaveComponent
+    PaiementSaveComponent,
+    FirstCompSocieteComponent
 
 
 

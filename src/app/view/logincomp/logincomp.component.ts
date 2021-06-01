@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {TestserviceService} from '../../controller/service/testservice.service';
 import {ConnectionService} from '../../controller/service/connection.service';
+import {Connection} from '../../controller/model/connection.model';
+import {Test} from '../../controller/model/test.model';
 
 @Component({
   selector: 'app-logincomp',
@@ -15,23 +17,24 @@ export class LogincompComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get x(): boolean {
-    return this.testserviceService.x;
+
+  public loger() {
+    this.connectionService.loger();
   }
 
-  get y(): boolean {
-    return this.testserviceService.y;
+  get connection(): Connection {
+    return this.connectionService.connection;
   }
 
-  get w(): boolean {
-    return this.testserviceService.w;
+  get teste(): Test {
+    return this.connectionService.teste;
   }
 
-  public methode1login() {
-    this.testserviceService.methode1login();
+  public save() {
+    this.connectionService.save();
   }
 
-  public verify() {
-    this.connectionService.verify();
+  get lien(): String {
+    return this.connectionService.lien;
   }
 }
