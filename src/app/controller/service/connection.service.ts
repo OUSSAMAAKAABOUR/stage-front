@@ -5,6 +5,7 @@ import {Test} from '../model/test.model';
 import {Facture} from '../model/facture.model';
 import {Router} from '@angular/router';
 import {OperationsocieteService} from './operationsociete.service';
+import {OperationSociete} from '../model/operation-societe.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,10 @@ export class ConnectionService {
   private _urlBase: String = 'http://localhost:8036/gestion-comptabilite/connection';
   private _lien: String;
   private _etat: boolean;
+  private _operationsse: Array<OperationSociete>;
+  private _urlBaseO: String = 'http://localhost:8036/gestion-comptabilite/operationSociete/';
+
+
 
 
   constructor(private http: HttpClient, private router: Router) {
@@ -33,6 +38,25 @@ export class ConnectionService {
     this._connection = value;
   }
 
+
+  get urlBaseO(): String {
+    return this._urlBaseO;
+  }
+
+  set urlBaseO(value: String) {
+    this._urlBaseO = value;
+  }
+
+  get operationsse(): Array<OperationSociete> {
+    if(this._operationsse  == null){
+      this._operationsse = new Array<OperationSociete>();
+    }
+    return this._operationsse;
+  }
+
+  set operationsse(value: Array<OperationSociete>) {
+    this._operationsse = value;
+  }
 
   get connection2(): Connection {
 
@@ -149,6 +173,7 @@ export class ConnectionService {
       data => {
         if (data) {
           this.connection3 = data;
+          this.findbyIce();
           this.connection2 = this.cloneCommande(this.connection3);
         }
 
@@ -159,6 +184,17 @@ export class ConnectionService {
     );
 
 
+  }
+  public findbyIce() {
+    this.http.get<Array<OperationSociete>>(this.urlBaseO + 'ice/' + this.connection3.societeLogin.ice).subscribe(
+      data => {
+        this.operationsse = data;
+        console.log(data);
+        console.log('bravo trouver les operations');
+      }, error => {
+        console.log('erreur trouver les operation');
+      }
+    );
   }
 
   private cloneCommande(conni: Connection) {
@@ -173,11 +209,18 @@ export class ConnectionService {
   }
 
   public select() {
-    if (this.connection2.societeLogin == null) {
-      this.etat = true;
-    } else {
-      this.etat = false;
-    }
+    this.http.get<number>(this.urlBase + '/usernome/' + this.teste.t3 + '/password/' + this.teste.t4).subscribe(
+      data => {
+        if(data == 1) this.etat = true;
+        else{
+          this.etat = false;
+        }
+        console.log('bravoo login');
+      }, error => {
+        console.log('erreur');
+      }
+    );
+
 
   }
 

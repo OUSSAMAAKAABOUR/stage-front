@@ -170,16 +170,18 @@ export class OperationsocieteService {
 
   }
 
-  /*public findbyIce() {
-    this.http.get<Array<OperationSociete>>(this.urlBase + 'ice/' + this.con.ices).subscribe(
+  public findbyIce() {
+    this.http.get<Array<OperationSociete>>(this.urlBase + 'ice/' + this.connectionService.connection3.societeLogin.ice).subscribe(
       data => {
         this.operations = data;
-        console.log('bravo trouver les operation');
+        console.log(data);
+        console.log(this.connectionService.connection3.societeLogin.ice);
+        console.log('bravo trouver les operations');
       }, error => {
         console.log('erreur trouver les operation');
       }
     );
-  }*/
+  }
   public save2() {
 
     this.http.post<number>(this._urlBasesociete + '/', this.societe).subscribe(
