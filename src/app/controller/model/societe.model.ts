@@ -5,6 +5,7 @@ export class Societe {
   public ice: string;
   public adresse: string;
   public raisonSociale: string;
+  public dateCreation: string;
   public etatSociete: string;
   public anneeExploitation: number;
   public age: number;
