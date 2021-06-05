@@ -117,7 +117,7 @@ export class TestserviceService {
   }
 
   public findoperation(){
-    this.http.get<Array<OperationSociete>>(this.UrlBaseOperationSociete + "/societe/ice/" + this.connectionService.connection.societeLogin.ice +"/etatoperationsociete/ref/Encour").subscribe(
+    this.http.get<Array<OperationSociete>>(this.UrlBaseOperationSociete+"/etatoperationsociete/ref/Encour").subscribe(
       data =>{
           this.listeOperation = data;
           console.log('Bravo find list of operation');
