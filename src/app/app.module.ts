@@ -35,6 +35,7 @@ import { PopupCreateComptableComponent } from './view/popup-create-comptable/pop
 import { PopupValidateOperationComponent } from './view/popup-validate-operation/popup-validate-operation.component';
 import { AffecterComptableComponent } from './view/affecter-comptable/affecter-comptable.component';
 import { ChoisirComptableComponent } from './view/choisir-comptable/choisir-comptable.component';
+import { PopupValidateCompteComponent } from './view/popup-validate-compte/popup-validate-compte.component';
 
 const appRoutes: Routes = [
   {path: '' , component: LogincompComponent},
@@ -103,7 +104,8 @@ const appRoutes: Routes = [
     PopupCreateComptableComponent,
     PopupValidateOperationComponent,
     AffecterComptableComponent,
-    ChoisirComptableComponent
+    ChoisirComptableComponent,
+    PopupValidateCompteComponent
 
 
 
