@@ -1,0 +1,41 @@
+<p> </p>
+<div class="container-fluid">
+<div class="row">
+  <div class="card col-md-12">
+    <h1>AFFECTER COMPTABLE:</h1>
+    <div class="card-body">
+        <table class="table">
+          <thead class="thead-dark">
+          <th scope="col">Reference</th>
+          <th scope="col">Libelle</th>
+          <th scope="col">Fraix Fix</th>
+          <th scope="col">Fraix Comptable</th>
+          <th scope="col">Date Operation</th>
+          <th scope="col">Type Operation</th>
+          <th scope="col">Societe</th>
+          <th scope="col">Action</th>
+          </thead>
+          <tbody>
+          <tr *ngFor="let l of listeOperation |paginate: {id:'listvente',itemsPerPage: pageSize2, currentPage:page2, totalItems:listeOperation.length }; index as i;">
+            <td scope="row">{{l.ref}}</td>
+            <td>{{l.libelle}}</td>
+            <td>{{l.fraixFix}}</td>
+            <td>{{l.fraixComptable}}</td>
+            <td>{{l.dateOperationSociete}}</td>
+            <td>{{l.typeOperation.libelle}}</td>
+            <td>{{l.societe.ice}}</td>
+            <td>
+              <span (click)="popupComptableTraiteur(l)"><i class="fa fa-plus btn btn-outline-success"></i>Comptable Traiteur</span>
+              <span (click)="popupComptableValidateur(l)"><i class="fa fa-plus btn btn-outline-danger"></i>Comptable Validateur</span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div>
+          <pagination-controls id="listvente" maxSize="5" directionLinks="true" (pageChange)="page2=$event"></pagination-controls>
+        </div>
+      </div>
+
+</div>
+</div>
+</div>

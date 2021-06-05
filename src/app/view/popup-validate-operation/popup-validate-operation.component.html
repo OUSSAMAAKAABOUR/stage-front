@@ -1,0 +1,42 @@
+<div class="card1">
+  <h2 mat-dialog-title >Demande Operation:</h2>
+  <mat-dialog-content>
+    <div class="card border-danger text-danger">
+      <div class="card-body">
+        <table class="table">
+          <thead class="thead-dark">
+          <th scope="col">Reference</th>
+          <th scope="col">Libelle</th>
+          <th scope="col">Fraix Fix</th>
+          <th scope="col">Fraix Comptable</th>
+          <th scope="col">Date Operation</th>
+          <th scope="col">Type Operation</th>
+          <th scope="col">Societe</th>
+          <th scope="col">Action</th>
+          </thead>
+          <tbody>
+          <tr *ngFor="let l of listeOperation |paginate: {id:'listvente',itemsPerPage: pageSize, currentPage:page, totalItems:listeOperation.length }; index as i;">
+            <td scope="row">{{l.ref}}</td>
+            <td>{{l.libelle}}</td>
+            <td>{{l.fraixFix}}</td>
+            <td>{{l.fraixComptable}}</td>
+            <td>{{l.dateOperationSociete}}</td>
+            <td>{{l.typeOperation.libelle}}</td>
+            <td>{{l.societe.ice}}</td>
+            <td>
+              <span (click)="validate(l,i)"><i class="fa fa-check btn btn-outline-success"></i>Accepter</span>
+              <span (click)="refuse(l,i)"><i class="fa fa-times btn btn-outline-danger"></i>Refuser</span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div>
+          <pagination-controls id="listvente" maxSize="5" directionLinks="true" (pageChange)="page=$event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button class="btn btn-danger col-md-4 offset-8"  mat-button mat-dialog-close>Sortir</button>
+  </mat-dialog-actions>
+</div>

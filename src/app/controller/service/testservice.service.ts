@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import {Router} from "@angular/router";
 import {FacturechoicecompComponent} from "../../view/facturechoicecomp/facturechoicecomp.component";
+import {HttpClient} from "@angular/common/http";
+import {OperationSociete} from "../model/operation-societe.model";
+import {ConnectionService} from "./connection.service";
+import {Comptable} from "../model/comptable.model";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +15,49 @@ export class TestserviceService {
   private _w = false;
   private _k = false;
   private _l = false;
-  constructor(private router: Router) { }
+  private _UrlBaseOperationSociete = 'http://localhost:8036/gestion-comptabilite/operationSociete';
+  private _UrlBaseComptable = 'http://localhost:8036/gestion-comptabilite/comptable';
+  private _listeOperation : Array<OperationSociete>;
+  private _comptable: Comptable;
+  constructor(private router: Router,private http: HttpClient,private connectionService: ConnectionService) { }
+
+  get comptable(): Comptable {
+    if (this._comptable == null){
+      this._comptable = new Comptable();
+    }
+    return this._comptable;
+  }
+
+  set comptable(value: Comptable) {
+    this._comptable = value;
+  }
+
+  get UrlBaseComptable(): string {
+    return this._UrlBaseComptable;
+  }
+
+  set UrlBaseComptable(value: string) {
+    this._UrlBaseComptable = value;
+  }
+
+  get listeOperation(): Array<OperationSociete> {
+    if (this._listeOperation == null){
+      this._listeOperation = new Array<OperationSociete>();
+    }
+    return this._listeOperation;
+  }
+
+  set listeOperation(value: Array<OperationSociete>) {
+    this._listeOperation = value;
+  }
+
+  get UrlBaseOperationSociete(): string {
+    return this._UrlBaseOperationSociete;
+  }
+
+  set UrlBaseOperationSociete(value: string) {
+    this._UrlBaseOperationSociete = value;
+  }
 
   get k(): boolean {
     return this._k;
@@ -68,5 +114,30 @@ export class TestserviceService {
   public methode2second1declarationchoice(){
     this.y = false; this.x = false; this.w = false; this.k = false;
     this.l = true;
+  }
+
+  public findoperation(){
+    this.http.get<Array<OperationSociete>>(this.UrlBaseOperationSociete + "/societe/ice/" + this.connectionService.connection.societeLogin.ice +"/etatoperationsociete/ref/Encour").subscribe(
+      data =>{
+          this.listeOperation = data;
+          console.log('Bravo find list of operation');
+      }, error => {
+        console.log('Erreur find list of operation');
+      }
+    );
+  }
+  public savecomptable(){
+    this.http.post<number>(this.UrlBaseComptable + "/",this.comptable).subscribe(
+      data =>{
+        if (data > 0 ){
+          alert('Comptable créer avec succées');
+          this.comptable = null;
+          console.log('bravo save comptable');
+        }
+        else console.log('data = '+ data + 'un des conditions dans le backend n est pas respecter');
+      }, error => {
+        console.log('erreur save comptable');
+      }
+    );
   }
 }

@@ -29,6 +29,11 @@ import { DeclarationtvachoicecompComponent } from './view/declarationtvachoiceco
 import { OperationsocietechoicecompComponent } from './view/operationsocietechoicecomp/operationsocietechoicecomp.component';
 import {OperationCreateComponent} from './view/operation-create/operation-create.component';
 import {PaiementSaveComponent} from './view/paiement-save/paiement-save.component';
+import { ComptableSecondCompComponent } from './view/comptable-second-comp/comptable-second-comp.component';
+import { PopupCreateComptableComponent } from './view/popup-create-comptable/popup-create-comptable.component';
+import { PopupValidateOperationComponent } from './view/popup-validate-operation/popup-validate-operation.component';
+import { AffecterComptableComponent } from './view/affecter-comptable/affecter-comptable.component';
+import { ChoisirComptableComponent } from './view/choisir-comptable/choisir-comptable.component';
 
 const appRoutes: Routes = [
   {path: '' , component: LogincompComponent},
@@ -65,6 +70,7 @@ const appRoutes: Routes = [
 
     ]
   },
+  {path: 'affectercomptable', component: AffecterComptableComponent},
 ];
 @NgModule({
   declarations: [
@@ -88,7 +94,12 @@ const appRoutes: Routes = [
     OperationsocietechoicecompComponent,
     CardTypeOperationComponent,
     OperationCreateComponent,
-    PaiementSaveComponent
+    PaiementSaveComponent,
+    ComptableSecondCompComponent,
+    PopupCreateComptableComponent,
+    PopupValidateOperationComponent,
+    AffecterComptableComponent,
+    ChoisirComptableComponent
 
 
 

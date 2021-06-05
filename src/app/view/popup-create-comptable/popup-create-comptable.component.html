@@ -1,0 +1,35 @@
+<div class="card1">
+  <h2 mat-dialog-title >Création d'un Comptable:</h2>
+  <mat-dialog-content>
+    <div class="card border-success text-success">
+      <div class="card-body">
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label>Code</label>
+            <input type="text" class="form-control" [(ngModel)]="comptable.code">
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Nom</label>
+            <input type="text" class="form-control" [(ngModel)]="comptable.nom">
+          </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+    <div class="card-footer">
+      <button class="btn btn-success col-md-6 offset-3" (click)="savecomptable()"><i class="fa fa-send"></i>save</button>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button class="btn btn-danger col-md-4 offset-8" mat-button mat-dialog-close>Sortir</button>
+  </mat-dialog-actions>
+</div>
+
+
+
+

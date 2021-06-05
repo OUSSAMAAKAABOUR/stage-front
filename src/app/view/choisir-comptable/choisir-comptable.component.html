@@ -1,0 +1,33 @@
+<div class="card1">
+  <h2 mat-dialog-title >Choisir Comptable:</h2>
+  <mat-dialog-content>
+    <div class="card border-danger text-danger">
+      <div class="card-body">
+        <table class="table">
+          <thead class="thead-dark">
+          <th scope="col">Code</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Action</th>
+          </thead>
+          <tbody>
+          <tr *ngFor="let l of listeComptable |paginate: {id:'listvente',itemsPerPage: pageSize, currentPage:page, totalItems:listeComptable.length }; index as i;">
+            <td scope="row">{{l.code}}</td>
+            <td>{{l.nom}}</td>
+            <td>
+              <button class="btn btn-outline-primary" (click)="affecterComptableTraiteur(l)" *ngIf="!a" mat-button mat-dialog-close>ChoisirTraiteur</button>
+              <button class="btn btn-outline-primary" (click)="affecterComptableValidateur(l)" *ngIf="a" mat-button mat-dialog-close>ChoisirValidateur</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div>
+          <pagination-controls id="listvente" maxSize="5" directionLinks="true" (pageChange)="page=$event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button class="btn btn-danger col-md-4 offset-8"  mat-button mat-dialog-close>Sortir</button>
+  </mat-dialog-actions>
+</div>
+

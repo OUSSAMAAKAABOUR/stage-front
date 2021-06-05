@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {TestserviceService} from "../../controller/service/testservice.service";
+import {MatDialog} from "@angular/material/dialog";
+import {PopupValidateOperationComponent} from "../popup-validate-operation/popup-validate-operation.component";
+import {OperationSociete} from "../../controller/model/operation-societe.model";
+import {PopupCreateComptableComponent} from "../popup-create-comptable/popup-create-comptable.component";
+import {AffecterComptableService} from "../../controller/service/affecter-comptable.service";
 
 @Component({
   selector: 'app-secondcomp',
@@ -8,9 +13,25 @@ import {TestserviceService} from "../../controller/service/testservice.service";
 })
 export class SecondcompComponent implements OnInit {
 
-  constructor(private testserviceService: TestserviceService) { }
+  constructor(private affecterComptableServoce:AffecterComptableService,private testserviceService: TestserviceService,public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+  public findoperation(){
+    this.testserviceService.findoperation();
+  }
+  openDialog(){
+    this.findoperation();
+    this.dialog.open(PopupValidateOperationComponent);
+  }
+  opendialog2(){
+    this.dialog.open(PopupCreateComptableComponent);
+  }
+  public findOperationWhereComptablenull(){
+    this.affecterComptableServoce.findOperationWhereComptablenull();
+  }
+  get listeOperation(): Array<OperationSociete> {
+    return this.testserviceService.listeOperation;
   }
   get x(): boolean {
     return this.testserviceService.x;

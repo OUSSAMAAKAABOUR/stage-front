@@ -15,7 +15,7 @@ export class ConnectionService {
   }
 
   get connection(): Connection {
-    if (this._connection = null) {
+    if (this._connection == null) {
       this._connection = new Connection();
     }
     return this._connection;
