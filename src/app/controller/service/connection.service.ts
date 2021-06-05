@@ -22,8 +22,6 @@ export class ConnectionService {
   private _urlBaseO: String = 'http://localhost:8036/gestion-comptabilite/operationSociete/';
 
 
-
-
   constructor(private http: HttpClient, private router: Router) {
   }
 
@@ -48,7 +46,7 @@ export class ConnectionService {
   }
 
   get operationsse(): Array<OperationSociete> {
-    if(this._operationsse  == null){
+    if (this._operationsse == null) {
       this._operationsse = new Array<OperationSociete>();
     }
     return this._operationsse;
@@ -185,6 +183,7 @@ export class ConnectionService {
 
 
   }
+
   public findbyIce() {
     this.http.get<Array<OperationSociete>>(this.urlBaseO + 'ice/' + this.connection3.societeLogin.ice).subscribe(
       data => {
@@ -211,8 +210,9 @@ export class ConnectionService {
   public select() {
     this.http.get<number>(this.urlBase + '/usernome/' + this.teste.t3 + '/password/' + this.teste.t4).subscribe(
       data => {
-        if(data == 1) this.etat = true;
-        else{
+        if (data == 1) {
+          this.etat = true;
+        } else {
           this.etat = false;
         }
         console.log('bravoo login');
