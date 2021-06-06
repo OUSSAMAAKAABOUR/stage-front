@@ -13,7 +13,8 @@
           <th scope="col">Date Operation</th>
           <th scope="col">Type Operation</th>
           <th scope="col">Societe</th>
-          <th scope="col">Action</th>
+          <th scope="col">Comptable Traiteur</th>
+          <th scope="col">Comptable Validateur</th>
           </thead>
           <tbody>
           <tr *ngFor="let l of listeOperation |paginate: {id:'listvente',itemsPerPage: pageSize2, currentPage:page2, totalItems:listeOperation.length }; index as i;">
@@ -25,8 +26,10 @@
             <td>{{l.typeOperation.libelle}}</td>
             <td>{{l.societe.ice}}</td>
             <td>
-              <span (click)="popupComptableTraiteur(l)"><i class="fa fa-plus btn btn-outline-success"></i>Comptable Traiteur</span>
-              <span (click)="popupComptableValidateur(l)"><i class="fa fa-plus btn btn-outline-danger"></i>Comptable Validateur</span>
+              <span (click)="popupComptableTraiteur(l)"><i class="fa fa-plus btn btn-outline-success"></i></span>
+            </td>
+            <td>
+              <span (click)="popupComptableValidateur(l)"><i class="fa fa-plus btn btn-outline-success"></i></span>
             </td>
           </tr>
           </tbody>

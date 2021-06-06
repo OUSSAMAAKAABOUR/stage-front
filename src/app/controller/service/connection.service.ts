@@ -177,7 +177,7 @@ export class ConnectionService {
 
         console.log('bravoo login');
       }, error => {
-        console.log('erreur');
+        console.log('ereur');
       }
     );
 
