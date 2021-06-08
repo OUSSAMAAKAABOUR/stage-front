@@ -2,25 +2,29 @@ h2{
   font-size: 40px;
   font-weight: bolder;
   text-align: center;
-  color: #df0c1d;
+  color: #4950C3;
 
 
 }
 label{
   font-size: 25px;
   font-weight: normal;
-  color: #df0c1d;
+  color: #000000;
 
 
 }
 .card{
-  border-color: forestgreen;
+  border-color: #1976d2;
 
 }
 input{
-  border-color: forestgreen;
-}
-select{
-  border-color: forestgreen;
+  border-color: #44BCDD;
 }
 
+.card-header{
+  background-color: deepskyblue;
+
+}
+.card{
+  padding: 0px;
+}

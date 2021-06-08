@@ -3,3 +3,12 @@ h2{
   font-weight: bolder;
   text-align: center;
 }
+.card-header{
+  background-color: deepskyblue;
+
+}
+.card{
+  padding: 0px;
+  border-color: deepskyblue ;
+
+}

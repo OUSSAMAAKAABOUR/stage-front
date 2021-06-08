@@ -3,18 +3,24 @@
     <div class="card">
       <div class="card-header">
         <div class="row">
-          <div class="form-group col-md-4 ">
-            <label>DateMax</label>
-            <input type="date" class="form-control h-75" [(ngModel)]="facturevo.dmax" >
-          </div>
-          <div class="form-group col-md-4 ">
+          <div class="form-group col-md-2 ">
             <label >DateMin</label>
             <input type="date" class="form-control h-75" [(ngModel)]="facturevo.dmin"  >
           </div>
-          <div class=" col-md-4   ">
+          <div class="form-group col-md-2 ">
+
+            <label>DateMax</label>
+            <input type="date" class="form-control h-75" [(ngModel)]="facturevo.dmax" >
+          </div>
+
+          <div class=" col-md-2   ">
             <label class="h-25"></label>
 
-            <button h class="btn btn-outline-success btn-block h-50" (click)="Journal()">search</button>
+            <button h class="btn btn-outline-info btn-block h-50" (click)="Journal()">search</button>
+          </div>
+          <div class=" col-md-2   ">
+            <label class="h-25"></label>
+            <button class="btn btn-outline-download btn-block" [disabled]="!etat2" (click)="downloadAsPDF()"><i class="fa fa-download"></i> imprimer</button>
           </div>
         </div>
 
@@ -59,8 +65,8 @@
           <td></td>
           <td></td>
           <td></td>
-          <td > <div  id="totalCredit">{{Sommes.totalcredit}}DH</div></td>
-          <td > <div  id="totalDebit">{{Sommes.totaldebit}}DH</div></td>
+          <td > <div  id="totalCredit">{{Sommes.totalcredit}} DH</div></td>
+          <td > <div  id="totalDebit">{{Sommes.totaldebit}} DH</div></td>
 
 
           </tbody>
@@ -69,8 +75,6 @@
       </div>
       </div>
     <div class="card-footer">
-      <button class="btn btn-outline-success btn-block" *ngIf="etat2" (click)="downloadAsPDF()"><i class="fa fa-send"></i> imprimer
-      </button>
 
     </div>
 

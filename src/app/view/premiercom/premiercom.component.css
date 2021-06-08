@@ -54,7 +54,7 @@ html {
 
 /* special heading */
 .special {
-  color: #80b5eb;
+  color: #4950C3;
   font-size: 100px;
   font-weight: 800;
   margin: 0;
@@ -98,7 +98,7 @@ html {
 }
 
 .header .logo {
-  width: 70px;
+  width: 140px;
 }
 
 @media screen and (max-width: 500px) {
@@ -376,7 +376,7 @@ html {
   display: block;
   font-size: 40px;
   text-decoration: none;
-  color: #f6b31e;
+  color: #1c75bf;
   font-weight: 800;
 }
 

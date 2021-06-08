@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Facture} from '../model/facture.model';
 import {FactureVo} from '../model/facture-vo.model';
+import {ConnectionService} from './connection.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class FactureService {
   private _urlBase: String = 'http://localhost:8036/gestion-comptabilite/facture';
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private connectionService: ConnectionService) {
   }
 
 
@@ -50,8 +51,9 @@ export class FactureService {
     this.http.post<number>(this.urlBase + '/', this.facture).subscribe(
       data => {
         if (data > 0) {
-          this.facture = null;
+
           console.log('bravo');
+          this.facture = null;
 
         }
 
@@ -171,6 +173,7 @@ export class FactureService {
 
   public Journal() {
     if(this.facturevo.dmax != null && this.facturevo.dmin != null){
+      this.facturevo.reference = this.connectionService.connection3.societeLogin.ice;
 
     this.http.post<Array<Facture>>(this.urlBase + '/MultiTache', this.facturevo).subscribe(
       data => {
@@ -219,6 +222,8 @@ export class FactureService {
   }
 
   public Criteria() {
+    this.facturevo.refSocieteSource = this.connectionService.connection3.societeLogin.ice;
+
     this.http.get<Array<Facture>>(this.urlBase + '/societeSource/ice/' + this.facturevo.refSocieteSource + '/typeoperation/' + this.facturevo.typOperation).subscribe(
       data => {
         this._facturescriteria = data;

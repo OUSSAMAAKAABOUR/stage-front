@@ -7,7 +7,7 @@
 }
 
 .card {
-  margin-bottom: 20px;
+  margin-left: -100px;
   border: none
 }
 
@@ -150,7 +150,7 @@ body {
 
 .login-box {
   width:750px;
-  height:700px;
+  height:678px;
   margin-right: 50px;
   border-radius: 50px;
   max-width: 750px;
@@ -335,7 +335,8 @@ a {
 }
 
 .foot {
-  text-align: center
+  text-align: center;
+  color: #eeeeee;
 }
 
 .card {
@@ -347,12 +348,14 @@ a {
   color: #b3b3b3
 }
 .bik{
-  margin-top: 65px;
   width: 750px;
   border-radius: 50px;
   : auto;
-  margin-right: 500px;
+  margin-right: 400px;
 }
 .toll{
   color: #ffffff;
+}
+.logo {
+  width: 117px;
 }

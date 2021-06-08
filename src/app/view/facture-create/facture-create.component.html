@@ -16,41 +16,58 @@
     </div>
 
     <div class="form-group col-md-5 m-md-3">
-      <label>montantHorsTaxe</label>
+      <label>MontantHorsTaxe</label>
       <input type="number" class="form-control"  [(ngModel)]="facture.montantHorsTaxe">
     </div>
     <div class="form-group col-md-5 m-md-3">
       <label>DateOperation</label>
       <input type="date" class="form-control" [(ngModel)]="facture.dateOperation"  >
     </div>
-  <div class="form-group col-md-5 m-md-3 ">
-    <label>class comptable</label>
-    <input type="text" class="form-control" [(ngModel)]="facture.classComptable.numero"  >
-  </div>
-    <div class="form-group col-md-5 m-md-3">
-      <label>tva</label>
-      <input type="text" class="form-control" [(ngModel)]="facture.tva.ref" >
-    </div>
-    <div class="form-group col-md-5 m-md-3">
-      <label>Societe Source</label>
-      <input type="text" class="form-control" [(ngModel)]="facture.societeSource.ice" >
-    </div>
-    <div class="form-group col-md-5 m-md-3">
-      <label>Societe Distination</label>
-      <input type="text" class="form-control"[(ngModel)]="facture.societeDistination.ice"  >
-    </div>
   <div class="form-group col-md-5 m-md-3">
-    <label>Etat Facture</label>
-    <input type="text" class="form-control" [(ngModel)]="facture.etatFacture.code" >
+    <label>Societe Source</label>
+    <input type="text" class="form-control" [(ngModel)]="facture.societeSource.ice" >
   </div>
   <div class="form-group col-md-5 m-md-3">
-    <label>Etat Paiment</label>
-    <input type="text" class="form-control" [(ngModel)]="facture.etatPaiement.code" >
+    <label>Societe Distination</label>
+    <input type="text" class="form-control"[(ngModel)]="facture.societeDistination.ice"  >
   </div>
   <div class="form-group col-md-5 m-md-3 ">
-    <label>type d'Operation</label><br>
-    <select class="w-100 h-50 " [(ngModel)]="facture.typeOperation">
-      <option  >CRÉDIT</option>
+    <label>Class Comptable</label><br>
+    <select class="w-100 h-75 mt-md-2" [(ngModel)]="facture.classComptable.numero">
+      <option value="11"   > 11</option>
+      <option  value="15" >15</option>
+      <option  value="18" >18</option>
+    </select>
+  </div>
+    <div class="form-group col-md-5 m-md-3">
+      <label>TVA</label><br>
+      <select class="w-100 h-75 mt-md-2" [(ngModel)]="facture.tva.ref">
+        <option value="TVA1"  >3%</option>
+        <option value="TVA2" >5%</option>
+        <option value="TVA3" >7%</option>
+      </select>
+    </div>
+
+  <div class="form-group col-md-5 m-md-3">
+    <label>Etat Facture</label><br>
+    <select class="w-100 h-75 mt-md-2" [(ngModel)]="facture.etatFacture.code">
+      <option value="1"   > complet</option>
+      <option  value="2" >partiellement complet</option>
+      <option  value="3" >non complet</option>
+    </select>
+  </div>
+  <div class="form-group col-md-5 m-md-3">
+    <label>Etat paiement</label><br>
+    <select class="w-100 h-75 mt-md-2" [(ngModel)]="facture.etatPaiement.code">
+      <option value="1"   > payée</option>
+      <option  value="2" >partiellement payée</option>
+      <option  value="3" >non payée</option>
+    </select>
+  </div>
+  <div class=" form-group col-md-5 m-md-3  ">
+    <label>Type d'operation</label><br>
+    <select class="w-100 h-75 mt-md-2 " [(ngModel)]="facture.typeOperation">
+      <option   >CRÉDIT</option>
       <option  >DÉBIT</option>
     </select>
   </div>
@@ -61,7 +78,7 @@
   </div>
 
   <div class="card-footer">
-    <button class="btn btn-outline-success btn-block"  (click)="save()"  ><i class="fa fa-send"></i>save</button>
+    <button class=" btn btn-outline-info btn-block"  (click)="save()"  ><i class="fa fa-send"></i>save</button>
 
   </div>
 

@@ -3,30 +3,35 @@
     <div class="card">
       <div class="card-header">
         <div class="row">
-          <div class="form-group col-md-4">
-            <label>iceSource</label>
-            <input type="text" class="form-control" [(ngModel)]="facturevo.refSocieteSource" >
-          </div>
-          <div class="form-group col-md-4 ">
-            <label>type d'Operation</label><br>
-            <select class="w-100 h-50 " [(ngModel)]="facturevo.typOperation">
-              <option class="container-fluid" >CRÉDIT</option>
-              <option class="container-fluid" >DÉBIT</option>
+          <div class="form-group col-md-2 ">
+
+            <label>Type d'operation</label><br>
+            <select class="w-100 h-75 mt-md-2 " [(ngModel)]="facturevo.typOperation">
+              <option   >CRÉDIT</option>
+              <option  >DÉBIT</option>
+              <option  >All</option>
             </select>
           </div>
-          <div class=" col-md-4">
-            <label class="h-25"></label>
-            <button class="btn btn-outline-success btn-block"  (click)="Criteria()"  >search</button>
+
+          <div class=" col-md-2   ">
+
+            <label></label><br>
+            <button  class="btn btn-outline-info btn-block mt-3 h-50" (click)="Criteria()">search</button>
+          </div>
+          <div class=" col-md-2   ">
+            <label ></label>
+            <button class="btn btn-outline-download btn-block mt-3 h-50"  (click)="downloadAsPDF()"><i class="fa fa-download"></i> imprimer</button>
           </div>
         </div>
+
 
       </div>
     </div>
 
   </div>
   <div class="card-body">
-    <div class="card">
-      <div class="card-header">
+    <div class="card" id="pdfTable" #pdfTable>
+      <div class="card-header" id="titre" >
         <h2>Les statistiques</h2>
       </div>
       <div class="card-body">
@@ -56,10 +61,10 @@
             <td>{{c.societeSource.ice}}</td>
             <td>{{c.societeDistination.ice}}</td>
             <td>{{c.libelle}}</td>
-            <td>{{c.montantHorsTaxe}}<i>$</i></td>
+            <td>{{c.montantHorsTaxe}}<i>DH</i></td>
             <td>{{c.tva.valeur}}<i>%</i></td>
-            <td>{{c.montantTVA}}<i>$</i></td>
-            <td>{{c.montantTTC}}<i>$</i></td>
+            <td>{{c.montantTVA}}<i>DH</i></td>
+            <td>{{c.montantTTC}}<i>H</i></td>
             <td>{{c.annee}}</td>
             <td>{{c.mois}}</td>
             <td>{{c.trim}}</td>

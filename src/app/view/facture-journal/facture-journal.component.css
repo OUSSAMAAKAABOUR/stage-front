@@ -1,5 +1,11 @@
 #titre{
-  background-color: #f31427;
+  background-color: deepskyblue;
+
+}
+.card{
+  padding: 0px;
+  border-color: deepskyblue ;
+
 }
 h2{
   font-size: 35px;
