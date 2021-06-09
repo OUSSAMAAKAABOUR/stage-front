@@ -43,7 +43,7 @@ import { PremiercomComponent } from './view/premiercom/premiercom.component';
 import { PaiementListComponent } from './view/paiement-list/paiement-list.component';
 
 const appRoutes: Routes = [
-  {path: '' , component: LogincompComponent},
+  {path: '' , component: PremiercomComponent},
   {path: 'login' , component: LogincompComponent},
   {path: 'secondcomp' , component: SecondcompComponent},
   {

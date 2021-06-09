@@ -8,15 +8,19 @@ import {CardService} from './card.service';
 import {Connection} from '../model/connection.model';
 import {Societe} from '../model/societe.model';
 import {ConnectionService} from './connection.service';
+import {Test} from '../model/test.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OperationsocieteService {
   private _operationSociete: OperationSociete;
+  private _operationSociete1: OperationSociete;
+  private _operationSocietes: Array<OperationSociete>;
+  private _test:Test;
   private _con: Connection;
   private _societe: Societe;
-  private _urlBase: String = 'http://localhost:8036/gestion-comptabilite/operationSociete/';
+  private _urlBase: String = 'http://localhost:8036/gestion-comptabilite/operationSociete';
   private _urlBaseEtap: String = 'http://localhost:8036/gestion-comptabilite/etape/findByTypeOperation/libelle/';
   private _urlBasesociete: String = 'http://localhost:8036/gestion-comptabilite/societe';
   private _urlBasecon: String = 'http://localhost:8036/gestion-comptabilite/connection';
@@ -41,6 +45,40 @@ export class OperationsocieteService {
     this._operationSociete = value;
   }
 
+
+  get operationSociete1(): OperationSociete {
+    if(this._operationSociete1 == null){
+      this._operationSociete1 = new OperationSociete();
+    }
+    return this._operationSociete1;
+  }
+
+  set operationSociete1(value: OperationSociete) {
+    this._operationSociete1 = value;
+  }
+
+  get test(): Test {
+    if(this._test == null){
+      this._test = new Test();
+
+    }
+    return this._test;
+  }
+
+  set test(value: Test) {
+    this._test = value;
+  }
+
+  get operationSocietes(): Array<OperationSociete> {
+    if (this._operationSocietes == null){
+      this._operationSocietes = new Array<OperationSociete>();
+    }
+    return this._operationSocietes;
+  }
+
+  set operationSocietes(value: Array<OperationSociete>) {
+    this._operationSocietes = value;
+  }
 
   get urlBasecon(): String {
     return this._urlBasecon;
@@ -165,6 +203,21 @@ export class OperationsocieteService {
     );
   }
 
+  public findByRef() {
+    this.http.get<OperationSociete>(this.urlBase + '/ref/' + this.test.t5).subscribe(
+      data => {
+        this.operationSocietes = null;
+        this.operationSocietes.push(data);
+        console.log('bravo koka');
+        console.log(data);
+
+
+      }, error => {
+        console.log('erreur trouver les etapes');
+      }
+    );
+  }
+
   public retour() {
     this.cardService.etat = true;
 
@@ -207,6 +260,18 @@ export class OperationsocieteService {
         if (data > 0) {
           console.log('bravo update');
         }
+
+      }, error => {
+        console.log('erreur');
+      }
+    );
+
+  }
+  public findAll() {
+    this.http.get<Array<OperationSociete>>(this.urlBase + '/').subscribe(
+      data => {
+        this._operationSocietes = data;
+        console.log('bravo');
 
       }, error => {
         console.log('erreur');

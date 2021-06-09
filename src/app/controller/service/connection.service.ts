@@ -139,6 +139,7 @@ export class ConnectionService {
     this.http.get<number>(this.urlBase + '/username/' + this.teste.t3 + '/password/' + this.teste.t4).subscribe(
       data => {
         if (this.teste.t3 != null && this.teste.t4 != null) {
+          this.getLogin2(); /*pour tester le compt en ligne */
           if (data == -1) {
             this.router.navigateByUrl('');
             alert('ce compt n\'existe pas vous devez verifier le username ou password');
@@ -218,6 +219,22 @@ export class ConnectionService {
         console.log('bravoo login');
       }, error => {
         console.log('erreur');
+      }
+    );
+
+
+  }
+
+  public getLogin2() {
+    this.http.get<Connection>(this.urlBase + '/usernam/' + this.teste.t3 + '/password/' + this.teste.t4).subscribe(
+      data => {
+        if (data) {
+          this.connection3 = data;
+        }
+
+        console.log('bravoo login2');
+      }, error => {
+        console.log('ereur');
       }
     );
 

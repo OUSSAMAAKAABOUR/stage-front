@@ -108,5 +108,6 @@ body {
 }
 
 .tsts {
-  background: linear-gradient(to right, #75eaf9, #2637FF);
+  margin-top: 5px;
+  margin-left: 700px;
 }

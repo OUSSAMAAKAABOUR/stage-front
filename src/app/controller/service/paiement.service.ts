@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {Paiement} from '../model/paiement.model';
 import {HttpClient} from '@angular/common/http';
 import {Facture} from '../model/facture.model';
+import {Etape} from '../model/etape.model';
+import {OperationSociete} from '../model/operation-societe.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +12,7 @@ export class PaiementService {
   private _paiement: Paiement;
   private _urlBase: String = 'http://localhost:8036/gestion-comptabilite/paiement/';
   private _paiements: Array<Paiement>;
+  private _paiementes: Array<Paiement>;
 
   constructor(private http: HttpClient) {
   }
@@ -31,6 +34,18 @@ export class PaiementService {
       this._paiements = new Array<Paiement>();
     }
     return this._paiements;
+  }
+
+
+  get paiementes(): Array<Paiement> {
+    if (this._paiementes == null) {
+      this._paiementes = new Array<Paiement>();
+    }
+    return this._paiementes;
+  }
+
+  set paiementes(value: Array<Paiement>) {
+    this._paiementes = value;
   }
 
   set paiements(value: Array<Paiement>) {
@@ -98,7 +113,8 @@ export class PaiementService {
     }
 
   }
-  public clonePaiement(paiement:Paiement){
+
+  public clonePaiement(paiement: Paiement) {
     let myClone = new Paiement();
     myClone.id = paiement.id;
     myClone.ref = paiement.ref;
@@ -107,5 +123,18 @@ export class PaiementService {
     myClone.description = paiement.description;
     myClone.operationSociete = paiement.operationSociete;
     return myClone;
+  }
+
+  public trouverPaiement(operat: OperationSociete) {
+    this.http.get<Array<Paiement>>(this.urlBase + 'OperationSocieteRef/' + operat.ref).subscribe(
+      data => {
+        this.paiementes = data;
+        console.log('bravo trouver les paiements');
+        console.log(data);
+
+      }, error => {
+        console.log('erreur trouver les etapes');
+      }
+    );
   }
 }
