@@ -14,7 +14,6 @@ export class PaiementSaveComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.paiementService.findAll();
   }
 
   public save() {

@@ -36,6 +36,7 @@ import { PopupValidateOperationComponent } from './view/popup-validate-operation
 import { AffecterComptableComponent } from './view/affecter-comptable/affecter-comptable.component';
 import { ChoisirComptableComponent } from './view/choisir-comptable/choisir-comptable.component';
 import { PremiercomComponent } from './view/premiercom/premiercom.component';
+import { PaiementListComponent } from './view/paiement-list/paiement-list.component';
 
 const appRoutes: Routes = [
   {path: '' , component: PremiercomComponent},
@@ -69,7 +70,8 @@ const appRoutes: Routes = [
       {path: 'createoperation', component: CardTypeOperationComponent},
       {path: 'createtypeoperation', component: TypeOperationSaveComponent},
       {path: 'lISTtypeoperation', component: TypeOperationListComponent},
-      {path: 'paiment', component: PaiementSaveComponent},
+      {path: 'paiment-create', component: PaiementSaveComponent},
+      {path: 'paiment-list', component: PaiementListComponent},
 
     ]
   },
@@ -107,6 +109,7 @@ const appRoutes: Routes = [
     AffecterComptableComponent,
     ChoisirComptableComponent,
     PremiercomComponent,
+    PaiementListComponent,
 
 
 
