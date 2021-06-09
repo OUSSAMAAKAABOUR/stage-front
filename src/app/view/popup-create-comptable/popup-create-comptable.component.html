@@ -1,4 +1,4 @@
-<div class="card1">
+<div class="card1" xmlns="http://www.w3.org/1999/html">
   <h2 mat-dialog-title >Création d'un Comptable:</h2>
   <mat-dialog-content>
     <div class="card border-success text-success">
@@ -19,6 +19,15 @@
         </div>
 
       </div>
+    <div class="card border-success text-success" *ngIf="details">
+      <div class="card-header">Details du Compte créer</div>
+      <div class="card-body">
+        <p>
+          Username: {{comptecreer.username}}      <br>
+          Password: {{comptecreer.password}}
+        </p>
+      </div>
+    </div>
 
     <div class="card-footer">
       <button class="btn btn-success col-md-6 offset-3" (click)="savecomptable()"><i class="fa fa-send"></i>save</button>

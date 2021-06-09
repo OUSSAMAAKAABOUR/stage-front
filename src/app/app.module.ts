@@ -35,11 +35,15 @@ import { PopupCreateComptableComponent } from './view/popup-create-comptable/pop
 import { PopupValidateOperationComponent } from './view/popup-validate-operation/popup-validate-operation.component';
 import { AffecterComptableComponent } from './view/affecter-comptable/affecter-comptable.component';
 import { ChoisirComptableComponent } from './view/choisir-comptable/choisir-comptable.component';
+import { PopupValidateCompteComponent } from './view/popup-validate-compte/popup-validate-compte.component';
+import { ComptableDeclarationTvaSaveComponent } from './view/comptable-declaration-tva-save/comptable-declaration-tva-save.component';
+import { ComptableDeclTvaCriteriaComponent } from './view/comptable-decl-tva-criteria/comptable-decl-tva-criteria.component';
+import { FirstcompComptableComponent } from './view/firstcomp-comptable/firstcomp-comptable.component';
 import { PremiercomComponent } from './view/premiercom/premiercom.component';
 import { PaiementListComponent } from './view/paiement-list/paiement-list.component';
 
 const appRoutes: Routes = [
-  {path: '' , component: PremiercomComponent},
+  {path: '' , component: LogincompComponent},
   {path: 'login' , component: LogincompComponent},
   {path: 'secondcomp' , component: SecondcompComponent},
   {
@@ -108,8 +112,13 @@ const appRoutes: Routes = [
     PopupValidateOperationComponent,
     AffecterComptableComponent,
     ChoisirComptableComponent,
+    PopupValidateCompteComponent,
+    ComptableDeclarationTvaSaveComponent,
+    ComptableDeclTvaCriteriaComponent,
+    FirstcompComptableComponent,
     PremiercomComponent,
     PaiementListComponent,
+
 
 
 

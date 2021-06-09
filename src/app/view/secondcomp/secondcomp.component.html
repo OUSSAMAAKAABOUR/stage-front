@@ -1,47 +1,9 @@
-<body>
+<button type="button" class="btn btn-success" (click)="opendialog2()"><i class="fa fa-plus"></i>Créer Comptable</button>
+<button type="button" class="btn btn-primary offset-4 " (click)="findOperationWhereComptablenull()" routerLink="/affectercomptable">Affecter Comptables</button>
+<button type="button" class="btn btn-primary offset-1" (click)="opendialog3()">Voir Demandes de création des comptes </button>
+<button type="button" class="btn btn-danger btn-circle btn-sm offset-11" (click)="openDialog()"><i class="fa fa-bell fa-3x" aria-hidden="true"></i></button>
 
-<div class="tsts"><a  href="#home"><img src="https://i.ibb.co/mJJ4qJS/zs-Logo1-removebg-preview.png" class="logo" alt="logos"></a>
-</div>
-<button type="button" class="btn btn-danger btn-circle btn-sm mt-md-5 offset-md-11 " ><i class="fa fa-bell fa-3x" aria-hidden="true"></i>
-</button>
 <div class="card-deck container big" >
-  <div class="row">
-    <div class="card col-md-4 card__front">
-
-      <div class="card-body" (click)="opendialog2()" >
-        <h1 class="card-title text-center">Creation des comptables</h1>
-        <p class="card-text text-center"></p>
-      </div>
-    </div>
-
-
-
-
-    <div class="card col-md-4" >
-
-      <div class="card-body" (click)="findOperationWhereComptablenull()" routerLink="/affectercomptable">
-        <h1 class="card-title text-center">Affectation des comptables</h1>
-        <p class="card-text text-center"></p>
-      </div>
-      <div class="card-footer text-center">
-        <h1></h1>
-      </div>
-    </div>
-
-
-
-
-    <div class="card col-md-4" >
-
-      <div class="card-body" (click)="openDialog()" >
-        <h1 class="card-title text-center">Gestion des demades d'operations</h1>
-        <p class="card-text text-center"> </p>
-      </div>
-      <div class="card-footer text-center">
-        <h1></h1>
-      </div>
-    </div>
-  </div>
   <div class="row">
     <div class="card col-md-4 card__front">
 
@@ -50,7 +12,6 @@
         <p class="card-text text-center"></p>
       </div>
     </div>
-
 
 
 
@@ -82,4 +43,3 @@
 </div>
 
 
-</body>

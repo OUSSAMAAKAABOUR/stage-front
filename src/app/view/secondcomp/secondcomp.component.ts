@@ -5,6 +5,8 @@ import {PopupValidateOperationComponent} from "../popup-validate-operation/popup
 import {OperationSociete} from "../../controller/model/operation-societe.model";
 import {PopupCreateComptableComponent} from "../popup-create-comptable/popup-create-comptable.component";
 import {AffecterComptableService} from "../../controller/service/affecter-comptable.service";
+import {ValidateCompteService} from "../../controller/service/validate-compte.service";
+import {PopupValidateCompteComponent} from "../popup-validate-compte/popup-validate-compte.component";
 
 @Component({
   selector: 'app-secondcomp',
@@ -13,7 +15,7 @@ import {AffecterComptableService} from "../../controller/service/affecter-compta
 })
 export class SecondcompComponent implements OnInit {
 
-  constructor(private affecterComptableServoce:AffecterComptableService,private testserviceService: TestserviceService,public dialog: MatDialog) { }
+  constructor(private affecterComptableServoce:AffecterComptableService,private testserviceService: TestserviceService,public dialog: MatDialog,private validateCompteService: ValidateCompteService) { }
 
   ngOnInit(): void {
   }
@@ -26,6 +28,10 @@ export class SecondcompComponent implements OnInit {
   }
   opendialog2(){
     this.dialog.open(PopupCreateComptableComponent);
+  }
+  opendialog3(){
+    this.findcompte();
+    this.dialog.open(PopupValidateCompteComponent);
   }
   public findOperationWhereComptablenull(){
     this.affecterComptableServoce.findOperationWhereComptablenull();
@@ -50,5 +56,8 @@ export class SecondcompComponent implements OnInit {
   }
   public methode2second1declarationchoice(){
     this.testserviceService.methode2second1declarationchoice();
+  }
+  public findcompte(){
+    this.validateCompteService.findcompte();
   }
 }

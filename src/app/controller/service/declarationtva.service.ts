@@ -142,6 +142,21 @@ export class DeclarationtvaService {
       }
     );
   }
+  public savepourComptable(){
+    //3mer comptable code 9bel matsift lobjet ytsava
+    this.http.post<number>(this.UrlBase + this.Urldeclatva + '/savepourcomptable', this.decltva).subscribe(
+      data => {
+        if (data > 0){
+          console.log('bravo savepourComptable declaration tva');
+          alert('Declaration tva bien enregistrée');
+          this.decltva = null;
+          this.declarationtvavo2 = null;
+        }
+      }, error => {
+        console.log('erreur savepourComptable declaration tva');
+      }
+    );
+  }
   public delete1(index: number,facture: Facture) {
     this.http.delete(this.UrlBase + this.Urlfacture + '/ref/' + facture.ref).subscribe(
       data => {
@@ -171,6 +186,19 @@ export class DeclarationtvaService {
         }
       }, error => {
         console.log('erreur savebrouillon declaration tva');
+      }
+    );
+  }
+  public savebrouillonpourComptable(){
+    //3mer comptable code flobjet 9bel matsifto
+    this.http.post<number>(this.UrlBase + this.Urldeclatva + '/savebrouillonpourcomptable', this.decltva).subscribe(
+      data => {
+        if (data > 0){
+          console.log('bravo save brouillonpourComptable declaration tva');
+          alert('Declaration tva brouillon bien enregistrée');
+        }
+      }, error => {
+        console.log('erreur savebrouillonpourComptable declaration tva');
       }
     );
   }
