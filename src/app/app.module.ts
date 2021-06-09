@@ -36,6 +36,8 @@ import { PopupValidateOperationComponent } from './view/popup-validate-operation
 import { AffecterComptableComponent } from './view/affecter-comptable/affecter-comptable.component';
 import { ChoisirComptableComponent } from './view/choisir-comptable/choisir-comptable.component';
 import { PopupValidateCompteComponent } from './view/popup-validate-compte/popup-validate-compte.component';
+import { ComptableDeclarationTvaSaveComponent } from './view/comptable-declaration-tva-save/comptable-declaration-tva-save.component';
+import { ComptableDeclTvaCriteriaComponent } from './view/comptable-decl-tva-criteria/comptable-decl-tva-criteria.component';
 
 const appRoutes: Routes = [
   {path: '' , component: LogincompComponent},
@@ -105,7 +107,9 @@ const appRoutes: Routes = [
     PopupValidateOperationComponent,
     AffecterComptableComponent,
     ChoisirComptableComponent,
-    PopupValidateCompteComponent
+    PopupValidateCompteComponent,
+    ComptableDeclarationTvaSaveComponent,
+    ComptableDeclTvaCriteriaComponent
 
 
 

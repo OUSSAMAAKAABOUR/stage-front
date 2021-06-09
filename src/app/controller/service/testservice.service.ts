@@ -5,6 +5,7 @@ import {HttpClient} from "@angular/common/http";
 import {OperationSociete} from "../model/operation-societe.model";
 import {ConnectionService} from "./connection.service";
 import {Comptable} from "../model/comptable.model";
+import {Connection} from "../model/connection.model";
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +16,41 @@ export class TestserviceService {
   private _w = false;
   private _k = false;
   private _l = false;
+  private _details = false;
+  private _comptecreer: Connection;
   private _UrlBaseOperationSociete = 'http://localhost:8036/gestion-comptabilite/operationSociete';
   private _UrlBaseComptable = 'http://localhost:8036/gestion-comptabilite/comptable';
+  private _UrlBaseConnection = 'http://localhost:8036/gestion-comptabilite/connection';
   private _listeOperation : Array<OperationSociete>;
   private _comptable: Comptable;
   constructor(private router: Router,private http: HttpClient,private connectionService: ConnectionService) { }
+
+  get UrlBaseConnection(): string {
+    return this._UrlBaseConnection;
+  }
+
+  set UrlBaseConnection(value: string) {
+    this._UrlBaseConnection = value;
+  }
+
+  get comptecreer(): Connection {
+    if (this._comptecreer == null){
+      this._comptecreer = new Connection();
+    }
+    return this._comptecreer;
+  }
+
+  set comptecreer(value: Connection) {
+    this._comptecreer = value;
+  }
+
+  get details(): boolean {
+    return this._details;
+  }
+
+  set details(value: boolean) {
+    this._details = value;
+  }
 
   get comptable(): Comptable {
     if (this._comptable == null){
@@ -131,12 +162,24 @@ export class TestserviceService {
       data =>{
         if (data > 0 ){
           alert('Comptable créer avec succées');
+          this.findcomptecreer();
           this.comptable = null;
+          this.details = true;
           console.log('bravo save comptable');
         }
         else console.log('data = '+ data + 'un des conditions dans le backend n est pas respecter');
       }, error => {
         console.log('erreur save comptable');
+      }
+    );
+  }
+  public findcomptecreer(){
+    this.http.get<Connection>(this.UrlBaseConnection + '/trvcomptecomptable/code/' + this.comptable.code).subscribe(
+      data =>{
+        this.comptecreer = data;
+        console.log('bravo trouver compte creer');
+      }, error => {
+        console.log('erreur trouver compte creer');
       }
     );
   }

@@ -87,6 +87,17 @@ export class DeclatvacriteriaService {
       }
     );
   }
+  public trouverdeclarationtvaPourComptable(){
+    //3mer refcomptable flobjet declatvacriteria 9bel matsifto
+    this.http.post<Array<DeclarationTva>>(this.UrlBaseDeclatva + '/criteriapourcomptable',this.declatvacriteria).subscribe(
+      data =>{
+        this.listdeclarationtva = data;
+        console.log('bravo trouver list declaration tva pour Comptable');
+      },error => {
+        console.log('erreur trouver list declaration tva pour Comptable');
+      }
+    );
+  }
   public trvdetails(declarationtva: DeclarationTva){
     this.declatvaedit = declarationtva;
     this.test = 1;
