@@ -1,0 +1,45 @@
+<div>
+  <button class="btn btn-outline-dark col-md-2 offset-5 mb-3" routerLink="/newOperation2"><i class="fa fa-send"></i>creation
+    d'une operation</button>
+
+
+
+  <div class="card container ">
+    <div class="card-header  ">
+      <h2>liste des operation du societe <i>{{connection2.societeLogin.ice}}</i></h2>
+      <div class="form-group ">
+        <div class="card-body ">
+          <table class="table table-hover table-striped">
+            <thead>
+            <th>ref</th>
+            <th>libelle</th>
+            <th>fraix C</th>
+            <th>fraix fix</th>
+            <th>date</th>
+            <th>type operation</th>
+            <th>COMPTABLE Tr</th>
+            <th>COMPTABLE V</th>
+
+            </thead>
+            <tbody>
+            <tr *ngFor="let c of operationsse ">
+              <td>{{c.ref}}</td>
+              <td>{{c.libelle}}</td>
+              <td>{{c.fraixComptable}}DH</td>
+              <td>{{c.fraixFix}}DH</td>
+              <td>{{c.dateOperationSociete}}</td>
+              <td>{{c.typeOperation.libelle}}</td>
+              <td>{{c.comptableValidateur}}</td>
+              <td>{{c.comptableTaiteur}}</td>
+            </tr>
+            </tbody>
+
+          </table>
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

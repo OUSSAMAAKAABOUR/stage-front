@@ -6,6 +6,7 @@ import {Facture} from '../model/facture.model';
 import {Router} from '@angular/router';
 import {OperationsocieteService} from './operationsociete.service';
 import {OperationSociete} from '../model/operation-societe.model';
+import {FirstcompComptableeService} from "./firstcomp-comptablee.service";
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,7 @@ export class ConnectionService {
 
 
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router,private firstcompComptableService: FirstcompComptableeService) {
   }
 
   get connection(): Connection {
@@ -175,6 +176,7 @@ export class ConnectionService {
           this.connection3 = data;
           this.findbyIce();
           this.connection2 = this.cloneCommande(this.connection3);
+          this.firstcompComptableService.findoperationforcomptable();
         }
 
         console.log('bravoo login');

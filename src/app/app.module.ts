@@ -38,6 +38,7 @@ import { ChoisirComptableComponent } from './view/choisir-comptable/choisir-comp
 import { PopupValidateCompteComponent } from './view/popup-validate-compte/popup-validate-compte.component';
 import { ComptableDeclarationTvaSaveComponent } from './view/comptable-declaration-tva-save/comptable-declaration-tva-save.component';
 import { ComptableDeclTvaCriteriaComponent } from './view/comptable-decl-tva-criteria/comptable-decl-tva-criteria.component';
+import { FirstcompComptableComponent } from './view/firstcomp-comptable/firstcomp-comptable.component';
 
 const appRoutes: Routes = [
   {path: '' , component: LogincompComponent},
@@ -109,7 +110,8 @@ const appRoutes: Routes = [
     ChoisirComptableComponent,
     PopupValidateCompteComponent,
     ComptableDeclarationTvaSaveComponent,
-    ComptableDeclTvaCriteriaComponent
+    ComptableDeclTvaCriteriaComponent,
+    FirstcompComptableComponent
 
 
 
