@@ -17,7 +17,7 @@ export class ConnectionService {
   private _teste: Test;
   private _urlBase: String = 'http://localhost:8036/gestion-comptabilite/connection';
   private _lien: String;
-  private _etat: boolean;
+  private _etat: boolean ;
   private _operationsse: Array<OperationSociete>;
   private _urlBaseO: String = 'http://localhost:8036/gestion-comptabilite/operationSociete/';
 
@@ -139,7 +139,6 @@ export class ConnectionService {
     this.http.get<number>(this.urlBase + '/username/' + this.teste.t3 + '/password/' + this.teste.t4).subscribe(
       data => {
         if (this.teste.t3 != null && this.teste.t4 != null) {
-          this.getLogin2(); /*pour tester le compt en ligne */
           if (data == -1) {
             this.router.navigateByUrl('');
             alert('ce compt n\'existe pas vous devez verifier le username ou password');
@@ -172,8 +171,9 @@ export class ConnectionService {
       data => {
         if (data) {
           this.connection3 = data;
-          this.findbyIce();
-          this.connection2 = this.cloneCommande(this.connection3);
+          if (data.societeLogin != null){
+          this.findbyIce();}
+         /* this.connection2 = this.cloneCommande(this.connection3); */
         }
 
         console.log('bravoo login');
@@ -186,6 +186,7 @@ export class ConnectionService {
   }
 
   public findbyIce() {
+    if (this.connection3.societeLogin != null){
     this.http.get<Array<OperationSociete>>(this.urlBaseO + 'ice/' + this.connection3.societeLogin.ice).subscribe(
       data => {
         this.operationsse = data;
@@ -195,7 +196,7 @@ export class ConnectionService {
         console.log('erreur trouver les operation');
       }
     );
-  }
+  }}
 
   private cloneCommande(conni: Connection) {
     const myClone = new Connection();
@@ -211,12 +212,13 @@ export class ConnectionService {
   public select() {
     this.http.get<number>(this.urlBase + '/usernome/' + this.teste.t3 + '/password/' + this.teste.t4).subscribe(
       data => {
-        if (data == 1) {
+        if (data == -1) {
           this.etat = true;
         } else {
           this.etat = false;
         }
-        console.log('bravoo login');
+        console.log('bravoo SELECT');
+        console.log(this.etat);
       }, error => {
         console.log('erreur');
       }

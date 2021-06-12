@@ -17,7 +17,7 @@ export class OperationsocieteService {
   private _operationSociete: OperationSociete;
   private _operationSociete1: OperationSociete;
   private _operationSocietes: Array<OperationSociete>;
-  private _test:Test;
+  private _test: Test;
   private _con: Connection;
   private _societe: Societe;
   private _urlBase: String = 'http://localhost:8036/gestion-comptabilite/operationSociete';
@@ -30,7 +30,7 @@ export class OperationsocieteService {
   private _etat1: boolean = false;
 
 
-  constructor(private http: HttpClient, private cardService: CardService,private connectionService: ConnectionService) {
+  constructor(private http: HttpClient, private cardService: CardService, private connectionService: ConnectionService) {
   }
 
   get operationSociete(): OperationSociete {
@@ -47,7 +47,7 @@ export class OperationsocieteService {
 
 
   get operationSociete1(): OperationSociete {
-    if(this._operationSociete1 == null){
+    if (this._operationSociete1 == null) {
       this._operationSociete1 = new OperationSociete();
     }
     return this._operationSociete1;
@@ -58,7 +58,7 @@ export class OperationsocieteService {
   }
 
   get test(): Test {
-    if(this._test == null){
+    if (this._test == null) {
       this._test = new Test();
 
     }
@@ -70,7 +70,7 @@ export class OperationsocieteService {
   }
 
   get operationSocietes(): Array<OperationSociete> {
-    if (this._operationSocietes == null){
+    if (this._operationSocietes == null) {
       this._operationSocietes = new Array<OperationSociete>();
     }
     return this._operationSocietes;
@@ -172,11 +172,11 @@ export class OperationsocieteService {
     this.http.post<number>(this.urlBase + '/', this.operationSociete).subscribe(
       data => {
         if (data > 0) {
-          console.log('bravo');
+          console.log('bravo Operation');
           alert('l\'operation est bien créer');
           this.cardService.etat = true;
           this.operationSociete = null;
-          console.log('bravo');
+
 
         }
 
@@ -217,6 +217,20 @@ export class OperationsocieteService {
       }
     );
   }
+  public findByRefsociete() {
+    this.http.get<OperationSociete>(this.urlBase + '/ref/' + this.test.t5).subscribe(
+      data => {
+        this.operationSocietes = null;
+        this.operationSocietes.push(data);
+        console.log('bravo koka');
+        console.log(data);
+
+
+      }, error => {
+        console.log('erreur trouver les etapes');
+      }
+    );
+  }
 
   public retour() {
     this.cardService.etat = true;
@@ -235,19 +249,19 @@ export class OperationsocieteService {
       }
     );
   }
+
   public save2() {
 
     this.http.post<number>(this._urlBasesociete + '/', this.societe).subscribe(
       data => {
         if (data > 0) {
-          this.updateSociete();
-          console.log('bravo');
+          console.log('bravo SOCIETE CREATE');
           alert('la societe est bien créer');
-
+          this.updateSociete();
         }
 
       }, error => {
-        console.log('erreur');
+        console.log('erreur creation Societe');
       }
     );
 
@@ -255,18 +269,20 @@ export class OperationsocieteService {
   }
 
   public updateSociete() {
-    this.http.put(this.urlBasecon + '/ref/' + this.societe.ice, this.connectionService.connection2).subscribe(
+    this.http.put(this.urlBasecon + '/ref/' + this.societe.ice, this.connectionService.connection3).subscribe(
       data => {
         if (data > 0) {
           console.log('bravo update');
+   this.connectionService.etat = false;
         }
 
       }, error => {
-        console.log('erreur');
+        console.log('erreur update');
       }
     );
 
   }
+
   public findAll() {
     this.http.get<Array<OperationSociete>>(this.urlBase + '/').subscribe(
       data => {

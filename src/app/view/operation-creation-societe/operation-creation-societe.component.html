@@ -1,0 +1,83 @@
+<div class="  card  ">
+  <div class="card-header">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+
+          <div class="form-group col-md-2 ">
+
+            <label>Reference</label>
+            <input type="text" class="form-control h-75" [(ngModel)]="test.t5">
+          </div>
+
+          <div class=" col-md-2   ">
+            <label class="h-25"></label>
+
+            <button h class="btn btn-outline-info btn-block h-50" (click)="findByRef()">search</button>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-body">
+    <div class="card-header">
+      <h2>liste des operations Societe</h2>
+    </div>
+    <table class="table table-hover table-striped">
+      <thead>
+      <th>reference</th>
+      <th>Libelle</th>
+      <th>Ice</th>
+      <th>Fraix Fix</th>
+      <th>Fraix comptable</th>
+      <th>Action</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let c of operationsse ; index as i ">
+        <td>{{c.ref}}</td>
+        <td>{{c.libelle}}</td>
+        <td>{{c.societe.ice}}</td>
+        <td>{{c.fraixFix}} DH</td>
+        <td>{{c.fraixComptable}} DH</td>
+        <td><span (click)="triggerModal(modalData)" (click)="trouverPaiement(c)"><i
+          class="fa fa-eye btn btn-outline-info"></i></span>
+        </td>
+      </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>
+
+<ng-template #modalData let-modal>
+  <h3>liste des paiement de l'operation </h3>
+
+  <table class="table table-hover table-striped">
+
+    <thead>
+    <th>reference</th>
+    <th>Date</th>
+    <th>Montant</th>
+    <th>Operation</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let c of paiementes ; index as i ">
+      <td>{{c.ref}}</td>
+      <td>{{c.datePaiement}}</td>
+      <td>{{c.montant}} DH</td>
+      <td>{{c.operationSociete.ref}}</td>
+
+    </tr>
+    </tbody>
+
+  </table>
+
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
+  </div>
+</ng-template>

@@ -1,26 +1,111 @@
+
+nav ul{
+  margin: 0px;
+  padding: 0px;
+}
+ul li {
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  display: inline-block;
+  text-align: center;
+  line-height: 40px;
+  float: left;
+}
+ul li ul li{
+  display: none;
+}
 h2{
   font-size: 40px;
   font-weight: bolder;
   text-align: center;
-  color: #df0c1d;
+  color: #4950C3;
 
 
 }
-label{
-  font-size: 25px;
-  font-weight: normal;
-  color: #df0c1d;
 
-
+.bigbog{
+  width: 750px;
+  background-color: #44BCDD;
+  margin-left: 420px;
+  margin-bottom: 10px;
+  margin-top:  10px;
+  border-radius: 10px;
 }
 .card{
-  border-color: forestgreen;
+  padding: 0px;
+}
+nav  div  ul::after{
+  content: "";
+  clear: both;
+  display: block;
 
 }
-input{
-  border-color: forestgreen;
+ul li:hover ul li{
+  display: block;
+  background-color: #66ccff;
 }
-select{
-  border-color: forestgreen;
+ul li  ul li:hover {
+  background-color: #FFF;
 }
+nav li:hover {
+  background-color: #ff8080;
+}
+ul li a {
+  text-decoration: none;
+  color: blue;
+}
+ul li a {
+  text-decoration: none;
+  color: blue;
+}
+.BoxMenu{
+  z-index: 1;
+  position: absolute;
+  display:flex;
+  flex-direction: column;
+}
+#milieu{
+  text-align : center;
+}
+P{
+  text-align : center;
+  font-size: 15px;
+}
+.tabgrand{
+  margin: 10px;
+  padding: 0;
+  height:100%;
+  width:  110%;
+
+}
+#link{
+  margin:10px -30px;
+}
+.un{
+  border:4px solid #C2E9E9;
+  width:75%;
+  height: 100%;
+  padding: 0px;
+  margin-top:  0px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  background-color: #E8FBFB ;
+  display: inline-flex;
+}
+
+
+u{
+  text-decoration: underline dotted ;
+}
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.rfg{
+  width: 85%;
+  height: 95%;
+}
+
 

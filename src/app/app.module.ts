@@ -41,6 +41,10 @@ import { ComptableDeclTvaCriteriaComponent } from './view/comptable-decl-tva-cri
 import { FirstcompComptableComponent } from './view/firstcomp-comptable/firstcomp-comptable.component';
 import { PremiercomComponent } from './view/premiercom/premiercom.component';
 import { PaiementListComponent } from './view/paiement-list/paiement-list.component';
+import { PremierCompSocieteComponent } from './view/premier-comp-societe/premier-comp-societe.component';
+import { CreationOperationSocieteComponent } from './view/creation-operation-societe/creation-operation-societe.component';
+import { CardOperationSocieteComponent } from './view/card-operation-societe/card-operation-societe.component';
+import { OperationCreationSocieteComponent } from './view/operation-creation-societe/operation-creation-societe.component';
 
 const appRoutes: Routes = [
   {path: '' , component: PremiercomComponent},
@@ -80,8 +84,16 @@ const appRoutes: Routes = [
     ]
   },
   {path: 'firstSociete', component: FirstCompSocieteComponent},
-  {path: 'newOperation2', component: CardTypeOperationComponent},
+  {path: 'newOperation2', component: CardOperationSocieteComponent},
   {path: 'affectercomptable', component: AffecterComptableComponent},
+  {path: 'journal', component: FactureJournalComponent},
+  {path: 'paimentes', component: OperationCreationSocieteComponent},
+  {path: 'tvaList', component: DecltvacriteriaComponent},
+  {path: 'facturecriteriaSociete', component: FactureCriteriaComponent},
+
+
+
+
 ];
 @NgModule({
   declarations: [
@@ -118,6 +130,10 @@ const appRoutes: Routes = [
     FirstcompComptableComponent,
     PremiercomComponent,
     PaiementListComponent,
+    PremierCompSocieteComponent,
+    CreationOperationSocieteComponent,
+    CardOperationSocieteComponent,
+    OperationCreationSocieteComponent,
 
 
 
