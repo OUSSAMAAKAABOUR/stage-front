@@ -2,7 +2,9 @@
 
 <div class=" d-flex flex-row bd-highlight">
   <div ><a  href="#home"><img src="https://i.ibb.co/mJJ4qJS/zs-Logo1-removebg-preview.png" class="logo" alt="logos"></a></div>
-  <div class="tsts"><h1>compt en ligne : {{connection3.username}}</h1></div>
+  <div class="tsts"><img class="hihi" width="100px" height="100px" src="https://i.ibb.co/Dft1Nb9/photo.png" alt="">
+    </div>
+  <div><h4 class="hoho">{{connection3.username}}</h4></div>
 </div>
 <button type="button" class="btn btn-danger btn-circle btn-sm mt-md-5 offset-md-11 " (click)="opendialog3()"><i class="fa fa-bell fa-3x" aria-hidden="true"></i>
 </button>
@@ -20,15 +22,13 @@
 
 
 
-    <div class="card col-md-4" >
+    <div class="card col-md-4 grandi" >
 
       <div class="card-body" (click)="findOperationWhereComptablenull()" routerLink="/affectercomptable">
         <h1 class="card-title text-center">Affectation des comptables</h1>
         <p class="card-text text-center"></p>
       </div>
-      <div class="card-footer text-center">
-        <h1></h1>
-      </div>
+
     </div>
 
 
@@ -39,9 +39,6 @@
       <div class="card-body" (click)="openDialog()" >
         <h1 class="card-title text-center">Gestion des demades d'operations</h1>
         <p class="card-text text-center"> </p>
-      </div>
-      <div class="card-footer text-center">
-        <h1></h1>
       </div>
     </div>
   </div>
@@ -63,9 +60,6 @@
         <h1 class="card-title text-center">Declaration TVA</h1>
         <p class="card-text text-center"></p>
       </div>
-      <div class="card-footer text-center">
-        <h1></h1>
-      </div>
     </div>
 
 
@@ -76,9 +70,6 @@
       <div class="card-body" routerLink="/operationsociete" >
         <h1 class="card-title text-center">Operation Societe</h1>
         <p class="card-text text-center"> </p>
-      </div>
-      <div class="card-footer text-center">
-        <h1></h1>
       </div>
     </div>
   </div>

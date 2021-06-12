@@ -147,8 +147,10 @@ export class ConnectionService {
             this.getLogin();
             this.select();
           } else if (data == 2) {
+            this.getLogin();
             this.router.navigateByUrl('secondcomp');
           } else if (data == 3) {
+            this.getLogin();
             this.router.navigateByUrl('secondcomp');
           } else if (data == 0) {
             this.router.navigateByUrl('');
