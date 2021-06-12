@@ -20,6 +20,8 @@ export class ConnectionService {
   private _etat: boolean ;
   private _operationsse: Array<OperationSociete>;
   private _urlBaseO: String = 'http://localhost:8036/gestion-comptabilite/operationSociete/';
+  private _listoperation: Array<OperationSociete>;
+  private _urlBaseOperation: String = 'http://localhost:8036/gestion-comptabilite/operationSociete';
 
 
   constructor(private http: HttpClient, private router: Router) {
@@ -150,8 +152,8 @@ export class ConnectionService {
             this.getLogin();
             this.router.navigateByUrl('secondcomp');
           } else if (data == 3) {
-            this.getLogin();
-            this.router.navigateByUrl('secondcomp');
+            this.router.navigateByUrl('firstcompcomptable');
+            this.getLogin3();
           } else if (data == 0) {
             this.router.navigateByUrl('');
             alert('ce compt n\'est pas encore traiter');
@@ -223,6 +225,53 @@ export class ConnectionService {
         console.log(this.etat);
       }, error => {
         console.log('erreur');
+      }
+    );
+
+
+  }
+
+  public findoperationforcomptable() {
+    this.http.get<Array<OperationSociete>>(this.urlBaseOperation + '/trvoperationforcomptable/code/' + this.connection3.comptable.code).subscribe(
+      data => {
+        this.listoperation = data;
+        console.log('bravo trv list operation for comptable');
+      }, error => {
+        console.log('erreur trv list operation for comptable');
+      }
+    );
+  }
+  get listoperation(): Array<OperationSociete> {
+    if (this._listoperation == null){
+      this._listoperation = new Array<OperationSociete>();
+    }
+    return this._listoperation;
+  }
+
+  set listoperation(value: Array<OperationSociete>) {
+    this._listoperation = value;
+  }
+
+
+  get urlBaseOperation(): String {
+    return this._urlBaseOperation;
+  }
+
+  set urlBaseOperation(value: String) {
+    this._urlBaseOperation = value;
+  }
+  public getLogin3() {
+    this.http.get<Connection>(this.urlBase + '/usernam/' + this.teste.t3 + '/password/' + this.teste.t4).subscribe(
+      data => {
+        if (data) {
+          this.connection3 = data;
+          this.connection2 = this.cloneCommande(this.connection3);
+          this.findoperationforcomptable();
+        }
+
+        console.log('bravoo login');
+      }, error => {
+        console.log('ereur');
       }
     );
 

@@ -13,6 +13,7 @@ export class PaiementService {
   private _urlBase: String = 'http://localhost:8036/gestion-comptabilite/paiement/';
   private _paiements: Array<Paiement>;
   private _paiementes: Array<Paiement>;
+  private _paiements2: Array<Paiement>;
 
   constructor(private http: HttpClient) {
   }
@@ -50,6 +51,16 @@ export class PaiementService {
 
   set paiements(value: Array<Paiement>) {
     this._paiements = value;
+  }
+  get paiements2(): Array<Paiement> {
+    if (this._paiements2 == null){
+      this._paiements2 = new Array<Paiement>();
+    }
+    return this._paiements2;
+  }
+
+  set paiements2(value: Array<Paiement>) {
+    this._paiements2 = value;
   }
 
   get urlBase(): String {
@@ -134,6 +145,17 @@ export class PaiementService {
 
       }, error => {
         console.log('erreur trouver les etapes');
+      }
+    );
+  }
+
+  public findpaiements2pourcomptable(){
+    this.http.get<Array<Paiement>>(this.urlBase + 'OperationSocieteRef/' + this.paiement.operationSociete.ref).subscribe(
+      data =>{
+        this.paiements2 = data;
+        console.log('bravo trv list paiement pour interface comptable');
+      }, error => {
+        console.log('erreur trv list paiement pour interface comptable');
       }
     );
   }

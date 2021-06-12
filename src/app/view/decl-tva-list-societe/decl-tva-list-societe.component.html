@@ -1,0 +1,42 @@
+<p> </p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="card col-md-12">
+      <h1>Liste Declaration TVA:</h1>
+      <div class="card-body">
+        <table class="table">
+          <thead class="thead-dark">
+          <th scope="col">Reference</th>
+          <th scope="col">Annee</th>
+          <th scope="col">Mois</th>
+          <th scope="col">Trim</th>
+          <th scope="col">Tva Collecter</th>
+          <th scope="col">Tva Déductible</th>
+          <th scope="col">Différence Tva</th>
+          <th scope="col">Societe</th>
+          <th scope="col">Type Declaration Tva</th>
+          </thead>
+          <tbody>
+          <tr *ngFor="let l of listdeclTvapourSociete |paginate: {id:'listvente',itemsPerPage: pageSize2, currentPage:page2, totalItems:listdeclTvapourSociete.length }; index as i;">
+            <td scope="row">{{l.ref}}</td>
+            <td>{{l.annee}}</td>
+            <td>{{l.mois}}</td>
+            <td>{{l.trim}}</td>
+            <td>{{l.tvacollecter}}</td>
+            <td>{{l.tvaperdue}}</td>
+            <td>{{l.difftva}}</td>
+            <td>{{l.societe.ice}}</td>
+            <td>{{l.typeDeclarationTva.ref}}</td>
+          </tr>
+          </tbody>
+        </table>
+        <div>
+          <pagination-controls id="listvente" maxSize="5" directionLinks="true" (pageChange)="page2=$event"></pagination-controls>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

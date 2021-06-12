@@ -5,6 +5,7 @@ import {DeclarationTva} from "../model/declaration-tva.model";
 import {DeclarationTvaVo1} from "../model/declaration-tva-vo1.model";
 import {DeclarationTvaVo2} from "../model/declaration-tva-vo2.model";
 import {DeclarationtvaService} from "./declarationtva.service";
+import {ConnectionService} from "./connection.service";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,19 @@ export class DeclatvacriteriaService {
   private _declatvaedit: DeclarationTva;
   private _test = 0;
   private _UrlBaseDeclatva = 'http://localhost:8036/gestion-comptabilite/declarationtva';
-  constructor(private http: HttpClient, private declarationtvaservice: DeclarationtvaService) { }
+  private _listdeclTvapourSociete: Array<DeclarationTva>;
+  constructor(private http: HttpClient, private declarationtvaservice: DeclarationtvaService, private connectionService: ConnectionService) { }
+
+  get listdeclTvapourSociete(): Array<DeclarationTva> {
+    if (this._listdeclTvapourSociete == null){
+      this._listdeclTvapourSociete = new Array<DeclarationTva>();
+    }
+    return this._listdeclTvapourSociete;
+  }
+
+  set listdeclTvapourSociete(value: Array<DeclarationTva>) {
+    this._listdeclTvapourSociete = value;
+  }
 
   get test(): number {
     return this._test;
@@ -129,6 +142,18 @@ export class DeclatvacriteriaService {
         alert('Le fichier a été bien enregistrer dans telechargements');
       }, error => {
         console.log('error convert To Xml File');
+      }
+    );
+  }
+
+  //methode pour component decltvalistSociete
+  public finddeclarationforsociete(){
+    this.http.get<Array<DeclarationTva>>(this.UrlBaseDeclatva + 'societe/ice/' + this.connectionService.connection2.societeLogin.ice).subscribe(
+      data =>{
+        this.listdeclTvapourSociete = data;
+        console.log('bravo find declaration pour societe');
+      }, error => {
+        console.log('erreur find declaration pour societe');
       }
     );
   }

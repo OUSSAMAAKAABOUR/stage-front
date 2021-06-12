@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {OperationSociete} from "../model/operation-societe.model";
 import {ConnectionService} from "./connection.service";
+import {DeclarationtvaService} from "./declarationtva.service";
+import {PaiementService} from "./paiement.service";
+import {FactureService} from "./facture.service";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +12,7 @@ import {ConnectionService} from "./connection.service";
 export class FirstcompComptableeService {
   private _listoperation: Array<OperationSociete>;
   private _urlBase: String = 'http://localhost:8036/gestion-comptabilite/operationSociete';
-  constructor(private http: HttpClient,private connectionservice: ConnectionService) { }
+  constructor(private http: HttpClient,private connectionservice: ConnectionService, private declarationtvasaveService: DeclarationtvaService,private paiementService: PaiementService,private factureService: FactureService) { }
 
   get urlBase(): String {
     return this._urlBase;
@@ -38,5 +41,10 @@ export class FirstcompComptableeService {
         console.log('erreur trv list operation for comptable');
       }
     );
+  }
+  public traiter(operationsociete: OperationSociete){
+    this.declarationtvasaveService.decltva.societe.ice = operationsociete.societe.ice;
+    this.paiementService.paiement.operationSociete.ref = operationsociete.ref;
+    this.factureService.facture.societeSource.ice = operationsociete.societe.ice;
   }
 }

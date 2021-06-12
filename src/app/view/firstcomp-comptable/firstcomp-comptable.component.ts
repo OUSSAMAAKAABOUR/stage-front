@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {FirstcompComptableeService} from "../../controller/service/firstcomp-comptablee.service";
+import {Router} from "@angular/router";
+import {ConnectionService} from "../../controller/service/connection.service";
+import {OperationSociete} from "../../controller/model/operation-societe.model";
 
 @Component({
   selector: 'app-firstcomp-comptable',
@@ -7,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FirstcompComptableComponent implements OnInit {
 
-  constructor() { }
+  constructor(private firstcompcomptableService: FirstcompComptableeService,private route: Router,private connectionService: ConnectionService) { }
 
   ngOnInit(): void {
   }
-
+  get listoperation(): Array<OperationSociete> {
+    return this.connectionService.listoperation;
+  }
+  public findoperationforcomptable(){
+    this.firstcompcomptableService.findoperationforcomptable();
+  }
+  public traiter(operationsociete: OperationSociete){
+    this.route.navigateByUrl('/comptablesecondcomp');
+    this.firstcompcomptableService.traiter(operationsociete);
+  }
 }

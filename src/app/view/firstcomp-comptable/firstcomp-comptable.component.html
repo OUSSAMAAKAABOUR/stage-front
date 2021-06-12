@@ -1,4 +1,4 @@
-<!-- <div>
+<div>
   <button class="btn btn-outline-dark col-md-2 offset-5 mb-3" routerLink="/newOperation2"><i class="fa fa-send"></i>creation
     d'une operation</button>
 
@@ -6,7 +6,7 @@
 
   <div class="card container ">
     <div class="card-header  ">
-      <h2>liste des operation du societe <i>{{connection2.societeLogin.ice}}</i></h2>
+      <h2>liste des operation du societe</h2>
       <div class="form-group ">
         <div class="card-body ">
           <table class="table table-hover table-striped">
@@ -19,10 +19,11 @@
             <th>type operation</th>
             <th>COMPTABLE Tr</th>
             <th>COMPTABLE V</th>
+            <th>Action</th>
 
             </thead>
             <tbody>
-            <tr *ngFor="let c of operationsse ">
+            <tr *ngFor="let c of listoperation ">
               <td>{{c.ref}}</td>
               <td>{{c.libelle}}</td>
               <td>{{c.fraixComptable}}DH</td>
@@ -31,6 +32,9 @@
               <td>{{c.typeOperation.libelle}}</td>
               <td>{{c.comptableValidateur}}</td>
               <td>{{c.comptableTaiteur}}</td>
+              <td>
+                <button type="button" class="btn btn-primary btn-block" (click)="traiter(c)">Traiter</button>
+              </td>
             </tr>
             </tbody>
 
@@ -42,5 +46,4 @@
       </div>
     </div>
   </div>
-</div
-  -->
+</div>

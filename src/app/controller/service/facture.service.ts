@@ -266,4 +266,14 @@ export class FactureService {
   set Sommes(value: FactureVo) {
     this._Sommes = value;
   }
+  public findfacturesforcomptable(){
+    this.http.get<Array<Facture>>(this.urlBase + '/bysocieteice/ice/' + this.facture.societeSource.ice).subscribe(
+      data =>{
+        this.factures = data;
+        console.log('bravo find list des facture pour comptable');
+      }, error => {
+        console.log('erreur find list des facture pour comptable');
+      }
+    );
+  }
 }

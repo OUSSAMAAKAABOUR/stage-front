@@ -45,6 +45,14 @@ import { PremierCompSocieteComponent } from './view/premier-comp-societe/premier
 import { CreationOperationSocieteComponent } from './view/creation-operation-societe/creation-operation-societe.component';
 import { CardOperationSocieteComponent } from './view/card-operation-societe/card-operation-societe.component';
 import { OperationCreationSocieteComponent } from './view/operation-creation-societe/operation-creation-societe.component';
+import { DeclTvaListSocieteComponent } from './view/decl-tva-list-societe/decl-tva-list-societe.component';
+import { DeclarationtvachoiceComptableComponent } from './view/declarationtvachoice-comptable/declarationtvachoice-comptable.component';
+import { FacturechoiceComptableComponent } from './view/facturechoice-comptable/facturechoice-comptable.component';
+import { FacturelistComptableComponent } from './view/facturelist-comptable/facturelist-comptable.component';
+import { FacturesaveComptableComponent } from './view/facturesave-comptable/facturesave-comptable.component';
+import { PaimensaveComptableComponent } from './view/paimensave-comptable/paimensave-comptable.component';
+import { PaimentChoiceComponent } from './view/paiment-choice/paiment-choice.component';
+import { PaiementlistComptableComponent } from './view/paiementlist-comptable/paiementlist-comptable.component';
 
 const appRoutes: Routes = [
   {path: '' , component: PremiercomComponent},
@@ -90,6 +98,35 @@ const appRoutes: Routes = [
   {path: 'paimentes', component: OperationCreationSocieteComponent},
   {path: 'tvaList', component: DecltvacriteriaComponent},
   {path: 'facturecriteriaSociete', component: FactureCriteriaComponent},
+  {path: 'firstcompcomptable', component: FirstcompComptableComponent},
+  {path: 'comptablesecondcomp', component: ComptableSecondCompComponent},
+  {
+    path: 'declarationtvacomptable',
+    component: DeclarationtvachoiceComptableComponent,
+    children: [
+      {path: '', component: ComptableDeclarationTvaSaveComponent},
+      {path: 'decltvasavecomptable', component: ComptableDeclarationTvaSaveComponent},
+      {path: 'decltvacriteriacomptable', component: ComptableDeclTvaCriteriaComponent},
+    ]
+  },
+  {
+    path: 'paiementchoice',
+    component: PaimentChoiceComponent,
+    children: [
+      {path: '', component: PaimensaveComptableComponent},
+      {path: 'paimentsavecomptable', component: PaimensaveComptableComponent},
+      {path: 'paiementlistcomptable', component: PaiementlistComptableComponent},
+    ]
+  },
+  {
+    path: 'facturechoicecomptable',
+    component: FacturechoiceComptableComponent,
+    children: [
+      {path: '', component: FacturesaveComptableComponent },
+      {path: 'facturesavecomptable', component: FacturesaveComptableComponent },
+      {path: 'facturelistcomptable', component: FacturelistComptableComponent },
+    ]
+  },
 
 
 
@@ -134,6 +171,14 @@ const appRoutes: Routes = [
     CreationOperationSocieteComponent,
     CardOperationSocieteComponent,
     OperationCreationSocieteComponent,
+    DeclTvaListSocieteComponent,
+    DeclarationtvachoiceComptableComponent,
+    FacturechoiceComptableComponent,
+    FacturelistComptableComponent,
+    FacturesaveComptableComponent,
+    PaimensaveComptableComponent,
+    PaimentChoiceComponent,
+    PaiementlistComptableComponent,
 
 
 
