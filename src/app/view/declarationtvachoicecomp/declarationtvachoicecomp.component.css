@@ -29,6 +29,18 @@ h2 {
   color: inherit;
   padding: 50px;
 }
+.hoho{
+  margin-top: 35px;
+  font-size: 24px;
+  font-weight: bolder;
+  color: #4950C3;
+  margin-right: 5px;
+  margin-left: 0px;
+
+}
+.hihi{
+  margin-right: 5px;
+}
 
 .center {
   text-align: center;
