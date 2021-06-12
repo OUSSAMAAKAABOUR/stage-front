@@ -1,23 +1,48 @@
 
 <div class="card container-fluid">
   <div class="card-header">
-  <h2>liste des factures</h2>
+    <div class="row">
+      <div class="form-group col-md-2 ">
+
+        <label>Type d'operation</label><br>
+        <select class="w-100 h-75 mt-md-2 " [(ngModel)]="facturevo.typOperation">
+          <option   >CRÉDIT</option>
+          <option  >DÉBIT</option>
+          <option  >All</option>
+        </select>
+      </div>
+      <div class=" col-md-2   ">
+
+        <label>Reference</label>
+      <input class="mt-2 h-50"  type="text" [(ngModel)]="facturevo.refSocieteSource">
+      </div>
+
+      <div class=" col-md-2   ">
+
+        <label></label><br>
+        <button  class="btn btn-outline-info btn-block mt-3 h-50" (click)="CriteriaAdmine()">search</button>
+      </div>
+      <div class=" col-md-2   ">
+        <label ></label>
+        <button class="btn btn-outline-download btn-block mt-3 h-50" (click)="downloadAsPDF()" ><i class="fa fa-download"></i> imprimer</button>
+      </div>
+    </div>
+
   </div>
-  <div class="card-body">
+  <div class="card-body" >
+    <h2>liste des factures</h2>
     <table class="table table-hover table-striped">
       <thead>
       <th>Ref</th>
+      <th>libelle</th>
       <th>Societe Source</th>
       <th>Societe Distination</th>
-      <th>libelle</th>
-      <th>MHT</th>
       <th>tva</th>
-      <th>MTVA</th>
-      <th>MTTC</th>
+      <th>Montant TTC</th>
       <th>Annee</th>
       <th>mois</th>
       <th>trim</th>
-      <th>Operation</th>
+      <th>Type Operation</th>
       <th>comptable</th>
       <th>action</th>
 
@@ -27,12 +52,10 @@
       <tbody>
       <tr *ngFor="let c of factures; index as i ">
         <td>{{c.ref}}</td>
+        <td>{{c.libelle}} </td>
         <td>{{c.societeSource.ice}}</td>
         <td>{{c.societeDistination.ice}}</td>
-        <td>{{c.libelle}} </td>
-        <td>{{c.montantHorsTaxe}}<i>DH</i></td>
         <td>{{c.tva.valeur}}<i>%</i></td>
-        <td>{{c.montantTVA}}<i>DH</i></td>
         <td>{{c.montantTTC}}<i>DH</i></td>
         <td>{{c.annee}}</td>
         <td>{{c.mois}}</td>
@@ -50,6 +73,39 @@
   </div>
 </div>
 
+<div class="card-body" id="pdfTable" #pdfTable hidden>
+  <h2>liste des factures</h2>
+  <table class="table table-hover table-striped">
+    <thead>
+    <th>Ref</th>
+    <th>Societe Source</th>
+    <th>Societe Distination</th>
+    <th>tva</th>
+    <th>Montant TTC</th>
+    <th>Annee</th>
+    <th>trim</th>
+    <th>Type Operation</th>
+    <th>comptable</th>
+
+    </thead>
+    <tbody>
+    <tr *ngFor="let c of factures; index as i ">
+      <td>{{c.ref}}</td>
+      <td>{{c.societeSource.ice}}</td>
+      <td>{{c.societeDistination.ice}}</td>
+      <td>{{c.tva.valeur}}<i>%</i></td>
+      <td>{{c.montantTTC}}<i>DH</i></td>
+      <td>{{c.annee}}</td>
+      <td>{{c.trim}}</td>
+      <td>{{c.typeOperation}}</td>
+      <td>{{c.classComptable.numero}}</td>
+
+
+    </tr>
+    </tbody>
+
+  </table>
+</div>
 
 
   <ng-template #modalData let-modal  >

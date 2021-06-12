@@ -19,7 +19,7 @@ export class FactureService {
   private _urlBase: String = 'http://localhost:8036/gestion-comptabilite/facture';
 
 
-  constructor(private http: HttpClient,private connectionService: ConnectionService) {
+  constructor(private http: HttpClient, private connectionService: ConnectionService) {
   }
 
 
@@ -172,42 +172,81 @@ export class FactureService {
   }
 
   public Journal() {
-    if(this.facturevo.dmax != null && this.facturevo.dmin != null){
+    if (this.facturevo.dmax != null && this.facturevo.dmin != null) {
       this.facturevo.reference = this.connectionService.connection3.societeLogin.ice;
 
-    this.http.post<Array<Facture>>(this.urlBase + '/MultiTache', this.facturevo).subscribe(
-      data => {
-        if (data) {
-          console.log('journal valide');
-          this._facturesJournal = data;
-          this._etat2 = true;
-          this.http.post<FactureVo>(this.urlBase + '/CalculSomme', this.facturevo).subscribe(
-            data => {
-              if (data) {
-                console.log('somme valide');
-                this.Sommes = data;
+      this.http.post<Array<Facture>>(this.urlBase + '/MultiTache', this.facturevo).subscribe(
+        data => {
+          if (data) {
+            console.log('journal valide');
+            this._facturesJournal = data;
+            this._etat2 = true;
+            this.http.post<FactureVo>(this.urlBase + '/CalculSomme', this.facturevo).subscribe(
+              data => {
+                if (data) {
+                  console.log('somme valide');
+                  this.Sommes = data;
 
 
+                }
+
+
+              }, error => {
+
+                console.log('erreur somme');
               }
+            );
 
 
-            }, error => {
-
-              console.log('erreur somme');
-            }
-          );
+          }
 
 
+        }, error => {
+
+          console.log('erreur journal');
         }
+      );
+
+    }
+  }
+  public JournalAdmine() {
+    if (this.facturevo.dmax != null && this.facturevo.dmin != null) {
+
+      this.http.post<Array<Facture>>(this.urlBase + '/MultiTache', this.facturevo).subscribe(
+        data => {
+          if (data) {
+            console.log('journal valide');
+            console.log(data);
+            this._facturesJournal = data;
+            this._etat2 = true;
+            this.http.post<FactureVo>(this.urlBase + '/CalculSomme', this.facturevo).subscribe(
+              data => {
+                if (data) {
+                  console.log('somme valide');
+                  this.Sommes = data;
 
 
-      }, error => {
+                }
 
-        console.log('erreur journal');
-      }
-    );
 
-  }}
+              }, error => {
+
+                console.log('erreur somme');
+              }
+            );
+
+
+          }
+
+
+        }, error => {
+
+          console.log('erreur journal');
+        }
+      );
+
+    }
+  }
 
 
   get facturescriteria(): Array<Facture> {
@@ -235,6 +274,19 @@ export class FactureService {
 
   }
 
+  public CriteriaAdmine() {
+    this.http.get<Array<Facture>>(this.urlBase + '/societeSource/ice/' + this.facturevo.refSocieteSource + '/typeoperation/' + this.facturevo.typOperation).subscribe(
+      data => {
+        this._factures = data;
+        console.log('bravo critiria');
+
+      }, error => {
+        console.log('erreur');
+      }
+    );
+
+  }
+
 
   get etat(): boolean {
     return this._etat;
@@ -243,6 +295,7 @@ export class FactureService {
   set etat(value: boolean) {
     this._etat = value;
   }
+
   get etat2(): boolean {
     return this._etat2;
   }
@@ -266,9 +319,10 @@ export class FactureService {
   set Sommes(value: FactureVo) {
     this._Sommes = value;
   }
-  public findfacturesforcomptable(){
+
+  public findfacturesforcomptable() {
     this.http.get<Array<Facture>>(this.urlBase + '/bysocieteice/ice/' + this.facture.societeSource.ice).subscribe(
-      data =>{
+      data => {
         this.factures = data;
         console.log('bravo find list des facture pour comptable');
       }, error => {

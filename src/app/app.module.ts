@@ -53,6 +53,7 @@ import { FacturesaveComptableComponent } from './view/facturesave-comptable/fact
 import { PaimensaveComptableComponent } from './view/paimensave-comptable/paimensave-comptable.component';
 import { PaimentChoiceComponent } from './view/paiment-choice/paiment-choice.component';
 import { PaiementlistComptableComponent } from './view/paiementlist-comptable/paiementlist-comptable.component';
+import { JournalAdmineComponent } from './view/journal-admine/journal-admine.component';
 
 const appRoutes: Routes = [
   {path: '' , component: PremiercomComponent},
@@ -65,7 +66,7 @@ const appRoutes: Routes = [
       {path: '', component: FactureCreateComponent},
       {path: 'facturecreate', component: FactureCreateComponent},
       {path: 'facturelist', component: FactureListComponent},
-      {path: 'facturejournal', component: FactureJournalComponent},
+      {path: 'facturejournal', component: JournalAdmineComponent},
       {path: 'facturecriteria', component: FactureCriteriaComponent},
     ]
   },
@@ -179,6 +180,7 @@ const appRoutes: Routes = [
     PaimensaveComptableComponent,
     PaimentChoiceComponent,
     PaiementlistComptableComponent,
+    JournalAdmineComponent,
 
 
 

@@ -162,6 +162,7 @@ export class ConnectionService {
             alert('ce compt est refusé par l\'admin');
           }
           console.log('bravoo');
+          console.log(data);
         }
       }, error => {
         console.log('erreur');
