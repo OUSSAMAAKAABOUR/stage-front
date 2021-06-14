@@ -1,21 +1,46 @@
 <body>
 
-<div class=" d-flex flex-row bd-highlight">
+<!--<div class=" d-flex flex-row bd-highlight">
   <div ><a  href="#home"><img src="https://i.ibb.co/mJJ4qJS/zs-Logo1-removebg-preview.png" class="logo" alt="logos"></a></div>
   <div class="tsts"><img class="hihi" width="100px" height="100px" src="https://i.ibb.co/Dft1Nb9/photo.png" alt="">
     </div>
   <div><h4 class="hoho">{{connection3.username}}</h4></div>
 </div>
 <button type="button" class="btn btn-danger btn-circle btn-sm mt-md-5 offset-md-11 " (click)="opendialog3()"><i class="fa fa-bell fa-3x" aria-hidden="true"></i>
-</button>
+</button>-->
+<nav class="navbar">
+  <div class="navbar__container">
+    <a href="#home" id="navbar__logo">ZS Events</a>
 
+    <ul class="navbar__menu">
+      <ul class="navbar__menu">
+        <li class="navbar__item">
+          <a href="#home" class="navbar__links" id="home-page">{{connection3.username}}</a>
+        </li>
+        <li class="navbar__btn">
+          <a href="#sign" class="button right" id="signup">
+            <i class="fas fa-user"></i>
+          </a>
+          <a href="#sign" class="button right" id="signup">
+            <i class="fas fa-bell"></i>
+          </a>
+          <a href="#sign" class="logout " id="signup">
+            <i class="fas fa-sign-out-alt"></i>
+          </a>
+
+        </li>
+      </ul>
+    </ul>
+  </div>
+</nav>
 <div class="card-deck container big" >
   <div class="row">
     <div class="card col-md-4 card__front">
 
       <div class="card-body" (click)="opendialog2()" >
         <h1 class="card-title text-center">Creation des comptables</h1>
-        <p class="card-text text-center"></p>
+        <hr class="hr">
+        <p class="card-text text-center ico"><i class="fas fa-user icon"></i></p>
       </div>
     </div>
 
