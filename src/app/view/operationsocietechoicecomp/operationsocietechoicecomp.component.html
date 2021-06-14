@@ -1,13 +1,35 @@
-<nav class="blend">
-  <ul>
-    <li role="presentation" class="active"><a routerLink="/secondcomp" routerLinkActive="active">Home</a></li>
-    <li role="presentation" class="active"><a routerLink="createoperation" routerLinkActive="active" >Créer une Operation</a></li>
-    <li role="presentation" class="active"><a routerLink="createtypeoperation" routerLinkActive="active">Créer un Type</a></li>
-    <li role="presentation" class="active"><a routerLink="lISTtypeoperation" routerLinkActive="active">Liste des Types</a></li>
-    <li role="presentation" class="active"><a routerLink="paiment-create" routerLinkActive="active">Créer Paiement</a></li>
-    <li role="presentation" class="active"><a routerLink="paiment-list" routerLinkActive="active">List des Operations</a></li>
-  </ul>
+
+<body>
+<!-- Navbar Section -->
+<nav class="navbar ">
+  <div class="navbar__container">
+    <a href="#home" id="navbar__logo">ZS Events</a>
+
+    <ul class="navbar__menu">
+      <li class="navbar__item">
+        <a href="#home" class="navbar__links" routerLink="/secondcomp" routerLinkActive="active">Home</a>
+      </li>
+      <li class="navbar__item">
+        <a href="#about" class="navbar__links" routerLink="createoperation" routerLinkActive="active" >Créer une Operation</a>
+      </li>
+      <li class="navbar__item">
+        <a href="#service" class="navbar__links"  routerLink="createtypeoperation" routerLinkActive="active">Créer un Type</a>
+      </li>
+      <li class="navbar__item">
+        <a href="#service" class="navbar__links"  routerLink="lISTtypeoperation" routerLinkActive="active">Liste des Types</a>
+      </li>
+      <li class="navbar__item">
+        <a href="#service" class="navbar__links" routerLink="paiment-create" routerLinkActive="active">Paiement </a>
+      </li>
+      <li class="navbar__item">
+        <a href="#service" class="navbar__links" routerLink="paiment-list" routerLinkActive="active">Operations</a>
+      </li>
+
+    </ul>
+  </div>
 </nav>
 <div>
   <router-outlet></router-outlet>
 </div>
+
+</body>

@@ -1,0 +1,17 @@
+.card{
+  margin: 30px auto;
+  padding: 0 20px;
+  border: 5px solid;
+}
+.card-footer{
+  padding: 10px;
+  margin: 10px;
+  font-size: 22px;
+  text-align: center;
+}
+th{
+  margin: 0 40px;
+}
+i{
+  margin: 0 5px;
+}

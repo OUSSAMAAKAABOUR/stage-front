@@ -1,0 +1,34 @@
+
+<div class="card1">
+  <h2 mat-dialog-title >Demande Operation:</h2>
+  <mat-dialog-content>
+    <div class="card border-primary text-primary">
+      <div class="card-body">
+        <table class="table">
+          <thead class="thead-dark">
+          <th scope="col">Libelle</th>
+          <th scope="col">Description</th>
+          <th scope="col">Délai</th>
+          <th scope="col">Montant Comptable</th>
+          <th scope="col">Montant Fix</th>
+          </thead>
+          <tbody>
+          <tr *ngFor="let l of etapes |paginate: {id:'listvente',itemsPerPage: pageSize, currentPage:page, totalItems:etapes.length }; index as i;">
+            <td scope="row">{{l.libelle}}</td>
+            <td>{{l.description}}</td>
+            <td>{{l.delai}}</td>
+            <td>{{l.montantcomptable}}</td>
+            <td>{{l.montantfix}}</td>
+          </tr>
+          </tbody>
+        </table>
+        <div>
+          <pagination-controls id="listvente" maxSize="5" directionLinks="true" (pageChange)="page=$event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button class="btn btn-danger col-md-4 offset-8"  mat-button mat-dialog-close>Sortir</button>
+  </mat-dialog-actions>
+</div>

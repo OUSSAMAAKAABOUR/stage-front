@@ -4,6 +4,8 @@ import {TypeOperation} from "../../controller/model/type-operation.model";
 import {Etape} from "../../controller/model/etape.model";
 import {TypeoperationService} from "../../controller/service/typeoperation.service";
 import {PopupEtapeService} from "../../controller/service/popup-etape.service";
+import {MatDialog} from '@angular/material/dialog';
+import {EtapeTypeOperationsComponent} from '../etape-type-operations/etape-type-operations.component';
 
 @Component({
   selector: 'app-type-operation-list',
@@ -12,7 +14,7 @@ import {PopupEtapeService} from "../../controller/service/popup-etape.service";
 })
 export class TypeOperationListComponent implements OnInit {
 
-  constructor(private listTypeOperationService: ListTypeOperationService, private popupEtapeService: PopupEtapeService) { }
+  constructor(private listTypeOperationService: ListTypeOperationService, private popupEtapeService: PopupEtapeService,private dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.listTypeOperationService.findAll();
@@ -31,6 +33,7 @@ export class TypeOperationListComponent implements OnInit {
   }
   public trouveretapes(typeoperation: TypeOperation){
     this.listTypeOperationService.trouveretapes(typeoperation);
+    this.dialog.open(EtapeTypeOperationsComponent);
   }
   public delete2(index : number,libelle : string){
     this.listTypeOperationService.delete2(index, libelle );

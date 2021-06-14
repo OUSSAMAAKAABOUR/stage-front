@@ -1,7 +1,9 @@
+
 body {
   font-family: 'Roboto', sans-serif;
   padding: 0;
   margin: 0;
+  background: linear-gradient(to right, #fc466b, #3f5efb);
 }
 
 small {
@@ -19,7 +21,6 @@ h1 {
   font-size: 40px;
 }
 
-/* By Dominik Biedebach @domobch */
 
 h2 {
   text-align: center;
@@ -34,168 +35,79 @@ h2 {
   text-align: center;
 }
 
-/* By Dominik Biedebach @domobch */
 
 section {
   height: 100vh;
 }
 
-/* NAVIGATION */
-nav {
-  width: 90%;
+
+.navbar {
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  z-index: 1;
+  width: 100%;
+  max-width: 1300px;
   margin: 0 auto;
-  background: #fff;
-  padding: 50px 0;
-
+  padding: 0 20px;
 }
 
-/* By Dominik Biedebach @domobch */
-nav ul {
-  list-style: none;
-  text-align: center;
-}
-
-nav ul li {
-  display: inline-block;
-}
-/*loun tlktba 9bel man7tto 3liha souriis */
-nav ul li a {
-  display: block;
-  padding: 15px;
+#navbar__logo {
+  background: #fc466b; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #fc466b, #3f5efb); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fc466b, #3f5efb);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  cursor: pointer;
   text-decoration: none;
-  color: #000000;
-  font-weight: 800;
-  text-transform: uppercase; /* chkel tlktba */
-  margin: 0 50px;
-
+  font-size: 2rem;
 }
 
-nav ul li a,
-nav ul li a:after,
-nav ul li a:before {
-  transition: all .5s;
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
 }
 
-nav ul li a:hover {
-  color: #555;
+.navbar__item {
+  height: 80px;
 }
 
-/* By Dominik Biedebach @domobch */
-
-
-/* stroke */
-nav.stroke ul li a,
-nav.fill ul li a {
-  position: relative;
-}
-
-nav.stroke ul li a:after,
-nav.fill ul li a:after {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 0%;
-  content: '.';
-  color: transparent;
-  background: #333;
-  height: 1px;
-}
-
-nav.stroke ul li a:hover:after {
-  width: 100%;
-}
-
-nav.fill ul li a {
-  transition: all 2s;
-}
-
-/* By Dominik Biedebach @domobch */
-
-nav.fill ul li a:after {
-  text-align: left;
-  content: '.';
-  margin: 0;
-  opacity: 0;
-}
-
-nav.fill ul li a:hover {
-  color: #023f1c;
-  z-index: 1;
-}
-
-nav.fill ul li a:hover:after {
-  z-index: -10;
-  animation: fill 1s forwards;
-  -webkit-animation: fill 1s forwards;
-  -moz-animation: fill 1s forwards;
-  opacity: 1;
-}
-
-/* Circle */
-nav.circle ul li a {
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-/* By Dominik Biedebach @domobch */
-nav.circle ul li a:after {
-  display: block;
-  position: absolute;
-  margin: 0;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  content: '.';
-  color: transparent;
-  width: 1px;
-  height: 1px;
-  border-radius: 50%;
-  background: transparent;
-}
-
-nav.circle ul li a:hover:after {
-  -webkit-animation: circle 1.5s ease-in forwards;
-}
-
-/* SHIFT */
-nav.shift ul li a {
-  position: relative;
-  z-index: 1;
-}
-
-nav.shift ul li a:hover {
-  /*color: #91640F; */
-}
-
-nav.shift ul li a:after {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto;
-  width: 100%;
-  height: 1px;
-  content: '.';
-  color: transparent;
-  background: #F1C40F;
-  visibility: none;
-  opacity: 0;
-  z-index: -1;
-}
-
-nav.shift ul li a:hover:after {
-  opacity: 1;
-  visibility: visible;
+.navbar__links {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  text-decoration: none;
   height: 100%;
+  transition: all 0.3s ease;
 }
 
-/* By Dominik Biedebach @domobch */
+.navbar__links:hover {
+  color: #FC466B;
+  transition: all 0.3s ease;
+}
+
 
 /* Blend */
 nav.blend ul li a {
@@ -239,39 +151,6 @@ nav.blend ul li a:after {
 nav.blend ul li a:hover:after,
 nav.blend ul li a:hover:before {
   width: 100%;
-}
-
-/* DROWN */
-
-nav.drown ul li a {
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-nav.drown ul li a:hover {
-  color: #fff;
-}
-
-nav.drown ul li a:before {
-  background: #fff;
-  content: '.';
-  color: transparent;
-  position: absolute;
-  width: 500%;
-  top: 100px;
-  right: 300px;
-  height: 300px;
-  z-index: -1;
-
-}
-
-nav.drown ul li a:hover:before {
-  left: auto;
-  bottom: auto;
-  right: -50%;
-  top: 0;
-  background: #89C52B;
 }
 
 
@@ -318,12 +197,4 @@ nav.drown ul li a:hover:before {
     margin: auto;
     border-radius: 0;
   }
-}
-.blend{
-  margin-left: 70px;
-   border-bottom-color: #023f1c;
-  background-color: #b3b3b3;
-  border-radius: 35px;
-  height: 130px;
-  margin-bottom: 20px;
 }

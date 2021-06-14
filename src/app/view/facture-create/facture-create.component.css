@@ -2,7 +2,7 @@ h2{
   font-size: 40px;
   font-weight: bolder;
   text-align: center;
-  color: #4950C3;
+  color: #FFFFFF;
 
 
 }
@@ -14,15 +14,15 @@ label{
 
 }
 .card{
-  border-color: #1976d2;
+  border-color:  #515ced;
 
 }
 input{
-  border-color: #44BCDD;
+  border-color: #515ced;
 }
 
 .card-header{
-  background-color: deepskyblue;
+  background-color: #515ced;
 
 }
 .card{

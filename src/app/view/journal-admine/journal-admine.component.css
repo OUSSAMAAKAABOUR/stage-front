@@ -1,16 +1,18 @@
 #titre{
-  background-color: deepskyblue;
+  background-color: #515ced;
 
 }
 .card{
   padding: 0px;
-  border-color: deepskyblue ;
+  border-color: #515ced ;
 
 }
 h2{
   font-size: 35px;
   font-weight: bolder;
   text-align: center;
+  color: #FFFFFF;
+  padding: 5px;
 }
 u{
   font-size: 30px;

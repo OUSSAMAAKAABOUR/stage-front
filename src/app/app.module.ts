@@ -54,6 +54,7 @@ import { PaimensaveComptableComponent } from './view/paimensave-comptable/paimen
 import { PaimentChoiceComponent } from './view/paiment-choice/paiment-choice.component';
 import { PaiementlistComptableComponent } from './view/paiementlist-comptable/paiementlist-comptable.component';
 import { JournalAdmineComponent } from './view/journal-admine/journal-admine.component';
+import { EtapeTypeOperationsComponent } from './view/etape-type-operations/etape-type-operations.component';
 
 const appRoutes: Routes = [
   {path: '' , component: PremiercomComponent},
@@ -181,6 +182,7 @@ const appRoutes: Routes = [
     PaimentChoiceComponent,
     PaiementlistComptableComponent,
     JournalAdmineComponent,
+    EtapeTypeOperationsComponent,
 
 
 

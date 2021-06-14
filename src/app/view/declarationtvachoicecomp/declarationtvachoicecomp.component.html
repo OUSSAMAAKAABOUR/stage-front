@@ -1,14 +1,23 @@
-<div class="d-flex flex-row bd-highlight hihi">
-<nav class="blend">
-  <ul>
-    <li role="presentation" class="active"><a routerLink="/secondcomp" routerLinkActive="active">Home</a></li>
-    <li role="presentation" class="active"><a routerLink="declsave" routerLinkActive="active" >Déclaration TVA</a></li>
-    <li role="presentation" class="active"><a routerLink="declcriteria" routerLinkActive="active">Chercher une Declaration</a></li>
-  </ul>
+
+<nav class="navbar ">
+  <div class="navbar__container">
+    <a href="#home" id="navbar__logo">ZS Events</a>
+
+    <ul class="navbar__menu">
+      <li class="navbar__item">
+        <a href="#home" class="navbar__links minus" routerLink="/secondcomp" routerLinkActive="active">Home</a>
+      </li>
+      <li class="navbar__item">
+        <a href="#about" class="navbar__links"  routerLink="declsave" routerLinkActive="active" >Déclaration TVA</a>
+      </li>
+
+      <li class="navbar__item">
+        <a href="#service" class="navbar__links"  routerLink="declcriteria" routerLinkActive="active">Chercher une Declaration</a>
+      </li>
+    </ul>
+  </div>
 </nav>
-  <img class="hihi" width="100px" height="100px" src="https://i.ibb.co/Dft1Nb9/photo.png" alt="">
-  <h4 class="hoho">{{connection3.username}}</h4>
-</div>
+
 <div>
   <router-outlet></router-outlet>
 </div>

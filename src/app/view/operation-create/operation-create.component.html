@@ -1,38 +1,42 @@
 <div [hidden]="etat1" xmlns="http://www.w3.org/1999/html">
-<div class="card container">
-  <div class="card-header  ">
-    <h2>Creation d'une operation societe</h2>
-  </div>
+<div class="big">
+<div class="row">
 
-  <div class="card-body ">
-    <div class="row">
-      <div class="form-group col-md-5 m-md-3">
+
+  <div class="col-md-5 card  ">
+    <div class="card-header  ">
+      <h2>Creation d'une operation societe</h2>
+    </div>
+    <div class="card-body">
+<div class="row kok">
+    <div class="form-group col-md-5">
         <label>Reference</label>
         <input type="text" class="form-control" [(ngModel)]="operationSociete.ref" >
       </div>
 
-      <div class="form-group col-md-5 m-md-3">
+      <div class="form-group col-md-5 ">
         <label>Libelle</label>
         <input type="text" class="form-control" [(ngModel)]="operationSociete.libelle">
       </div>
 
-      <div class="form-group col-md-5 m-md-3">
+      <div class="form-group col-md-5 ">
         <label>DateOperation societe</label>
         <input type="date" class="form-control" [(ngModel)]="operationSociete.dateOperationSociete">
       </div>
-      <div class="form-group col-md-5 m-md-3">
+      <div class="form-group col-md-5 ">
         <label>Societe </label>
         <input type="text" class="form-control" [(ngModel)]="operationSociete.societe.ice">
       </div>
-    </div>
+</div>
     <div class="card-footer">
-      <button class="btn btn-outline-success btn-block" (click)="save()"><i class="fa fa-send"></i>save</button>
+      <button class="btn btn-outline-success mr-2" (click)="save()"><i class="fa fa-send"></i>sauvgarder</button>
+      <button class="btn btn-outline-danger "  (click)="retour()" (click)="save()"><i class="fa fa-delete"></i>Annuler</button>
 
+    </div>
     </div>
 
   </div>
-</div>
-<div class="card container down" >
+<div class="col-md-5 card right" >
   <div class="card-header">
     <h2>liste des etapes du type <i>"{{operationSociete.typeOperation.libelle}}"</i></h2>
   </div>
@@ -58,7 +62,9 @@
   </div>
 </div>
 </div>
+</div>
+</div>
 
-<div>
-  <button (click)="retour()"><i class="fa fa-backward"></i></button>
+
+  <div>
 </div>
