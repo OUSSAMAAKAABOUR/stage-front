@@ -55,6 +55,7 @@ import { PaimentChoiceComponent } from './view/paiment-choice/paiment-choice.com
 import { PaiementlistComptableComponent } from './view/paiementlist-comptable/paiementlist-comptable.component';
 import { JournalAdmineComponent } from './view/journal-admine/journal-admine.component';
 import { EtapeTypeOperationsComponent } from './view/etape-type-operations/etape-type-operations.component';
+import { TypeOperation2Component } from './view/type-operation2/type-operation2.component';
 
 const appRoutes: Routes = [
   {path: '' , component: PremiercomComponent},
@@ -102,6 +103,8 @@ const appRoutes: Routes = [
   {path: 'facturecriteriaSociete', component: FactureCriteriaComponent},
   {path: 'firstcompcomptable', component: FirstcompComptableComponent},
   {path: 'comptablesecondcomp', component: ComptableSecondCompComponent},
+  {path: 'cardtypeoperation', component: TypeOperation2Component},
+
   {
     path: 'declarationtvacomptable',
     component: DeclarationtvachoiceComptableComponent,
@@ -129,6 +132,7 @@ const appRoutes: Routes = [
       {path: 'facturelistcomptable', component: FacturelistComptableComponent },
     ]
   },
+  {path: 'decltvalistsociete', component: DeclTvaListSocieteComponent},
 
 
 
@@ -183,6 +187,7 @@ const appRoutes: Routes = [
     PaiementlistComptableComponent,
     JournalAdmineComponent,
     EtapeTypeOperationsComponent,
+    TypeOperation2Component,
 
 
 

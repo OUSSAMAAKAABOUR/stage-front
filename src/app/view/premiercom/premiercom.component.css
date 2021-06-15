@@ -217,7 +217,8 @@ html {
 .about-content .image {
   position: relative;
   width: 250px;
-  height: 375px;
+  margin-top: 20px;
+  height: 420px;
 }
 .about-content .image img{
   margin-top: -40px;

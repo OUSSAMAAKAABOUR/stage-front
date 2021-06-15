@@ -15,6 +15,8 @@ import {Paiement} from '../../controller/model/paiement.model';
 })
 export class FirstCompSocieteComponent implements OnInit {
   closeModal: string;
+  page = 1;
+  pageSize = 10;
   constructor(private operatioSocieteService: OperationsocieteService, private connectionService: ConnectionService,private modalService: NgbModal, private operationService: OperationsocieteService,private paiementService: PaiementService,) {
   }
 
