@@ -1,10 +1,21 @@
 
-<nav class="blend">
-  <ul>
-    <li role="presentation" class="active"><a routerLink="/comptablesecondcomp" routerLinkActive="active">Home</a></li>
-    <li role="presentation" class="active"><a routerLink="facturesavecomptable" routerLinkActive="active" >Créer Facture</a></li>
-    <li role="presentation" class="active"><a routerLink="facturelistcomptable" routerLinkActive="active" (click)="findfacturesforcomptable()">Liste Des Factures</a></li>
-  </ul>
+<nav class="navbar ">
+  <div class="navbar__container">
+    <a href="#home" id="navbar__logo">ZS Events</a>
+
+    <ul class="navbar__menu">
+      <li class="navbar__item">
+        <a href="#home" class="navbar__links" routerLink="/comptablesecondcomp" routerLinkActive="active">Home</a>
+      </li>
+      <li class="navbar__item">
+        <a href="#about" class="navbar__links margin" routerLink="facturesavecomptable" routerLinkActive="active" >Créer une Facture</a>
+      </li>
+
+      <li class="navbar__item">
+        <a href="#service" class="navbar__links" routerLink="facturelistcomptable" routerLinkActive="active" (click)="findfacturesforcomptable()">Liste des Factures</a>
+      </li>
+    </ul>
+  </div>
 </nav>
 <div>
   <router-outlet></router-outlet>

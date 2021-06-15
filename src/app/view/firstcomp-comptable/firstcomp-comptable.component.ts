@@ -3,6 +3,7 @@ import {FirstcompComptableeService} from "../../controller/service/firstcomp-com
 import {Router} from "@angular/router";
 import {ConnectionService} from "../../controller/service/connection.service";
 import {OperationSociete} from "../../controller/model/operation-societe.model";
+import {Connection} from "../../controller/model/connection.model";
 
 @Component({
   selector: 'app-firstcomp-comptable',
@@ -24,5 +25,8 @@ export class FirstcompComptableComponent implements OnInit {
   public traiter(operationsociete: OperationSociete){
     this.route.navigateByUrl('/comptablesecondcomp');
     this.firstcompcomptableService.traiter(operationsociete);
+  }
+  get connection3(): Connection {
+    return this.connectionService.connection3;
   }
 }

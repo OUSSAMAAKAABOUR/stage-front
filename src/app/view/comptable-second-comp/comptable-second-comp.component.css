@@ -1,9 +1,127 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Kumbh Sans', sans-serif;
+  scroll-behavior: smooth;
+}
 
-.card{
+.navbar {
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  z-index: 1;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+#navbar__logo {
+  background: #74ebd5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #74ebd5, #acb6e5); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #74ebd5, #acb6e5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.navbar__item {
+  height: 80px;
+}
+
+.navbar__links {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+
+  text-decoration: none;
+  height: 100%;
+  transition: all 0.3s ease;
+
+}
+.right{
+  margin-right: 30px;
+}
+.navbar__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  width: 100%;
+}
+.logout{
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.button{
+  border-radius: 50%;
+}
+.button:hover, .logout:hover{
+  background: #396afc;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2948ff, #396afc);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2948ff, #396afc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.logout,
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  flex-direction: row;
+  height: 100%;
+  padding: 15px 15px;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: #74ebd5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #74ebd5, #acb6e5); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #74ebd5, #acb6e5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  color: #fff;
+  transition: all 0.3s ease;
+}
+.navbar__links:hover {
+  color: #FC466B;
+  transition: all 0.3s ease;
+}
+
+.card {
   background: white;
   width: 500px;
-  height: 200px ;
-  margin-top:10px ;
+  height: 200px;
+  margin-top: 10px;
   margin-bottom: 10px;
   margin-right: 10px;
   margin-left: 10px;
@@ -15,26 +133,25 @@
   cursor: pointer;
 
 
-
-
-
 }
-.big{
-
-  margin-left: 200px;
-  margin-top: 250px;
+.card-title{
+  margin-top: 10px;
 }
-.card-text{
+.big {
+  margin: auto;
+  margin-top: 50px;
+}
+
+.card-text {
   color: grey;
   font-size: 15px;
   font-weight: 300;
 }
 
-.card:hover{
+.card:hover {
   transform: scale(1.2);
-  box-shadow: 5px 5px 15px rgb(0,0,0);
+  box-shadow: 5px 5px 15px rgb(0, 0, 0);
 }
-
 
 
 .card {
@@ -42,53 +159,51 @@
   background: white;
 
 
-
   -moz-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
   -webkit-box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
   box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
 
-  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3, MakeShadow=true, ShadowOpacity=0.30);
   -ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
   zoom: 1;
 
   /* i chooooose this */
 
-  box-shadow:
-    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-    0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12)
-;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
 
 
 }
+
 .card:hover {
 
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   animation-name: example;
   animation-duration: 0.25s;
-  border: 1px solid grey ;
+  border: 2px solid grey;
   border-left: 8px solid #1976d2;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-.card{
-  box-shadow:
-    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px grey,
-    0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12)
-;
+.card {
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px grey,
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
 }
-.card{
-  border: 1px solid #1976d2 ;
+
+.card {
+  border: 3px solid #1976d2;
 }
-.card-footer{
+
+.card-footer {
 
   color: #553620;
   font-size: 15px;
@@ -96,4 +211,55 @@
 
 }
 
+.btn-circle.btn-sm {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  font-size: 8px;
+  text-align: center;
+}
 
+.logo {
+  width: 200px;
+}
+
+body {
+  background: #74ebd5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #74ebd5, #acb6e5); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #74ebd5, #acb6e5);
+}
+.hr{
+  margin: 0 5px;
+  color: black;
+  margin-top: 20px;
+}
+.ico{
+  margin-top: 20px;
+
+}
+.ico2{
+  margin-top: 40px;
+}
+.icon{
+  border-radius: 50%;
+}
+.tsts {
+  margin-top: 5px;
+  margin-left: 1000px;
+}
+.hoho{
+  margin-top: 35px;
+  font-size: 24px;
+  font-weight: bolder;
+  color: #FFFFFF;
+  margin-right: 5px;
+  margin-left: 0px;
+
+}
+
+h1{
+  font-size: 30px;
+  margin-top: 8px;
+  font-weight: 300;
+  color: inherit;
+}
