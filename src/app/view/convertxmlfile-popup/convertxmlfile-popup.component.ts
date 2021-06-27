@@ -16,12 +16,6 @@ export class ConvertxmlfilePopupComponent implements OnInit {
   get emplacementXml(): EmplacementXml {
     return this.declarationtvasaveService.emplacementXml;
   }
-  get xmlstring(): string {
-    return this.declarationtvasaveService.xmlstring;
-  }
-  set xmlstring(value: string) {
-    this.declarationtvasaveService.xmlstring = value;
-  }
   public convertxmlstring(){
     this.declarationtvasaveService.convertxmlstring();
   }
