@@ -18,9 +18,11 @@ export class ConnectionService {
   private _urlBase: String = 'http://localhost:8036/gestion-comptabilite/connection';
   private _lien: String;
   private _etat: boolean ;
+  private _etat2: number ;
   private _operationsse: Array<OperationSociete>;
   private _urlBaseO: String = 'http://localhost:8036/gestion-comptabilite/operationSociete/';
   private _listoperation: Array<OperationSociete>;
+  private _listoperationvalidateur: Array<OperationSociete>;
   private _urlBaseOperation: String = 'http://localhost:8036/gestion-comptabilite/operationSociete';
 
 
@@ -38,6 +40,14 @@ export class ConnectionService {
     this._connection = value;
   }
 
+
+  get etat2(): number {
+    return this._etat2;
+  }
+
+  set etat2(value: number) {
+    this._etat2 = value;
+  }
 
   get urlBaseO(): String {
     return this._urlBaseO;
@@ -125,6 +135,8 @@ export class ConnectionService {
         if (data > 0) {
           console.log('bravo');
           alert('vous avez bien créer votre compt, vous devez attendre la validation de l\'admin');
+          console.log(this.connection);
+
           this.connection = null;
           this.teste = null;
         }
@@ -140,6 +152,7 @@ export class ConnectionService {
   public loger() {
     this.http.get<number>(this.urlBase + '/username/' + this.teste.t3 + '/password/' + this.teste.t4).subscribe(
       data => {
+        this._etat2 = data;
         if (this.teste.t3 != null && this.teste.t4 != null) {
           if (data == -1) {
             this.router.navigateByUrl('');
@@ -242,6 +255,18 @@ export class ConnectionService {
       }
     );
   }
+
+  public findoperationforcomptablevalidateur(){
+    this.http.get<Array<OperationSociete>>(this.urlBaseOperation + '/trvoperationforcomptablevalidateur/code/' + this.connection3.comptable.code).subscribe(
+      data =>{
+        this.listoperationvalidateur = data;
+        console.log('bravo trv list operation for comptablevalidateur');
+        console.log(this.listoperationvalidateur);
+      }, error => {
+        console.log('erreur trv list operation for comptablevalidateur');
+      }
+    );
+  }
   get listoperation(): Array<OperationSociete> {
     if (this._listoperation == null){
       this._listoperation = new Array<OperationSociete>();
@@ -253,6 +278,16 @@ export class ConnectionService {
     this._listoperation = value;
   }
 
+  get listoperationvalidateur(): Array<OperationSociete> {
+    if(this._listoperationvalidateur == null){
+      this._listoperationvalidateur = new Array<OperationSociete>();
+    }
+    return this._listoperationvalidateur;
+  }
+
+  set listoperationvalidateur(value: Array<OperationSociete>) {
+    this._listoperationvalidateur = value;
+  }
 
   get urlBaseOperation(): String {
     return this._urlBaseOperation;
@@ -268,6 +303,7 @@ export class ConnectionService {
           this.connection3 = data;
           this.connection2 = this.cloneCommande(this.connection3);
           this.findoperationforcomptable();
+          this.findoperationforcomptablevalidateur();
         }
 
         console.log('bravoo login');
@@ -293,6 +329,10 @@ export class ConnectionService {
     );
 
 
+  }
+  public getout(){
+    this.teste.t3 = null;
+    this.teste.t4 = null;
   }
 
 

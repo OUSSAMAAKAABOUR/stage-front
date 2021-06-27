@@ -7,6 +7,7 @@ export class Connection {
   public password: string;
   public type: string;
   public etat: string;
+  public email: string;
   public societeLogin = new Societe;
   public comptable = new Comptable();
   /*public ices: string; just un test */

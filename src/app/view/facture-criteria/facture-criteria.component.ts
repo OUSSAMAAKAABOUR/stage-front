@@ -20,10 +20,14 @@ import {ConnectionService} from '../../controller/service/connection.service';
 })
 export class FactureCriteriaComponent implements OnInit {
 
-  constructor( private connectionService: ConnectionService, private factureService: FactureService) {
+  constructor(private connectionService: ConnectionService, private factureService: FactureService) {
   }
 
   ngOnInit(): void {
+    this.facturevo.typOperation = 'All';
+    this.factureService.Criteria();
+
+
   }
 
   get facturevo(): FactureVo {
@@ -53,6 +57,7 @@ export class FactureCriteriaComponent implements OnInit {
     pdfMake.createPdf(documentDefinition).open();
 
   }
+
   get connection3(): Connection {
     return this.connectionService.connection3;
   }

@@ -37,4 +37,9 @@ export class LogincompComponent implements OnInit {
   get lien(): String {
     return this.connectionService.lien;
   }
-}
+  get etat2(): number {
+    return this.connectionService.etat2;
+  }
+
+
+  }

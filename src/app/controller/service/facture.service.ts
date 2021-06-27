@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Facture} from '../model/facture.model';
 import {FactureVo} from '../model/facture-vo.model';
 import {ConnectionService} from './connection.service';
+import {DeclarationtvaService} from './declarationtva.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class FactureService {
   private _urlBase: String = 'http://localhost:8036/gestion-comptabilite/facture';
 
 
-  constructor(private http: HttpClient, private connectionService: ConnectionService) {
+  constructor(private http: HttpClient, private connectionService: ConnectionService, private dcltvaservice: DeclarationtvaService) {
   }
 
 
@@ -51,8 +52,9 @@ export class FactureService {
     this.http.post<number>(this.urlBase + '/', this.facture).subscribe(
       data => {
         if (data > 0) {
-
+          this.dcltvaservice.trvfacuresandcalcultva();
           console.log('bravo');
+          alert('facture bien créer');
           this.facture = null;
 
         }
@@ -209,6 +211,7 @@ export class FactureService {
 
     }
   }
+
   public JournalAdmine() {
     if (this.facturevo.dmax != null && this.facturevo.dmin != null) {
 

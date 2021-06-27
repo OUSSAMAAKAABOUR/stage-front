@@ -9,6 +9,7 @@ import {Connection} from '../model/connection.model';
 import {Societe} from '../model/societe.model';
 import {ConnectionService} from './connection.service';
 import {Test} from '../model/test.model';
+import {FirstcompComptableeService} from './firstcomp-comptablee.service';
 
 @Injectable({
   providedIn: 'root'
@@ -217,6 +218,7 @@ export class OperationsocieteService {
       }
     );
   }
+
   public findByRefsociete() {
     this.http.get<OperationSociete>(this.urlBase + '/ref/' + this.test.t5).subscribe(
       data => {
@@ -273,7 +275,7 @@ export class OperationsocieteService {
       data => {
         if (data > 0) {
           console.log('bravo update');
-   this.connectionService.etat = false;
+          this.connectionService.etat = false;
         }
 
       }, error => {
@@ -294,6 +296,32 @@ export class OperationsocieteService {
       }
     );
 
+  }
+
+  public acceptcompte(operation: OperationSociete, index: number) {
+    this.http.put<number>(this.urlBase + '/validateOperationComptable', operation).subscribe(
+      data => {
+        this.connectionService.listoperationvalidateur.splice(index, 1);
+        console.log('bravo accepter operation par le validateur');
+        alert('l\'operation est bein validée');
+        console.log(data);
+      }, error => {
+        console.log('erreur accepter operation par  validateur');
+      }
+    );
+  }
+
+  public refuscompte(operation: OperationSociete, index: number) {
+    this.http.put<number>(this.urlBase + '/refuseOperationComptable/message/' + this.operationSociete.raison, operation).subscribe(
+      data => {
+        this.connectionService.listoperationvalidateur.splice(index, 1);
+        console.log('bravo refuser operation par le validateur');
+        alert('l\'operation est bein refuser');
+        console.log(data);
+      }, error => {
+        console.log('erreur refuser operation par  validateur');
+      }
+    );
   }
 
 

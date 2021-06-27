@@ -49,17 +49,26 @@
                 <div class="group"><label for="user" class="label">Username</label> <input
                   [(ngModel)]="connection.username" id="user" type="text" class="input"
                   placeholder="Create your Username"></div>
+                <div *ngIf="connection.username.length <= 4 " class="alert alert-danger">Username should be more than 4 character.
+                </div>
+
                 <div class="group"><label for="pass" class="label">Password</label> <input
                   [(ngModel)]="connection.password" id="pass" type="password" class="input" data-type="password"
                   placeholder="Create your password"></div>
+                <div *ngIf="connection.password.length <= 4 " class="alert alert-warning">Password est facile, essayer d'ajouter des chiffres.
+                </div>
+
                 <div class="group"><label for="pass" class="label">Repeat Password</label> <input [(ngModel)]="teste.t1"
                                                                                                   id="pass"
                                                                                                   type="password"
                                                                                                   class="input"
                                                                                                   data-type="password"
                                                                                                   placeholder="Repeat your password">
+                  <div *ngIf="connection.password != teste.t1 " class="alert alert-danger">Password n'est pas identique.
+                  </div>
+
                 </div>
-                <div class="group"><label for="pass" class="label"> Email</label> <input [(ngModel)]="teste.t2"
+                <div class="group"><label for="pass" class="label"> Email</label> <input [(ngModel)]="connection.email"
                                                                                          id="pass" type="email"
                                                                                          class="input"
                                                                                          placeholder="Enter your email ">

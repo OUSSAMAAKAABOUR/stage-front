@@ -34,11 +34,11 @@
 
   </div>
   <div class="card-body">
-    <div id="pdfTable" #pdfTable>
+    <div >
       <div class="card">
 
         <div class="card-header" id="titre">
-          <h2>Journal de l'entreprise <strong>OCP</strong> de la périeode:<u>{{facturevo.dmax}}</u> / <u>{{facturevo.dmin}}</u> </h2>
+          <h2>JOURNAL DE <strong>{{facturevo.reference}}</strong> DU: <u>{{facturevo.dmax}}</u> AU <u>{{facturevo.dmin}}</u> </h2>
         </div>
         <div class="card-body">
 
@@ -71,6 +71,47 @@
             <td></td>
             <td > <div  id="totalCredit">{{Sommes.totalcredit}} DH</div></td>
             <td > <div  id="totalDebit">{{Sommes.totaldebit}} DH</div></td>
+
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div  id="pdfTable" #pdfTable  hidden>
+      <div class="card">
+
+        <div class="card-header" >
+          <h2>JOURNAL DE <strong>{{facturevo.reference}}</strong> DU: <u>{{facturevo.dmax}}</u> AU <u>{{facturevo.dmin}}</u> </h2>
+        </div>
+        <div class="card-body">
+
+          <table class="table table-hover table-striped ">
+            <thead>
+            <th>Date D'opération</th>
+            <th>Réference Facture</th>
+            <th>libélle</th>
+            <th>CRÉDIT</th>
+            <th>DÉBIT</th>
+
+
+
+
+
+            </thead>
+            <tbody>
+            <tr *ngFor="let c of facturesJournal ">
+              <td>{{c.dateOperation}}</td>
+              <td>{{c.ref}}</td>
+              <td>{{c.libelle}}</td>
+              <td>{{c.credit}}</td>
+              <td>{{c.debit}}</td>
+
+
+
+            </tr>
+
+
 
 
             </tbody>

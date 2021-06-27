@@ -2,3 +2,33 @@
   width: 600px;
 }
 
+h2{
+  font-size: 40px;
+  font-weight: bolder;
+  text-align: center;
+  color: #FFFFFF;
+
+
+}
+label{
+  font-size: 25px;
+  font-weight: normal;
+  color: #000000;
+
+
+}
+.card{
+  border-color:  #515ced;
+
+}
+input{
+  border-color: #515ced;
+}
+
+.card-header{
+  background-color: #515ced;
+
+}
+.card{
+  padding: 0px;
+}

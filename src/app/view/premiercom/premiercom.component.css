@@ -48,11 +48,10 @@ body {
   }
 }
 
-html {
-  scroll-behavior: smooth;
-}
+body {
+  -webkit-overflow-scrolling: touch;}
 
-/* special heading */
+/* special heading xd */
 .special {
   color: #80b5eb;
   font-size: 100px;
@@ -218,7 +217,7 @@ html {
   position: relative;
   width: 250px;
   margin-top: 20px;
-  height: 420px;
+  height: 445px;
 }
 .about-content .image img{
   margin-top: -40px;

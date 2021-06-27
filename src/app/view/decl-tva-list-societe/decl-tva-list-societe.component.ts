@@ -11,7 +11,7 @@ import {Connection} from '../../controller/model/connection.model';
 })
 export class DeclTvaListSocieteComponent implements OnInit {
   page2 = 1;
-  pageSize2 = 1;
+  pageSize2 = 10;
   constructor(private declTvaCriteriaService: DeclatvacriteriaService,private connectionService: ConnectionService) { }
 
   ngOnInit(): void {

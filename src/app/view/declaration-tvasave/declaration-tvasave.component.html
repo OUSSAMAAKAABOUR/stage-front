@@ -45,7 +45,7 @@
 <div class="card" style="border-color: darkred;background-color: #fafafa;margin: 15px;border-width: 3px;">
 
   <div class="card-header"> <h4 style="font-weight: bold; font-size: 16px">LES FACTURES:</h4>
-    <button class="btn btn-info col-md-2 offset-10" (click)="openDialog()"><i class="fas fa-plus"></i>Nouveau Facture</button>
+    <button class="btn btn-info col-md-2 offset-10" (click)="openDialog()"><i class="fa fa-plus"></i> Nouveau Facture</button>
   </div>
 
   <div class="card-body">
@@ -64,9 +64,9 @@
             <tbody>
             <tr *ngFor="let l of declarationtvavo2.listfacturevente |paginate: {id:'listvente',itemsPerPage: pageSize, currentPage:page, totalItems:declarationtvavo2.listfacturevente.length }; index as i;">
               <td scope="row">{{l.ref}}</td>
-              <td>{{l.montantHorsTaxe}}</td>
-              <td>{{l.montantTTC}}</td>
-              <td>{{l.montantTVA}}</td>
+              <td>{{l.montantHorsTaxe}}DH</td>
+              <td>{{l.montantTTC}}DH</td>
+              <td>{{l.montantTVA}}DH</td>
               <td>
                 <span (click)="delete1(i,l)"><i class="fa fa-trash btn btn-danger"></i></span>
                 <span (click)="popupupdate(l)"><i class="fa fa-edit btn btn-warning"></i></span>
@@ -84,7 +84,7 @@
         </div>
       </div>
       <div class="card col-md-6" style="border-color:black;border-width: 2px;">
-        <div class="card-body">
+        <div class="card-body" >
           <div class="card-title" style="font-weight: bold; font-size: 16px">Factures ACHAT:</div>
           <table class="table">
             <thead class="thead-dark">
@@ -95,11 +95,11 @@
             <th scope="col">Action</th>
             </thead>
             <tbody>
-            <tr *ngFor="let l of declarationtvavo2.listfactureachat |paginate: {id:'listachat',itemsPerPage: 1, currentPage:page2, totalItems:declarationtvavo2.listfactureachat.length }; index as i">
+            <tr *ngFor="let l of declarationtvavo2.listfactureachat |paginate: {id:'listachat',itemsPerPage: 3, currentPage:page2, totalItems:declarationtvavo2.listfactureachat.length }; index as i">
               <td scope="row">{{l.ref}}</td>
-              <td>{{l.montantHorsTaxe}}</td>
-              <td>{{l.montantTTC}}</td>
-              <td>{{l.montantTVA}}</td>
+              <td>{{l.montantHorsTaxe}}DH</td>
+              <td>{{l.montantTTC}}DH</td>
+              <td>{{l.montantTVA}}DH</td>
               <td>
                 <span (click)="delete1(i,l)"><i class="fa fa-trash btn btn-danger"></i></span>
                 <span (click)="popupupdate(l)"><i class="fa fa-edit btn btn-warning"></i></span>
@@ -127,7 +127,65 @@
     <div class="row">
    <div class="col-md-4"> <button class="btn btn-dark btn-block" (click)="savebrouillon()">Brouillon</button> </div>
     <div class="col-md-4"><button class="btn btn-dark btn-block" (click)="save()">Valider</button> </div>
-   <div class="col-md-4"> <button class="btn btn-dark btn-block"><i class="fa fa-download"></i></button></div>
+   <div class="col-md-4"> <button class="btn btn-dark btn-block" (click)="downloadAsPDF()"><i class="fa fa-download"></i></button></div>
     </div>
 </div>
+</div>
+<!-- les tableaux de pdfs -->
+<div id="pdfTable" #pdfTable hidden>
+<div class="card-body" >
+  <div class="card-title" style="font-weight: bold; font-size: 16px">Listes des  Factures ACHAT de la société: <STRONG>{{decltva.societe.ice}}</STRONG></div>
+  <table class="table">
+    <thead class="thead-dark">
+    <th scope="col">Reference</th>
+    <th scope="col">Montant Hors Taxe</th>
+    <th scope="col">Montant TTC</th>
+    <th scope="col">Montant TVA</th>
+    <th scope="col">Annee</th>
+    <th scope="col">Trim</th>
+    <th scope="col">Mois  </th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let l of declarationtvavo2.listfactureachat ; index as i">
+      <td scope="row">{{l.ref}}</td>
+      <td>{{l.montantHorsTaxe}} DH</td>
+      <td>{{l.montantTTC}} DH</td>
+      <td>{{l.montantTVA}} DH</td>
+      <td>{{l.annee}} </td>
+      <td>{{l.trim}} </td>
+      <td>{{l.mois}} </td>
+
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+  <div class="card-body">
+    <div class="card-title" style="font-weight: bold; font-size: 16px">Listes des  Factures Ventes de la société: <STRONG>{{decltva.societe.ice}}</STRONG></div>
+    <table class="table">
+      <thead class="thead-dark">
+      <th scope="col">Reference</th>
+      <th scope="col">Montant Hors Taxe</th>
+      <th scope="col">Montant TTC</th>
+      <th scope="col">Montant TVA</th>
+      <th scope="col">Annee</th>
+      <th scope="col">Trim</th>
+      <th scope="col">Mois  </th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let l of declarationtvavo2.listfacturevente ; index as i;">
+        <td scope="row">{{l.ref}}</td>
+        <td>{{l.montantHorsTaxe}} DH</td>
+        <td>{{l.montantTTC}} DH</td>
+        <td>{{l.montantTVA}} DH</td>
+        <td>{{l.annee}} </td>
+        <td>{{l.trim}} </td>
+        <td>{{l.mois}} </td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
 </div>

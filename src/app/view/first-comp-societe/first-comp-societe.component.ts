@@ -7,6 +7,7 @@ import {ConnectionService} from '../../controller/service/connection.service';
 import {PaiementService} from '../../controller/service/paiement.service';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Paiement} from '../../controller/model/paiement.model';
+import {DeclatvacriteriaService} from '../../controller/service/declatvacriteria.service';
 
 @Component({
   selector: 'app-first-comp-societe',
@@ -17,7 +18,7 @@ export class FirstCompSocieteComponent implements OnInit {
   closeModal: string;
   page = 1;
   pageSize = 10;
-  constructor(private operatioSocieteService: OperationsocieteService, private connectionService: ConnectionService,private modalService: NgbModal, private operationService: OperationsocieteService,private paiementService: PaiementService,) {
+  constructor(private operatioSocieteService: OperationsocieteService,private dectvacriteriaservice: DeclatvacriteriaService, private connectionService: ConnectionService,private modalService: NgbModal, private operationService: OperationsocieteService,private paiementService: PaiementService) {
   }
 
   ngOnInit(): void {
@@ -30,7 +31,9 @@ export class FirstCompSocieteComponent implements OnInit {
     return this.connectionService.operationsse;
   }
 
-
+  public finddeclarationforsociete(){
+    this.dectvacriteriaservice.finddeclarationforsociete();
+  }
 
 
     get con(): Connection {

@@ -56,11 +56,17 @@ import { PaiementlistComptableComponent } from './view/paiementlist-comptable/pa
 import { JournalAdmineComponent } from './view/journal-admine/journal-admine.component';
 import { EtapeTypeOperationsComponent } from './view/etape-type-operations/etape-type-operations.component';
 import { TypeOperation2Component } from './view/type-operation2/type-operation2.component';
+import { ComptableValidateurComponent } from './view/comptable-validateur/comptable-validateur.component';
+import { ProfilComponent } from './view/profil/profil.component';
+import { ProfilComptableComponent } from './view/profil-comptable/profil-comptable.component';
+import { ProfilSocietComponent } from './view/profil-societ/profil-societ.component';
 
 const appRoutes: Routes = [
   {path: '' , component: PremiercomComponent},
   {path: 'login' , component: LogincompComponent},
   {path: 'secondcomp' , component: SecondcompComponent},
+  {path: 'profil' , component: ProfilComponent},
+  {path: 'profil-comptable' , component: ProfilComptableComponent},
   {
     path: 'facture' ,
     component: FacturechoicecompComponent,
@@ -134,6 +140,7 @@ const appRoutes: Routes = [
   },
   {path: 'decltvalistsociete', component: DeclTvaListSocieteComponent},
 
+  {path: 'comptable-validateur', component: ComptableValidateurComponent},
 
 
 
@@ -188,6 +195,10 @@ const appRoutes: Routes = [
     JournalAdmineComponent,
     EtapeTypeOperationsComponent,
     TypeOperation2Component,
+    ComptableValidateurComponent,
+    ProfilComponent,
+    ProfilComptableComponent,
+    ProfilSocietComponent,
 
 
 

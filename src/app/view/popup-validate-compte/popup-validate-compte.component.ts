@@ -9,7 +9,7 @@ import {Connection} from "../../controller/model/connection.model";
 })
 export class PopupValidateCompteComponent implements OnInit {
   page = 1;
-  pageSize = 1;
+  pageSize = 5;
   constructor(private validateCompteService: ValidateCompteService ) { }
 
   ngOnInit(): void {

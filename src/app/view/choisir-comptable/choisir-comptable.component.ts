@@ -11,7 +11,7 @@ export class ChoisirComptableComponent implements OnInit {
 
   constructor(private affecterComptableService: AffecterComptableService) { }
   page = 1 ;
-  pageSize = 1;
+  pageSize = 5;
   ngOnInit(): void {
     this.affecterComptableService.findAllComptable();
   }
