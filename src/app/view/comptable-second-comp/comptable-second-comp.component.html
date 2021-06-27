@@ -86,7 +86,7 @@
 
     <div class="card col-md-6" >
 
-      <div class="card-body">
+      <div class="card-body" (click)="triggerModal(modalData)">
         <h1 class="card-title text-center">Pieces Justif</h1>
         <hr class="hr">
         <p class="card-text text-center ico">
@@ -122,3 +122,10 @@
 
 
 
+<ng-template #modalData let-modal  >
+
+  <div class="modal-body " >
+    <app-piece-justif></app-piece-justif>
+  </div>
+
+</ng-template>
