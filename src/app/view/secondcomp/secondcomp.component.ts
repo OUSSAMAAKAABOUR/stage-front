@@ -9,6 +9,7 @@ import {ValidateCompteService} from '../../controller/service/validate-compte.se
 import {PopupValidateCompteComponent} from '../popup-validate-compte/popup-validate-compte.component';
 import {ConnectionService} from '../../controller/service/connection.service';
 import {Connection} from '../../controller/model/connection.model';
+import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-secondcomp',
@@ -16,8 +17,9 @@ import {Connection} from '../../controller/model/connection.model';
   styleUrls: ['./secondcomp.component.css']
 })
 export class SecondcompComponent implements OnInit {
+  closeModal: string;
 
-  constructor(private affecterComptableServoce: AffecterComptableService, private testserviceService: TestserviceService, public dialog: MatDialog, private validateCompteService: ValidateCompteService, private connectionService: ConnectionService) {
+  constructor(private affecterComptableServoce: AffecterComptableService, private modalService: NgbModal, private testserviceService: TestserviceService, public dialog: MatDialog, private validateCompteService: ValidateCompteService, private connectionService: ConnectionService) {
   }
 
   ngOnInit(): void {
@@ -81,4 +83,24 @@ export class SecondcompComponent implements OnInit {
     return this.connectionService.connection3;
   }
 
+  triggerModal(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((res) => {
+      this.closeModal = `Closed with: ${res}`;
+    }, (res) => {
+      this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+  public getout(){
+    this.connectionService.getout();
+  }
 }

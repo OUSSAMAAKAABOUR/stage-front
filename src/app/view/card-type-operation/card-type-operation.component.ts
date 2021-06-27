@@ -18,17 +18,17 @@ export class CardTypeOperationComponent implements OnInit {
   }
 
   public change1() {
-    this.operationSociete.typeOperation.libelle = 'T1';
+    this.operationSociete.typeOperation.libelle = 'Délaration par mois';
     this.card.change();
   }
 
   public change2() {
-    this.operationSociete.typeOperation.libelle = 'T2';
+    this.operationSociete.typeOperation.libelle = 'Déclaration par trimestre';
     this.card.change();
   }
 
   public change3() {
-    this.operationSociete.typeOperation.libelle = 'T3';
+    this.operationSociete.typeOperation.libelle = 'Déclaration par an';
     this.card.change();
   }
 

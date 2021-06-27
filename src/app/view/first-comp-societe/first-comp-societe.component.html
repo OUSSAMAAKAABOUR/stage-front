@@ -1,5 +1,6 @@
-<div class="d-flex flex-row bd-highlight">
-  <img width="90px" src="https://i.ibb.co/Dft1Nb9/photo.png" alt="">
+<body>
+<div>
+ <!-- <img width="90px" src="https://i.ibb.co/Dft1Nb9/photo.png" alt="">
 <h2>{{connection3.username}}</h2>
   <nav [hidden]="etat" >
     <div class="bigbog" >
@@ -27,8 +28,61 @@
 
       </ul>
     </div>
+  </nav> -->
+  <nav class="navbar">
+    <div class="navbar__container">
+      <a href="#home" id="navbar__logo">ZS Events</a>
+
+      <ul class="navbar__menu">
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a  class="navbar__links" id="home-page" routerLink="/firstSociete" routerLinkActive="active">Acceuil</a>
+
+          </li> <li class="navbar__item">
+
+            <a  class="navbar__links" id="home-page" routerLink="/cardtypeoperation" routerLinkActive="active">Créer Operation</a>
+
+
+          </li> <li class="navbar__item">
+            <a class="navbar__links" id="home-page" routerLink="/facturecriteriaSociete" routerLinkActive="active">Facture</a>
+
+
+          </li> <li class="navbar__item">
+            <a  class="navbar__links" id="home-page" routerLink="/decltvalistsociete" (click)="finddeclarationforsociete()" routerLinkActive="active">Declaration TVA</a>
+
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__links" id="home-page" routerLinkActive="active">Peice Justif</a>
+
+          </li>
+          <li class="navbar__btn margin">
+            <a   class="navbar__links user">{{connection3.username}}</a>
+          </li>
+          <li class="navbar__btn ml-5 mr-1">
+            <a (click)="triggerModal(modalData1)"  class="button right">
+              <i class="bi bi-person-circle  ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="black" class="bi bi-person-circle" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+              </i>
+            </a>
+            <a  class="logout ml-5" routerLink="/login">
+              <i class="bi bi-box-arrow-right ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="black" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                  <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                </svg>
+              </i>
+            </a>
+
+          </li>
+        </ul>
+      </ul>
+    </div>
   </nav>
-<div>
+
+  <div>
   <router-outlet></router-outlet>
 </div>
 </div>
@@ -37,7 +91,7 @@
 
 
 
-  <div class="card container ">
+  <div class="card container mt-3 ">
   <div class="card-header  ">
     <!--<h2>liste des operation du societe <i>{{connection3.societeLogin.ice}}</i></h2> -->
  <h2 *ngIf="connection3.societeLogin != null">liste des operation de la societe <i>{{connection3.societeLogin.ice}}</i></h2>
@@ -53,20 +107,25 @@
           <th>Action</th>
           </thead>
           <tbody>
-          <tr *ngFor="let c of operationsse ; index as i ">
+          <tr *ngFor="let c of operationsse | paginate: {id:'listvente',itemsPerPage: pageSize, currentPage:page, totalItems:operationsse.length }; index as i ">
             <td>{{c.ref}}</td>
             <td>{{c.libelle}}</td>
             <td>{{c.societe.ice}}</td>
             <td>{{c.fraixFix}} DH</td>
             <td>{{c.fraixComptable}} DH</td>
-            <td><span (click)="triggerModal(modalData)" (click)="trouverPaiement(c)"><i
-              class="fa fa-eye btn btn-outline-info"></i></span>
+            <td><span (click)="triggerModal(modalData)" (click)="trouverPaiement(c)"><button class="btn btn-info w-25 " ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+  <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+</svg></button></span>
             </td>
           </tr>
           </tbody>
 
         </table>
 
+        <div>
+          <pagination-controls id="listvente" maxSize="5" directionLinks="true" (pageChange)="page=$event"></pagination-controls>
+        </div>
 
       </div>
 
@@ -75,9 +134,12 @@
     </div>
     </div>
 <ng-template #modalData let-modal>
-  <h3>liste des paiement de l'operation </h3>
+  <div class="modal-header">
+    <h2>liste des paiements </h2>
+  </div>
+  <div class="modal-body">
 
-  <table class="table table-hover table-striped">
+  <table class="table table-hover table-striped ml-2 mr-2 mb-2">
 
     <thead>
     <th>reference</th>
@@ -96,11 +158,14 @@
     </tbody>
 
   </table>
-
-
-  <div class="modal-footer">
-    <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
   </div>
+  <div class="modal-footer">
+  </div>
+
+
+  <!--<div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
+  </div> -->
 </ng-template>
 
     <div class="card container" [hidden]="!etat">
@@ -142,3 +207,10 @@
       </div>
 
     </div>
+</body>
+<ng-template  #modalData1 let-modal>
+
+
+  <app-profil-societ></app-profil-societ>
+
+</ng-template>

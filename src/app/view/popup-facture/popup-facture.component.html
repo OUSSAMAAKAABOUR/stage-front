@@ -1,70 +1,97 @@
 <div class="amine">
-<h2 mat-dialog-title >Création d'une facture:</h2>
-<mat-dialog-content>
-      <div class="card border-success text-success">
-    <div class="card-body">
-      <div class="row">
-        <div class="form-group col-md-4">
-          <label>Reference</label>
-          <input type="text" class="form-control" [(ngModel)]="facture.ref" >
-        </div>
+  <mat-dialog-content>
 
-        <div class="form-group col-md-4">
-          <label>Libelle</label>
-          <input type="text" class="form-control" [(ngModel)]="facture.libelle"  >
-        </div>
+    <div class=" card container">
+      <div class="card-header  ">
+        <h2>Céation d'une facture</h2>
+      </div>
 
-        <div class="form-group col-md-4">
-          <label>MontantHorsTaxe</label>
-          <input type="number" class="form-control"  [(ngModel)]="facture.montantHorsTaxe">
-        </div>
-        <div class="form-group col-md-4">
-          <label>DateOperation</label>
-          <input type="date" class="form-control" [(ngModel)]="facture.dateOperation"  >
-        </div>
-        <div class="form-group col-md-4  ">
-          <label>Class Comptable</label>
-          <input type="text" class="form-control" [(ngModel)]="facture.classComptable.numero"  >
-        </div>
-        <div class="form-group col-md-4">
-          <label>TVA</label>
-          <input type="text" class="form-control" [(ngModel)]="facture.tva.ref" >
-        </div>
-        <div class="form-group col-md-4">
-          <label>Societe Source</label>
-          <input type="text" class="form-control" [(ngModel)]="facture.societeSource.ice" >
-        </div>
-        <div class="form-group col-md-4">
-          <label>Societe Destination</label>
-          <input type="text" class="form-control"[(ngModel)]="facture.societeDistination.ice"  >
-        </div>
-        <div class="form-group col-md-4"></div>
-        <div class="form-group col-md-4">
-          <div class="form-check form-check-inline offset-1">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Credit" [(ngModel)]="facture.typeOperation">
-            <label class="form-check-label" for="inlineRadio1">VENTE</label>
+      <div class="card-body ">
+        <div class="row">
+          <div class="form-group col-md-4 ">
+            <label>Reference</label>
+            <input type="text" class="form-control" [(ngModel)]="facture.ref">
           </div>
-          <div class="form-check form-check-inline offset-1">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Debit" [(ngModel)]="facture.typeOperation">
-            <label class="form-check-label" for="inlineRadio2">ACHAT</label>
+
+          <div class="form-group col-md-4 ">
+            <label>Libelle</label>
+            <input type="text" class="form-control" [(ngModel)]="facture.libelle">
           </div>
+
+          <div class="form-group col-md-4 ">
+            <label>MHT</label>
+            <input type="number" class="form-control" [(ngModel)]="facture.montantHorsTaxe">
+          </div>
+          <div class="form-group col-md-4">
+            <label>DateOperation</label>
+            <input type="date" class="form-control" [(ngModel)]="facture.dateOperation">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Societe Src</label>
+            <input disabled type="text" class="form-control" [(ngModel)]="facture.societeSource.ice">
+          </div>
+          <div class="form-group col-md-4">
+            <label>Societe Dis</label>
+            <input type="text" class="form-control" [(ngModel)]="facture.societeDistination.ice">
+          </div>
+          <div class="form-group col-md-4 ">
+            <label>Class Comp</label><br>
+            <select class="w-100 h-75 " [(ngModel)]="facture.classComptable.numero">
+              <option value="11"> 11</option>
+              <option value="15">15</option>
+              <option value="18">18</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label>TVA</label><br>
+            <select class="w-100 h-75 " [(ngModel)]="facture.tva.ref">
+              <option value="TVA1">3%</option>
+              <option value="TVA2">5%</option>
+              <option value="TVA3">7%</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Etat Facture</label><br>
+            <select class="w-100 h-75  " [(ngModel)]="facture.etatFacture.code">
+              <option value="1"> complet</option>
+              <option value="2">partiellement complet</option>
+              <option value="3">non complet</option>
+            </select>
+          </div>
+          <div class="form-group col-md-5 m-md-3">
+            <label>Etat paiement</label><br>
+            <select class="w-100 h-75 mt-md-2" [(ngModel)]="facture.etatPaiement.code">
+              <option value="1"> payée</option>
+              <option value="2">partiellement payée</option>
+              <option value="3">non payée</option>
+            </select>
+          </div>
+          <div class=" form-group col-md-5 m-md-3  ">
+            <label>Type d'operation</label><br>
+            <select class="w-100 h-75 mt-md-2 " [(ngModel)]="facture.typeOperation">
+              <option>CRÉDIT</option>
+              <option>DÉBIT</option>
+            </select>
+          </div>
+
+
         </div>
 
+      </div>
+
+      <div class="card-footer">
+        <button class=" btn btn-info btn-block" (click)="save()  "><i class="fa fa-send"></i>save
+        </button>
 
       </div>
 
     </div>
-      </div>
+  </mat-dialog-content>
 
-    <div class="card-footer">
-      <button class="btn btn-success col-md-6 offset-3" (click)="save()" *ngIf="a"  ><i class="fa fa-send"></i>save</button>
-      <button class="btn btn-warning col-md-6 offset-3" (click)="update()" *ngIf="b"><i class="fa fa-edit"></i>update</button>
-    </div>
-</mat-dialog-content>
-
-<mat-dialog-actions>
-  <button class="btn btn-danger col-md-4 offset-8" (click)="refresh()" mat-button mat-dialog-close>Sortir</button>
-</mat-dialog-actions>
+  <mat-dialog-actions>
+    <button class="btn btn-danger col-md-4 offset-8" (click)="refresh()" mat-button mat-dialog-close>Sortir</button>
+  </mat-dialog-actions>
 </div>
 
 

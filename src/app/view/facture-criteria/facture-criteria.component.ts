@@ -9,6 +9,9 @@ import pdfFonts from 'pdfmake/build/vfs_fonts';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import htmlToPdfmake from 'html-to-pdfmake';
+import {Connection} from '../../controller/model/connection.model';
+import {OperationsocieteService} from '../../controller/service/operationsociete.service';
+import {ConnectionService} from '../../controller/service/connection.service';
 
 @Component({
   selector: 'app-facture-criteria',
@@ -17,10 +20,14 @@ import htmlToPdfmake from 'html-to-pdfmake';
 })
 export class FactureCriteriaComponent implements OnInit {
 
-  constructor(private factureService: FactureService) {
+  constructor(private connectionService: ConnectionService, private factureService: FactureService) {
   }
 
   ngOnInit(): void {
+    this.facturevo.typOperation = 'All';
+    this.factureService.Criteria();
+
+
   }
 
   get facturevo(): FactureVo {
@@ -51,6 +58,9 @@ export class FactureCriteriaComponent implements OnInit {
 
   }
 
+  get connection3(): Connection {
+    return this.connectionService.connection3;
+  }
 
 
 }

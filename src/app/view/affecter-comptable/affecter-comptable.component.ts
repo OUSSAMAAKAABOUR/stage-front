@@ -15,7 +15,7 @@ import {ConnectionService} from '../../controller/service/connection.service';
 export class AffecterComptableComponent implements OnInit {
 
   constructor(private affecterComptableService: AffecterComptableService, private testserviceService: TestserviceService,public dialog: MatDialog, private connectionService: ConnectionService) { }
-  pageSize2 = 1;
+  pageSize2 = 10;
   page2 = 1;
   ngOnInit(): void {
     this.affecterComptableService.findOperationWhereComptablenull();

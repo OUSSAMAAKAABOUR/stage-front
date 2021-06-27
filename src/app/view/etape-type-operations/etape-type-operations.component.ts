@@ -11,7 +11,7 @@ import {Etape} from '../../controller/model/etape.model';
 })
 export class EtapeTypeOperationsComponent implements OnInit {
    page = 1;
-   pageSize = 1;
+   pageSize = 3;
   constructor(private listTypeOperationService: ListTypeOperationService, private popupEtapeService: PopupEtapeService) { }
 
   ngOnInit(): void {

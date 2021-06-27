@@ -1,0 +1,155 @@
+<nav class="navbar">
+  <div class="navbar__container">
+    <a href="#home" id="navbar__logo">ZS Events</a>
+    <a class="navbar__links titre " routerLink="/comptable-validateur">Opéartions à Valider</a>
+
+    <ul class="navbar__menu">
+      <ul class="navbar__menu">
+
+        <li class="navbar__btn">
+          <a  class="button right">
+            <i class="bi bi-person-circle icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="25" fill="black" class="bi bi-person-circle"
+                   viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                <path fill-rule="evenodd"
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+              </svg>
+            </i>
+          </a>
+
+          <a routerLink="/firstcompcomptable" class="logout ">
+            <i class="bi bi-box-arrow-right">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="25" fill="black" class="bi bi-box-arrow-right"
+                   viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                      d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                <path fill-rule="evenodd"
+                      d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+              </svg>
+            </i>
+          </a>
+
+        </li>
+        <li class="navbar__item">
+          <a  class="navbar__links" id="home-page">{{connection3.username}}</a>
+        </li>
+      </ul>
+    </ul>
+  </div>
+</nav>
+<div>
+  <div class="card container mt-3">
+    <div class="card-header ">
+      <h2>liste des opérations sociétés à Valider </h2>
+      <div class="form-group ">
+        <div class="card-body ">
+          <table class="table table-hover table-striped">
+            <thead>
+            <th>ref</th>
+            <th>libelle</th>
+            <th>fraix C</th>
+            <th>fraix fix</th>
+            <th>date</th>
+            <th>type operation</th>
+            <th>COMPTABLE V</th>
+            <th>COMPTABLE tr</th>
+            <th>Action</th>
+
+            </thead>
+            <tbody>
+            <tr *ngFor="let c of listoperationvalidateur;index as i; ">
+              <td>{{c.ref}}</td>
+              <td>{{c.libelle}}</td>
+              <td>{{c.fraixComptable}}DH</td>
+              <td>{{c.fraixFix}}DH</td>
+              <td>{{c.dateOperationSociete}}</td>
+              <td>{{c.typeOperation.libelle}}</td>
+              <td>{{c.comptableValidateur.nom}}</td>
+              <td>{{c.comptableTaiteur.nom}}</td>
+              <td>
+        <span (click)="triggerModal(modalData2)" (click)="trouverPaiement(c)"><button class="btn btn-info w-25 " ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+  <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+</svg></button></span>
+
+                <span (click)="acceptcompte(c,i)" class="mr-3 ml-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                       class="bi bi-check2-square btn btn-outline-success" viewBox="0 0 16 16">
+  <path
+    d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z"/>
+  <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+</svg></span>
+                <span (click)="triggerModal(modalData)" >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                       class="bi bi-file-excel btn btn-outline-danger" viewBox="0 0 16 16">
+                    <path
+                      d="M5.18 4.616a.5.5 0 0 1 .704.064L8 7.219l2.116-2.54a.5.5 0 1 1 .768.641L8.651 8l2.233 2.68a.5.5 0 0 1-.768.64L8 8.781l-2.116 2.54a.5.5 0 0 1-.768-.641L7.349 8 5.116 5.32a.5.5 0 0 1 .064-.704z"/>
+                    <path
+                      d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
+                  </svg></span>
+              </td>
+              <ng-template #modalData let-modal>
+
+                <div class="modal-header">
+                  <h2 class="ml-5 mt-2">écrire les raisons de refus</h2>
+                </div>
+                <div class="modal-body">
+
+                  <FORM class="mt-2 ml-2 ">
+
+                    <input type="text"  class="form-control h-100"  placeholder="Enter la justification." [(ngModel)]="operationSociete.raison">
+                  </FORM>
+                </div>
+
+                <div class="modal-footer mt-5 mb-3 h-25">
+                  <button type="button" class="w-100" (click)="modal.close('Save click')" (click)="refuscompte(c,i)">OK</button>
+                </div>
+              </ng-template>
+
+            </tr>
+            </tbody>
+
+          </table>
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #modalData2 let-modal>
+  <div class="modal-header">
+    <h2>liste des paiements </h2>
+  </div>
+  <div class="modal-body">
+
+    <table class="table table-hover table-striped ml-2 mr-2 mb-2">
+
+      <thead>
+      <th>reference</th>
+      <th>Date</th>
+      <th>Montant</th>
+      <th>Operation</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let c of paiementes ; index as i ">
+        <td>{{c.ref}}</td>
+        <td>{{c.datePaiement}}</td>
+        <td>{{c.montant}} DH</td>
+        <td>{{c.operationSociete.ref}}</td>
+
+      </tr>
+      </tbody>
+
+    </table>
+  </div>
+  <div class="modal-footer">
+  </div>
+
+
+  <!--<div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
+  </div> -->
+</ng-template>

@@ -43,7 +43,6 @@
       <th>mois</th>
       <th>trim</th>
       <th>Type Operation</th>
-      <th>comptable</th>
       <th>action</th>
 
 
@@ -61,9 +60,8 @@
         <td>{{c.mois}}</td>
         <td>{{c.trim}}</td>
         <td>{{c.typeOperation}}</td>
-        <td>{{c.classComptable.numero}}</td>
         <td><span (click)="delete(c)"><i class="fa fa-trash btn btn-danger"></i></span>
-          <span class="ml-1" (click)="updateFront(i,c)" (click)="triggerModal(modalData)" ><i class="fa fa-edit btn btn-outline-info"></i></span></td>
+          <span  (click)="updateFront(i,c)" (click)="triggerModal(modalData)" ><i class="fa fa-edit btn btn-outline-info"></i></span></td>
 
 
       </tr>

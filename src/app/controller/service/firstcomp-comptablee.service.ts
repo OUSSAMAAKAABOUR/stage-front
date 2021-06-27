@@ -11,6 +11,7 @@ import {FactureService} from "./facture.service";
 })
 export class FirstcompComptableeService {
   private _listoperation: Array<OperationSociete>;
+  private _listoperationvalidateur: Array<OperationSociete>;
   private _urlBase: String = 'http://localhost:8036/gestion-comptabilite/operationSociete';
   constructor(private http: HttpClient,private connectionservice: ConnectionService, private declarationtvasaveService: DeclarationtvaService,private paiementService: PaiementService,private factureService: FactureService) { }
 
@@ -32,6 +33,16 @@ export class FirstcompComptableeService {
   set listoperation(value: Array<OperationSociete>) {
     this._listoperation = value;
   }
+  get listoperationvalidateur(): Array<OperationSociete> {
+    if(this._listoperationvalidateur == null){
+      this._listoperationvalidateur = new Array<OperationSociete>();
+    }
+    return this._listoperationvalidateur;
+  }
+
+  set listoperationvalidateur(value: Array<OperationSociete>) {
+    this._listoperationvalidateur = value;
+  }
   public findoperationforcomptable(){
     this.http.get<Array<OperationSociete>>(this.urlBase + '/trvoperationforcomptable/code/' + this.connectionservice.connection2.comptable.code).subscribe(
       data =>{
@@ -39,6 +50,16 @@ export class FirstcompComptableeService {
         console.log('bravo trv list operation for comptable');
       }, error => {
         console.log('erreur trv list operation for comptable');
+      }
+    );
+  }
+  public findoperationforcomptablevalidateur(){
+    this.http.get<Array<OperationSociete>>(this.urlBase + '/trvoperationforcomptablevalidateur/code/' + this.connectionservice.connection2.comptable.code).subscribe(
+      data =>{
+        this.listoperationvalidateur = data;
+        console.log('bravo trv list operation for comptablevalidateur');
+      }, error => {
+        console.log('erreur trv list operation for comptablevalidateur');
       }
     );
   }

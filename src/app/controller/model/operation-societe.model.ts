@@ -11,6 +11,8 @@ export class OperationSociete {
   public libelle: string;
   public fraixFix: number;
   public fraixComptable: number;
+  public etatOperation: string;
+  public raison: string;
   public dateOperationSociete: string;
   public typeOperation = new TypeOperation();
   public etatOperationSociete = new EtatOperationSociete();

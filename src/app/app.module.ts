@@ -55,12 +55,18 @@ import { PaimentChoiceComponent } from './view/paiment-choice/paiment-choice.com
 import { PaiementlistComptableComponent } from './view/paiementlist-comptable/paiementlist-comptable.component';
 import { JournalAdmineComponent } from './view/journal-admine/journal-admine.component';
 import { EtapeTypeOperationsComponent } from './view/etape-type-operations/etape-type-operations.component';
-import { ConvertxmlfilePopupComponent } from './view/convertxmlfile-popup/convertxmlfile-popup.component';
+import { TypeOperation2Component } from './view/type-operation2/type-operation2.component';
+import { ComptableValidateurComponent } from './view/comptable-validateur/comptable-validateur.component';
+import { ProfilComponent } from './view/profil/profil.component';
+import { ProfilComptableComponent } from './view/profil-comptable/profil-comptable.component';
+import { ProfilSocietComponent } from './view/profil-societ/profil-societ.component';
 
 const appRoutes: Routes = [
   {path: '' , component: PremiercomComponent},
   {path: 'login' , component: LogincompComponent},
   {path: 'secondcomp' , component: SecondcompComponent},
+  {path: 'profil' , component: ProfilComponent},
+  {path: 'profil-comptable' , component: ProfilComptableComponent},
   {
     path: 'facture' ,
     component: FacturechoicecompComponent,
@@ -103,6 +109,8 @@ const appRoutes: Routes = [
   {path: 'facturecriteriaSociete', component: FactureCriteriaComponent},
   {path: 'firstcompcomptable', component: FirstcompComptableComponent},
   {path: 'comptablesecondcomp', component: ComptableSecondCompComponent},
+  {path: 'cardtypeoperation', component: TypeOperation2Component},
+
   {
     path: 'declarationtvacomptable',
     component: DeclarationtvachoiceComptableComponent,
@@ -130,7 +138,9 @@ const appRoutes: Routes = [
       {path: 'facturelistcomptable', component: FacturelistComptableComponent },
     ]
   },
+  {path: 'decltvalistsociete', component: DeclTvaListSocieteComponent},
 
+  {path: 'comptable-validateur', component: ComptableValidateurComponent},
 
 
 
@@ -184,7 +194,11 @@ const appRoutes: Routes = [
     PaiementlistComptableComponent,
     JournalAdmineComponent,
     EtapeTypeOperationsComponent,
-    ConvertxmlfilePopupComponent,
+    TypeOperation2Component,
+    ComptableValidateurComponent,
+    ProfilComponent,
+    ProfilComptableComponent,
+    ProfilSocietComponent,
 
 
 

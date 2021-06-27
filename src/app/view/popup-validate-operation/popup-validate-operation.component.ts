@@ -11,7 +11,7 @@ import {PopupValidateOperationService} from "../../controller/service/popup-vali
 export class PopupValidateOperationComponent implements OnInit {
 
   constructor(private popupValidateOperationService: PopupValidateOperationService,private testService: TestserviceService) { }
-  pageSize = 1;
+  pageSize = 5;
   page = 1;
   ngOnInit(): void {
   }
