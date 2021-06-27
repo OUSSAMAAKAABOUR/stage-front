@@ -13,6 +13,7 @@ import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import htmlToPdfmake from 'html-to-pdfmake';
 import {FactureService} from '../../controller/service/facture.service';
+import {ConvertxmlfilePopupComponent} from "../convertxmlfile-popup/convertxmlfile-popup.component";
 
 @Component({
   selector: 'app-declaration-tvasave',
@@ -30,7 +31,9 @@ export class DeclarationTvasaveComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  openDialogXml(){
+    this.dialog.open(ConvertxmlfilePopupComponent);
+  }
   openDialog() {
     this.popupservice.facture = null;
     this.popupservice.b = false;

@@ -60,6 +60,7 @@ import { ComptableValidateurComponent } from './view/comptable-validateur/compta
 import { ProfilComponent } from './view/profil/profil.component';
 import { ProfilComptableComponent } from './view/profil-comptable/profil-comptable.component';
 import { ProfilSocietComponent } from './view/profil-societ/profil-societ.component';
+import {ConvertxmlfilePopupComponent} from "./view/convertxmlfile-popup/convertxmlfile-popup.component";
 
 const appRoutes: Routes = [
   {path: '' , component: PremiercomComponent},
@@ -199,6 +200,7 @@ const appRoutes: Routes = [
     ProfilComponent,
     ProfilComptableComponent,
     ProfilSocietComponent,
+    ConvertxmlfilePopupComponent,
 
 
 

@@ -5,6 +5,7 @@ import {TypeDeclarationTva} from "../model/type-declaration-tva.model";
 import {Facture} from "../model/facture.model";
 import {DeclarationTvaVo1} from "../model/declaration-tva-vo1.model";
 import {DeclarationTvaVo2} from "../model/declaration-tva-vo2.model";
+import {EmplacementXml} from "../model/emplacement-xml.model";
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +20,21 @@ export class DeclarationtvaService {
   private _UrlBase = 'http://localhost:8036/';
   private _Urldeclatva = 'gestion-comptabilite/declarationtva';
   private _Urlfacture ='gestion-comptabilite/facture';
+  private _emplacementXml: EmplacementXml;
   constructor(private http: HttpClient) {
   }
 
+
+  get emplacementXml(): EmplacementXml {
+    if (this._emplacementXml == null){
+      this._emplacementXml = new EmplacementXml();
+    }
+    return this._emplacementXml;
+  }
+
+  set emplacementXml(value: EmplacementXml) {
+    this._emplacementXml = value;
+  }
 
   get UrlBase(): string {
     return this._UrlBase;
@@ -199,6 +212,31 @@ export class DeclarationtvaService {
         }
       }, error => {
         console.log('erreur savebrouillonpourComptable declaration tva');
+      }
+    );
+  }
+  public convertxmlstring(){
+    this.http.post<DeclarationTvaVo1>('http://localhost:8036/gestion-comptabilite/declarationtva/tovo1/',this.emplacementXml).subscribe(
+      data =>{
+        this.declarationtvavo1 = data;
+        this.decltva.societe.ice = this.declarationtvavo1.societeref;
+        this.decltva.typeDeclarationTva.ref = this.declarationtvavo1.typedeclarationtva;
+        this.decltva.annee = this.declarationtvavo1.annee;
+        this.decltva.trim = this.declarationtvavo1.trim;
+        this.decltva.mois = this.declarationtvavo1.mois;
+        console.log('bravo convert xml string to declarationtvaVo1');
+      }, error => {
+        console.log('erreur convert xml string to declarationtvaVo1');
+      }
+    );
+  }
+  public convertxmlstring2(){
+    this.http.post<DeclarationTvaVo2>('http://localhost:8036/gestion-comptabilite/declarationtva/tovo2/',this.emplacementXml).subscribe(
+      data =>{
+        this.declarationtvavo2 = data;
+        console.log('bravo convert xml string to declarationtvavo2');
+      }, error => {
+        console.log('erreur convert xml string to declarationtvavo2');
       }
     );
   }
