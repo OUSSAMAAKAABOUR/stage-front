@@ -60,7 +60,7 @@ import { ComptableValidateurComponent } from './view/comptable-validateur/compta
 import { ProfilComponent } from './view/profil/profil.component';
 import { ProfilComptableComponent } from './view/profil-comptable/profil-comptable.component';
 import { ProfilSocietComponent } from './view/profil-societ/profil-societ.component';
-import { PieceJustifComponent } from './view/piece-justif/piece-justif.component';
+import {ConvertxmlfilePopupComponent} from "./view/convertxmlfile-popup/convertxmlfile-popup.component";
 
 const appRoutes: Routes = [
   {path: '' , component: PremiercomComponent},
@@ -142,7 +142,6 @@ const appRoutes: Routes = [
   {path: 'decltvalistsociete', component: DeclTvaListSocieteComponent},
 
   {path: 'comptable-validateur', component: ComptableValidateurComponent},
-  {path: 'piece-justif', component: PieceJustifComponent},
 
 
 
@@ -201,7 +200,7 @@ const appRoutes: Routes = [
     ProfilComponent,
     ProfilComptableComponent,
     ProfilSocietComponent,
-    PieceJustifComponent,
+    ConvertxmlfilePopupComponent,
 
 
 
