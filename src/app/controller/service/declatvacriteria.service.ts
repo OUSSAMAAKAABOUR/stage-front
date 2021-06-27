@@ -152,6 +152,16 @@ export class DeclatvacriteriaService {
       }
     );
   }
+  public deletedeclarationbyref(declarationtva: DeclarationTva) {
+    this.http.delete<number>(this.UrlBaseDeclatva + '/ref/' + declarationtva.ref).subscribe(
+      data => {
+        console.log('bravo supprimer declarationtva by ref');
+        alert('DeclarationTVA bien supprimer');
+      }, error => {
+        console.log('erreur supprimer declarationtva by ref');
+      }
+    );
+  }
 
   //methode pour component decltvalistSociete
   public finddeclarationforsociete() {
