@@ -6,6 +6,7 @@ import {Facture} from "../../controller/model/facture.model";
 import {DeclarationtvaService} from "../../controller/service/declarationtva.service";
 import {MatDialog} from "@angular/material/dialog";
 import {PopupService} from "../../controller/service/popup.service";
+import {ConvertxmlfilePopupComponent} from "../convertxmlfile-popup/convertxmlfile-popup.component";
 
 @Component({
   selector: 'app-comptable-declaration-tva-save',
@@ -19,6 +20,9 @@ export class ComptableDeclarationTvaSaveComponent implements OnInit {
   constructor(private declarationtvaservice: DeclarationtvaService, public dialog: MatDialog, private popupservice: PopupService) { }
 
   ngOnInit(): void {
+  }
+  openDialogXml(){
+    this.dialog.open(ConvertxmlfilePopupComponent);
   }
   openDialog(){
     this.popupservice.facture = null;

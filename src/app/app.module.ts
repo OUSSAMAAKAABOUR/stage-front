@@ -55,6 +55,7 @@ import { PaimentChoiceComponent } from './view/paiment-choice/paiment-choice.com
 import { PaiementlistComptableComponent } from './view/paiementlist-comptable/paiementlist-comptable.component';
 import { JournalAdmineComponent } from './view/journal-admine/journal-admine.component';
 import { EtapeTypeOperationsComponent } from './view/etape-type-operations/etape-type-operations.component';
+import { ConvertxmlfilePopupComponent } from './view/convertxmlfile-popup/convertxmlfile-popup.component';
 
 const appRoutes: Routes = [
   {path: '' , component: PremiercomComponent},
@@ -183,6 +184,7 @@ const appRoutes: Routes = [
     PaiementlistComptableComponent,
     JournalAdmineComponent,
     EtapeTypeOperationsComponent,
+    ConvertxmlfilePopupComponent,
 
 
 
