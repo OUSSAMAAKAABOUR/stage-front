@@ -78,7 +78,9 @@ export class PaiementService {
         if (data > 0) {
           console.log('bravo');
           this.paiements.push(this.clonePaiement(this.paiement));
+          let x =this.paiement.operationSociete.ref;
           this.paiement = null;
+          this.paiement.operationSociete.ref = x;
 
         }
 

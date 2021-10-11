@@ -6,4 +6,5 @@ export class DeclarationTvaCriteria {
   public difftvamin: string;
   public difftvamax: string;
   public typedeclarationtva: string;
+  public refcomptable: string;
 }

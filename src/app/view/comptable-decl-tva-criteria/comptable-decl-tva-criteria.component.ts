@@ -49,7 +49,7 @@ export class ComptableDeclTvaCriteriaComponent implements OnInit {
   public trouverdeclarationtvaPourComptable(){
     this.declatvacriteriaservice.trouverdeclarationtvaPourComptable();
   }
-  public deletedeclarationbyref(declarationtva: DeclarationTva) {
-    this.declatvacriteriaservice.deletedeclarationbyref(declarationtva);
+  public deletedeclarationbyref(declarationtva: DeclarationTva, index:number) {
+    this.declatvacriteriaservice.deletedeclarationbyref(declarationtva, index);
   }
 }

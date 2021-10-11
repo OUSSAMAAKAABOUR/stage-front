@@ -55,7 +55,9 @@ export class FactureService {
           this.dcltvaservice.trvfacuresandcalcultva();
           console.log('bravo');
           alert('facture bien créer');
+          let x = this.facture.societeSource.ice;
           this.facture = null;
+          this.facture.societeSource.ice = x;
 
         }
 

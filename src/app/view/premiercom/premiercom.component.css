@@ -164,11 +164,12 @@ body {
 }
 
 .landing {
-  background: url("C:\Users\akaab\OneDrive\Bureau\zs\images\bg.jpg");
+  background: url("C:\Users\akaab\WebstormProjects\tp3\src\assets\img\bg.jpg");
   background-size: cover;
   height: 100vh;
   position: relative;
 }
+
 
 /* landing page */
 .landing .intro {

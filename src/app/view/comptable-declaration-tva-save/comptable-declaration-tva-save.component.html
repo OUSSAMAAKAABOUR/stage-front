@@ -11,25 +11,25 @@
           <!--<label class=" offset-2"><pre>Type Declaration TVA:  </pre> </label>
           <input type="text" class="form-control col-md-3" [(ngModel)]="decltva.typeDeclarationTva.ref">-->
           <div class="form-check form-check-inline offset-1">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="TDTV1" [(ngModel)]="decltva.typeDeclarationTva.ref" disabled>
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="TDTV1" [(ngModel)]="decltva.typeDeclarationTva.ref" >
             <label class="form-check-label" for="inlineRadio1">Trimestriel</label>
           </div>
           <div class="form-check form-check-inline offset-1">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="TDTV2" [(ngModel)]="decltva.typeDeclarationTva.ref" disabled>
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="TDTV2" [(ngModel)]="decltva.typeDeclarationTva.ref" >
             <label class="form-check-label" for="inlineRadio2">Mensuelle</label>
           </div>
         </div> <br>
         <button class="btn btn-primary btn-block col-md-4 offset-4" (click)="test()">OK</button> <br>
         <div *ngIf="a" class="row">
           <div class="col-md-6"><label>Annee:</label>
-            <input type="number" class="form-control" [(ngModel)]="decltva.annee" disabled></div>
+            <input type="number" class="form-control" [(ngModel)]="decltva.annee" ></div>
           <div *ngIf="b" class="col-md-6">
             <label>Trim:</label>
-            <input type="number" class="form-control" [(ngModel)]="decltva.trim" disabled>
+            <input type="number" class="form-control" [(ngModel)]="decltva.trim" >
           </div>
           <div *ngIf="c" class="col-md-6">
             <label>Mois:</label>
-            <input type="number" class="form-control" [(ngModel)]="decltva.mois" disabled>
+            <input type="number" class="form-control" [(ngModel)]="decltva.mois" >
           </div>
         </div>
       </div>

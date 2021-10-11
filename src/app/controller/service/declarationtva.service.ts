@@ -6,6 +6,7 @@ import {Facture} from "../model/facture.model";
 import {DeclarationTvaVo1} from "../model/declaration-tva-vo1.model";
 import {DeclarationTvaVo2} from "../model/declaration-tva-vo2.model";
 import {EmplacementXml} from "../model/emplacement-xml.model";
+import {ConnectionService} from './connection.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class DeclarationtvaService {
   private _Urldeclatva = 'gestion-comptabilite/declarationtva';
   private _Urlfacture ='gestion-comptabilite/facture';
   private _emplacementXml: EmplacementXml;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private connectionservice: ConnectionService) {
   }
 
 
@@ -157,6 +158,7 @@ export class DeclarationtvaService {
   }
   public savepourComptable(){
     //3mer comptable code 9bel matsift lobjet ytsava
+    this.decltva.comptable.code = this.connectionservice.connection3.comptable.code;
     this.http.post<number>(this.UrlBase + this.Urldeclatva + '/savepourcomptable', this.decltva).subscribe(
       data => {
         if (data > 0){
@@ -204,6 +206,7 @@ export class DeclarationtvaService {
   }
   public savebrouillonpourComptable(){
     //3mer comptable code flobjet 9bel matsifto
+    this.decltva.comptable.code = this.connectionservice.connection3.comptable.code;
     this.http.post<number>(this.UrlBase + this.Urldeclatva + '/savebrouillonpourcomptable', this.decltva).subscribe(
       data => {
         if (data > 0){

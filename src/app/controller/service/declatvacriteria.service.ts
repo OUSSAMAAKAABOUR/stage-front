@@ -106,6 +106,8 @@ export class DeclatvacriteriaService {
 
   public trouverdeclarationtvaPourComptable() {
     //3mer refcomptable flobjet declatvacriteria 9bel matsifto
+    this.declatvacriteria.refcomptable = this.connectionService.connection3.comptable.code;
+
     this.http.post<Array<DeclarationTva>>(this.UrlBaseDeclatva + '/criteriapourcomptable', this.declatvacriteria).subscribe(
       data => {
         this.listdeclarationtva = data;
@@ -152,11 +154,12 @@ export class DeclatvacriteriaService {
       }
     );
   }
-  public deletedeclarationbyref(declarationtva: DeclarationTva) {
+  public deletedeclarationbyref(declarationtva: DeclarationTva, index:number) {
     this.http.delete<number>(this.UrlBaseDeclatva + '/ref/' + declarationtva.ref).subscribe(
       data => {
         console.log('bravo supprimer declarationtva by ref');
         alert('DeclarationTVA bien supprimer');
+        this.listdeclarationtva.splice(index,1);
       }, error => {
         console.log('erreur supprimer declarationtva by ref');
       }

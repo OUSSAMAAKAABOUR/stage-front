@@ -46,7 +46,7 @@ export class DecltvacriteriaComponent implements OnInit {
   public convertToXmlFile(declarationTva: DeclarationTva){
     this.declatvacriteriaservice.convertToXmlFile(declarationTva);
   }
-  public deletedeclarationbyref(declarationtva: DeclarationTva) {
-    this.declatvacriteriaservice.deletedeclarationbyref(declarationtva);
+  public deletedeclarationbyref(declarationtva: DeclarationTva, index:number) {
+    this.declatvacriteriaservice.deletedeclarationbyref(declarationtva,index);
   }
 }

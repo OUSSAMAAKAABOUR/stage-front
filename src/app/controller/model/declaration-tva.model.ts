@@ -1,5 +1,6 @@
 import {Societe} from "./societe.model";
 import {TypeDeclarationTva} from "./type-declaration-tva.model";
+import {Comptable} from './comptable.model';
 
 export class DeclarationTva {
   public id: number;
@@ -12,4 +13,6 @@ export class DeclarationTva {
   public trim: number;
   public societe = new Societe();
   public typeDeclarationTva = new TypeDeclarationTva();
+  public comptable = new Comptable();
+
 }

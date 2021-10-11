@@ -18,6 +18,8 @@ import htmlToPdfmake from 'html-to-pdfmake';
 })
 export class FactureListComponent implements OnInit {
   closeModal: string;
+  page = 1;
+  pageSize = 7;
   constructor(private factureService: FactureService, private modalService: NgbModal) {
   }
 

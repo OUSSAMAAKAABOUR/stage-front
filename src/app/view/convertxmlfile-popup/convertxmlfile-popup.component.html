@@ -1,21 +1,18 @@
 <div class="card1" xmlns="http://www.w3.org/1999/html">
   <h2 mat-dialog-title >Importer une declaration Tva au format XML:</h2>
   <mat-dialog-content>
-    <div class="card border-success text-success">
+    <div class="card">
       <div class="card-body">
         <div class="row">
           <div class="form-group">
-            <label>Code</label>
-            <textarea rows="5" cols="33" [(ngModel)]="emplacementXml.emplacement" id="xmlstring">XML String...</textarea>
+            <textarea rows="18" cols="70" [(ngModel)]="emplacementXml.emplacement" id="xmlstring">XML String...</textarea>
           </div>
         </div>
       </div>
     </div>
   </mat-dialog-content>
   <mat-dialog-actions>
-  <div class="card-footer">
-    <button class="btn btn-success offset-3" (click)="convertxmlstring()" (click)="convertxmlstring2()" mat-button mat-dialog-close><i class="fa fa-send"></i>Convertir</button>
-  </div>
+    <button class="btn btn-success  w-100" (click)="convertxmlstring()" (click)="convertxmlstring2()" mat-button mat-dialog-close><i class="fa fa-send"></i>Convertir</button>
   </mat-dialog-actions>
 </div>
 

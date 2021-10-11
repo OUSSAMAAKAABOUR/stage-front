@@ -156,7 +156,7 @@ export class ConnectionService {
         if (this.teste.t3 != null && this.teste.t4 != null) {
           if (data == -1) {
             this.router.navigateByUrl('');
-            alert('ce compt n\'existe pas vous devez verifier le username ou password');
+            alert('ce compte n\'existe pas vous devez verifier le username ou password');
           } else if (data == 1) {
             this.router.navigateByUrl('firstSociete');
             this.getLogin();

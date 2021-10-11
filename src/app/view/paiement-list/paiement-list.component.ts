@@ -13,6 +13,8 @@ import {Test} from '../../controller/model/test.model';
 })
 export class PaiementListComponent implements OnInit {
   closeModal: string;
+  page = 1;
+  pageSize = 6;
 
   constructor(private paiementService: PaiementService, private operationService: OperationsocieteService, private modalService: NgbModal) {
   }
